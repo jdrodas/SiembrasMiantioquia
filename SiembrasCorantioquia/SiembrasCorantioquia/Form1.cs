@@ -16,5 +16,20 @@ namespace SiembrasCorantioquia
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Evento a ejecutar cuando se carga la forma
+        /// </summary>
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            ActualizaComboBoxVeredas();
+        }
+
+        private void ActualizaComboBoxVeredas()
+        {
+            cbxVeredas.DataSource = null;
+            cbxVeredas.DataSource = AccesoDatos.ObtenerVeredasMunicipios();
+            cbxVeredas.DisplayMember = "nombre";
+        }
     }
 }
