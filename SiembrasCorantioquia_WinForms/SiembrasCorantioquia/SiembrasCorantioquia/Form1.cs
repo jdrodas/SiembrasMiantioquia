@@ -22,7 +22,7 @@ namespace SiembrasCorantioquia
         /// </summary>
         private void Form1_Load(object sender, EventArgs e)
         {
-            ActualizaCbxVeredas();
+            ActualizaLsbVeredas();
             ActualizaCbxArboles();
             ActualizaCbxContratistas();
             InicializaDgvSiembrasDetalleSiembras();
@@ -48,11 +48,63 @@ namespace SiembrasCorantioquia
             cbxArboles.DisplayMember = "nombre";
         }
 
-        private void ActualizaCbxVeredas()
+        public void ActualizaLsbVeredas()
         {
-            cbxVeredas.DataSource = null;
-            cbxVeredas.DataSource = AccesoDatos.ObtenerVeredasMunicipios();
-            cbxVeredas.DisplayMember = "nombre";
+            lsbVeredas.DataSource = null;
+            lsbVeredas.DataSource = AccesoDatos.ObtenerNombreVeredas();
+            lsbVeredas.DisplayMember = "nombre";
+        }
+
+        private void lsbVeredas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lsbVeredas.SelectedItem.ToString() != "")
+            {
+                cbxMunicipios.DataSource = null;
+                cbxMunicipios.DataSource = AccesoDatos.ObtieneMunicipios(lsbVeredas.SelectedItem.ToString());
+                cbxMunicipios.DisplayMember = "nombre";
+            }
+        }
+
+        private void btnAgregarSiembra_Click(object sender, EventArgs e)
+        {
+            //Pasos
+            /*
+            OK! - Crear un objeto siembra con la información de la UI
+            OK! - Invocar el método en la capa de acceso a datos para guardar la siembra
+            OK! - crear el método para guardar la siembra
+            - actualizar el DataGridView con la información desde la DB
+            */
+
+            try
+            {
+                Siembra unaSiembra = new Siembra();
+                unaSiembra.Total_Hectareas = double.Parse(txtTotalHectareas.Text);
+                unaSiembra.Total_Arboles = int.Parse(txtTotalArboles.Text);
+                unaSiembra.Fecha_Siembra = dtpFecha.Value.ToString();
+                unaSiembra.Nombre_Vereda = lsbVeredas.SelectedItem.ToString();
+                unaSiembra.Nombre_Municipio = cbxMunicipios.SelectedItem.ToString();
+                unaSiembra.Nombre_Arbol = cbxArboles.SelectedItem.ToString();
+                unaSiembra.Nombre_Contratista = cbxContratistas.SelectedItem.ToString();
+
+                bool registroCorrecto = AccesoDatos.GuardarSiembra(unaSiembra);
+
+                if (registroCorrecto)
+                {
+                    MessageBox.Show("La siembra se registró correctamente");
+                    InicializaDgvSiembrasDetalleSiembras();
+                }
+                else
+                {
+                    MessageBox.Show("Se presentaron problemas con la siembra. Intenta nuevamente!");
+                }
+            }
+            catch (FormatException unErrorFormato)
+            {
+                MessageBox.Show($"Datos numéricos no tienen el formato Esperado. {unErrorFormato.Message}");
+            }
+
+
+
         }
     }
 }

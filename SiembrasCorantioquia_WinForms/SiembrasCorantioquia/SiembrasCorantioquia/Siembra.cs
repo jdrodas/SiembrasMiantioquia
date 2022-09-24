@@ -13,6 +13,12 @@ namespace SiembrasCorantioquia
         public string Nombre_Vereda { get; set; }
         public string Nombre_Municipio { get; set; }
         public string Nombre_Contratista { get; set; }
+
+        public int Codigo_Arbol { get; set; }
+        public int Codigo_Vereda { get; set; }
+        public int Codigo_Municipio { get; set; }
+        public int Codigo_Contratista { get; set; }
+
         public int Total_Arboles { get; set; }
         public double Total_Hectareas { get; set; }
         public string Fecha_Siembra { get; set; }
