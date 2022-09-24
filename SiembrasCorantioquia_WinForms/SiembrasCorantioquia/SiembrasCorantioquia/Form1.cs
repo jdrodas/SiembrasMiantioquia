@@ -22,10 +22,33 @@ namespace SiembrasCorantioquia
         /// </summary>
         private void Form1_Load(object sender, EventArgs e)
         {
-            ActualizaComboBoxVeredas();
+            ActualizaCbxVeredas();
+            ActualizaCbxArboles();
+            ActualizaCbxContratistas();
+            InicializaDgvSiembrasDetalleSiembras();
         }
 
-        private void ActualizaComboBoxVeredas()
+        private void InicializaDgvSiembrasDetalleSiembras()
+        {
+            dgvSiembras.DataSource = null;
+            dgvSiembras.DataSource = AccesoDatos.ObtenerDetalleSiembras();
+        }
+
+        private void ActualizaCbxContratistas()
+        {
+            cbxContratistas.DataSource = null;
+            cbxContratistas.DataSource = AccesoDatos.ObtenerNombresContratistas();
+            cbxContratistas.DisplayMember = "nombre";
+        }
+
+        private void ActualizaCbxArboles()
+        {
+            cbxArboles.DataSource = null;
+            cbxArboles.DataSource = AccesoDatos.ObtenerNombresArboles();
+            cbxArboles.DisplayMember = "nombre";
+        }
+
+        private void ActualizaCbxVeredas()
         {
             cbxVeredas.DataSource = null;
             cbxVeredas.DataSource = AccesoDatos.ObtenerVeredasMunicipios();

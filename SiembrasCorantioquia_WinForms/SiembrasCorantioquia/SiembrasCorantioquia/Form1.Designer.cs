@@ -31,6 +31,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbxVeredas = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbxArboles = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbxContratistas = new System.Windows.Forms.ComboBox();
+            this.dgvSiembras = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSiembras)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -49,7 +55,7 @@
             this.cbxVeredas.FormattingEnabled = true;
             this.cbxVeredas.Location = new System.Drawing.Point(101, 115);
             this.cbxVeredas.Name = "cbxVeredas";
-            this.cbxVeredas.Size = new System.Drawing.Size(273, 24);
+            this.cbxVeredas.Size = new System.Drawing.Size(167, 24);
             this.cbxVeredas.TabIndex = 1;
             // 
             // label2
@@ -61,11 +67,60 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Vereda";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(34, 166);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 16);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Árboles:";
+            // 
+            // cbxArboles
+            // 
+            this.cbxArboles.FormattingEnabled = true;
+            this.cbxArboles.Location = new System.Drawing.Point(101, 166);
+            this.cbxArboles.Name = "cbxArboles";
+            this.cbxArboles.Size = new System.Drawing.Size(167, 24);
+            this.cbxArboles.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 219);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 16);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Contratistas";
+            // 
+            // cbxContratistas
+            // 
+            this.cbxContratistas.FormattingEnabled = true;
+            this.cbxContratistas.Location = new System.Drawing.Point(101, 216);
+            this.cbxContratistas.Name = "cbxContratistas";
+            this.cbxContratistas.Size = new System.Drawing.Size(167, 24);
+            this.cbxContratistas.TabIndex = 6;
+            // 
+            // dgvSiembras
+            // 
+            this.dgvSiembras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSiembras.Location = new System.Drawing.Point(313, 115);
+            this.dgvSiembras.Name = "dgvSiembras";
+            this.dgvSiembras.RowHeadersWidth = 51;
+            this.dgvSiembras.RowTemplate.Height = 24;
+            this.dgvSiembras.Size = new System.Drawing.Size(710, 247);
+            this.dgvSiembras.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1237, 501);
+            this.Controls.Add(this.dgvSiembras);
+            this.Controls.Add(this.cbxContratistas);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cbxArboles);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbxVeredas);
             this.Controls.Add(this.label1);
@@ -73,6 +128,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Siembras vigiladas por Corantioquia";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSiembras)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -83,6 +139,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxVeredas;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbxArboles;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbxContratistas;
+        private System.Windows.Forms.DataGridView dgvSiembras;
     }
 }
 

@@ -8,36 +8,39 @@ namespace SiembrasCorantioquia
 {
     public class Siembra
     {
-        public int Codigo { get; set; }
-        public int Codigo_Arbol { get; set; }
-        public int Codigo_Vereda { get; set; }
-        public int Codigo_Contratista { get; set; }
+        public int Codigo_Siembra { get; set; }
+        public string Nombre_Arbol { get; set; }
+        public string Nombre_Vereda { get; set; }
+        public string Nombre_Municipio { get; set; }
+        public string Nombre_Contratista { get; set; }
         public int Total_Arboles { get; set; }
         public double Total_Hectareas { get; set; }
-        public string Fecha { get; set; }
+        public string Fecha_Siembra { get; set; }
 
         public Siembra()
         {
-            Codigo = 0;
-            Codigo_Arbol = 0;
-            Codigo_Vereda = 0;
-            Codigo_Contratista = 0;
+            Codigo_Siembra = 0;
+            Nombre_Municipio = "";
+            Nombre_Vereda = "";
+            Nombre_Municipio = "";
+            Nombre_Contratista = "";
             Total_Arboles = 0;
             Total_Hectareas = 0;
-            Fecha = "";
+            Fecha_Siembra = "";
         }
 
-        public Siembra(int codigo, int codigo_arbol, int codigo_vereda,
-            int codigo_contratista, int total_arboles,
+        public Siembra(int codigo_siembra, string nombre_arbol, string nombre_vereda,
+            string nombre_contratista, string nombre_municipio, int total_arboles,
             double total_hectareas, string fecha)
         {
-            Codigo = codigo;
-            Codigo_Arbol = codigo_arbol;
-            Codigo_Vereda = codigo_vereda;
-            Codigo_Contratista = codigo_contratista;
+            Codigo_Siembra = codigo_siembra;
+            Nombre_Municipio = nombre_arbol;
+            Nombre_Vereda = nombre_vereda;
+            Nombre_Municipio = nombre_municipio;
+            Nombre_Contratista = nombre_contratista;
             Total_Arboles = total_arboles;
             Total_Hectareas = total_hectareas;
-            Fecha = fecha;
+            Fecha_Siembra = fecha;
         }
 
         /// <summary>
@@ -47,18 +50,14 @@ namespace SiembrasCorantioquia
         public override string ToString()
         {
             return string.Format(
-                $"Código: {Codigo} " + Environment.NewLine +
-                $"Código Vereda: {Codigo_Vereda} " + Environment.NewLine +
-                $"Código Arbol: {Codigo_Arbol} " + Environment.NewLine +
-                $"Código Contratista: {Codigo_Contratista} " + Environment.NewLine +
+                $"Código: {Codigo_Siembra} " + Environment.NewLine +
+                $"Nombre Vereda: {Nombre_Vereda} " + Environment.NewLine +
+                $"Nombre Municipio: {Nombre_Municipio} " + Environment.NewLine +
+                $"Nombre Arbol: {Nombre_Arbol} " + Environment.NewLine +
+                $"Nombre Contratista: {Nombre_Contratista} " + Environment.NewLine +
                 $"Total Árboles: {Total_Arboles} " + Environment.NewLine +
                 $"Total Hectáreas: {Total_Hectareas} " + Environment.NewLine +
-                $"Fecha: {Fecha} ");
+                $"Fecha: {Fecha_Siembra} ");
         }
-
-
-
-
-
     }
 }
