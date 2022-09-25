@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiembrasCorantioquia_PoC_Console", "SiembrasCorantioquia_PoC_Console\SiembrasCorantioquia_PoC_Console.csproj", "{317B492E-40E0-4AD0-B142-4F950997E1B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{317B492E-40E0-4AD0-B142-4F950997E1B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{317B492E-40E0-4AD0-B142-4F950997E1B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{317B492E-40E0-4AD0-B142-4F950997E1B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{317B492E-40E0-4AD0-B142-4F950997E1B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {941684DD-AC88-4411-A6EC-5174BBA5798D}
+	EndGlobalSection
+EndGlobal
