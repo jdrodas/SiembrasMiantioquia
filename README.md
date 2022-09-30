@@ -9,5 +9,4 @@ Aplicaciones tipo Desktop para demostrar conectividad con SQLite.
 ## PoC - Pruebas de Concepto
 
 >### [SiembrasCorantioquia_PoC_Console](https://github.com/jdrodas/SiembrasCorantioquia/tree/main/SiembrasCorantioquia_PoC_Console)
->>Aplicación de Consola en C# para .NET 6.0 para demostrar acciones básicas de CRUD sobre una DB SQLite
-
+>>Aplicación de Consola en C# para .NET Framework 4.8.1 para demostrar acciones básicas de CRUD sobre una DB SQLite
