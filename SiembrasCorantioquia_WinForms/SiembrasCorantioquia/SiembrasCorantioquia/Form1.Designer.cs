@@ -90,7 +90,7 @@
             // 
             this.cbxArboles.FormattingEnabled = true;
             this.cbxArboles.Location = new System.Drawing.Point(88, 241);
-            this.cbxArboles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxArboles.Margin = new System.Windows.Forms.Padding(2);
             this.cbxArboles.Name = "cbxArboles";
             this.cbxArboles.Size = new System.Drawing.Size(126, 21);
             this.cbxArboles.TabIndex = 4;
@@ -109,7 +109,7 @@
             // 
             this.cbxContratistas.FormattingEnabled = true;
             this.cbxContratistas.Location = new System.Drawing.Point(88, 282);
-            this.cbxContratistas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxContratistas.Margin = new System.Windows.Forms.Padding(2);
             this.cbxContratistas.Name = "cbxContratistas";
             this.cbxContratistas.Size = new System.Drawing.Size(126, 21);
             this.cbxContratistas.TabIndex = 6;
@@ -118,7 +118,7 @@
             // 
             this.dgvSiembras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSiembras.Location = new System.Drawing.Point(4, 10);
-            this.dgvSiembras.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvSiembras.Margin = new System.Windows.Forms.Padding(2);
             this.dgvSiembras.Name = "dgvSiembras";
             this.dgvSiembras.RowHeadersWidth = 51;
             this.dgvSiembras.RowTemplate.Height = 24;
@@ -139,7 +139,7 @@
             // 
             this.cbxMunicipios.FormattingEnabled = true;
             this.cbxMunicipios.Location = new System.Drawing.Point(91, 206);
-            this.cbxMunicipios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxMunicipios.Margin = new System.Windows.Forms.Padding(2);
             this.cbxMunicipios.Name = "cbxMunicipios";
             this.cbxMunicipios.Size = new System.Drawing.Size(124, 21);
             this.cbxMunicipios.TabIndex = 9;
@@ -148,7 +148,7 @@
             // 
             this.lsbVeredas.FormattingEnabled = true;
             this.lsbVeredas.Location = new System.Drawing.Point(88, 96);
-            this.lsbVeredas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lsbVeredas.Margin = new System.Windows.Forms.Padding(2);
             this.lsbVeredas.Name = "lsbVeredas";
             this.lsbVeredas.Size = new System.Drawing.Size(126, 95);
             this.lsbVeredas.TabIndex = 10;
@@ -158,7 +158,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(259, 129);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(643, 311);
@@ -168,9 +168,9 @@
             // 
             this.tabPage2.Controls.Add(this.dgvSiembras);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(635, 285);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Detalle Siembras";
@@ -180,7 +180,7 @@
             // 
             this.dtpFecha.CustomFormat = "\"dd/MM/yyyy\"";
             this.dtpFecha.Location = new System.Drawing.Point(64, 318);
-            this.dtpFecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpFecha.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(151, 20);
             this.dtpFecha.TabIndex = 12;
@@ -198,7 +198,7 @@
             // txtTotalArboles
             // 
             this.txtTotalArboles.Location = new System.Drawing.Point(139, 358);
-            this.txtTotalArboles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTotalArboles.Margin = new System.Windows.Forms.Padding(2);
             this.txtTotalArboles.Name = "txtTotalArboles";
             this.txtTotalArboles.Size = new System.Drawing.Size(76, 20);
             this.txtTotalArboles.TabIndex = 14;
@@ -206,7 +206,7 @@
             // txtTotalHectareas
             // 
             this.txtTotalHectareas.Location = new System.Drawing.Point(139, 395);
-            this.txtTotalHectareas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTotalHectareas.Margin = new System.Windows.Forms.Padding(2);
             this.txtTotalHectareas.Name = "txtTotalHectareas";
             this.txtTotalHectareas.Size = new System.Drawing.Size(76, 20);
             this.txtTotalHectareas.TabIndex = 15;
@@ -234,7 +234,7 @@
             // btnAgregarSiembra
             // 
             this.btnAgregarSiembra.Location = new System.Drawing.Point(64, 434);
-            this.btnAgregarSiembra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregarSiembra.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregarSiembra.Name = "btnAgregarSiembra";
             this.btnAgregarSiembra.Size = new System.Drawing.Size(104, 19);
             this.btnAgregarSiembra.TabIndex = 18;
@@ -255,7 +255,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 462);
+            this.ClientSize = new System.Drawing.Size(928, 517);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAgregarSiembra);
             this.Controls.Add(this.label8);
@@ -274,7 +274,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Siembras vigiladas por Corantioquia";

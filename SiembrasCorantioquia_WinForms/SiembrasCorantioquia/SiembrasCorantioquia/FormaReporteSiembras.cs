@@ -32,5 +32,15 @@ namespace SiembrasCorantioquia
             dgvSiembras.DataSource = null;
             dgvSiembras.DataSource = AccesoDatos.ObtenerDetalleSiembras();
         }
+
+        private void FormaReporteSiembras_Activated(object sender, EventArgs e)
+        {
+            InicializaDgvSiembrasDetalleSiembras();
+        }
+
+        private void FormaReporteSiembras_Enter(object sender, EventArgs e)
+        {
+            InicializaDgvSiembrasDetalleSiembras();
+        }
     }
 }

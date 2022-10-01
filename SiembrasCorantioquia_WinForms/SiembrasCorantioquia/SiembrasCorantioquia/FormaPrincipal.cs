@@ -102,7 +102,15 @@ namespace SiembrasCorantioquia
                 btnFormaConsultaSiembra.ForeColor = Color.White;
             }
 
+            if (Application.OpenForms["FormaInsertaSiembra"] == null)
+            {
+                btnFormaNuevaSiembra.BackColor = Color.FromArgb(144, 157, 112);
+                btnFormaNuevaSiembra.ForeColor = Color.White;
+            }
+
+
             
+
 
             //if (Application.OpenForms["Form2"] == null)
             //    button2.BackColor = Color.FromArgb(4, 41, 68);
@@ -147,6 +155,13 @@ namespace SiembrasCorantioquia
             AbrirFormulario<FormaReporteSiembras>();
             btnFormaConsultaSiembra.BackColor = Color.FromArgb(216, 236, 191);
             btnFormaConsultaSiembra.ForeColor = Color.Black;
+        }
+
+        private void btnFormaNuevaSiembra_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormaInsertaSiembra>();
+            btnFormaNuevaSiembra.BackColor = Color.FromArgb(216, 236, 191);
+            btnFormaNuevaSiembra.ForeColor = Color.Black;
         }
     }
 }

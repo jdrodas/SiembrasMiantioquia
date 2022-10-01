@@ -73,13 +73,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(834, 571);
             this.Controls.Add(this.dgvSiembras);
             this.Controls.Add(this.pbxBotonCerrar);
             this.Controls.Add(this.label1);
             this.Name = "FormaReporteSiembras";
             this.Text = "Reporte de Siembras registradas";
             this.Load += new System.EventHandler(this.FormaReporteSiembras_Load);
+            this.Enter += new System.EventHandler(this.FormaReporteSiembras_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBotonCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSiembras)).EndInit();
             this.ResumeLayout(false);

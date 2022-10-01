@@ -88,6 +88,12 @@
     <Compile Include="FormaContratistas.Designer.cs">
       <DependentUpon>FormaContratistas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormaInsertaSiembra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormaInsertaSiembra.Designer.cs">
+      <DependentUpon>FormaInsertaSiembra.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormaContratistas.resx">
       <DependentUpon>FormaContratistas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormaInsertaSiembra.resx">
+      <DependentUpon>FormaInsertaSiembra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormaPrincipal.resx">
       <DependentUpon>FormaPrincipal.cs</DependentUpon>

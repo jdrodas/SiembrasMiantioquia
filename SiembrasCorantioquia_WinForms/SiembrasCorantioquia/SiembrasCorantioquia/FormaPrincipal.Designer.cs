@@ -160,6 +160,7 @@
             this.btnFormaNuevaSiembra.TabIndex = 5;
             this.btnFormaNuevaSiembra.Text = "Nueva Siembra";
             this.btnFormaNuevaSiembra.UseVisualStyleBackColor = true;
+            this.btnFormaNuevaSiembra.Click += new System.EventHandler(this.btnFormaNuevaSiembra_Click);
             // 
             // btnFormaSiembras
             // 
