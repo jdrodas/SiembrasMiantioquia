@@ -76,11 +76,29 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormaArboles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormaArboles.Designer.cs">
+      <DependentUpon>FormaArboles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormaContratistas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormaContratistas.Designer.cs">
+      <DependentUpon>FormaContratistas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormaPrincipal.Designer.cs">
       <DependentUpon>FormaPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormaReporteSiembras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormaReporteSiembras.Designer.cs">
+      <DependentUpon>FormaReporteSiembras.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,8 +106,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormaArboles.resx">
+      <DependentUpon>FormaArboles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormaContratistas.resx">
+      <DependentUpon>FormaContratistas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormaPrincipal.resx">
       <DependentUpon>FormaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormaReporteSiembras.resx">
+      <DependentUpon>FormaReporteSiembras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

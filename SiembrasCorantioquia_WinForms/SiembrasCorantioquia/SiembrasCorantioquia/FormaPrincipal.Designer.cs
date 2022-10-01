@@ -32,24 +32,24 @@
             this.panelFormularios = new System.Windows.Forms.Panel();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelCrudSiembra = new System.Windows.Forms.Panel();
+            this.btnFormaConsultaSiembra = new System.Windows.Forms.Button();
+            this.btnFormaBorraSiembra = new System.Windows.Forms.Button();
+            this.btnFormaActualizaSiembra = new System.Windows.Forms.Button();
+            this.btnFormaNuevaSiembra = new System.Windows.Forms.Button();
             this.btnFormaSiembras = new System.Windows.Forms.Button();
             this.btnFormaVeredas = new System.Windows.Forms.Button();
             this.btnFormaContratistas = new System.Windows.Forms.Button();
-            this.pbxLogoCorantioquia = new System.Windows.Forms.PictureBox();
             this.btnFormaArboles = new System.Windows.Forms.Button();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.etiquetaTituloAplicacion = new System.Windows.Forms.Label();
+            this.pbxLogoCorantioquia = new System.Windows.Forms.PictureBox();
             this.pbxBotonMinimizar = new System.Windows.Forms.PictureBox();
             this.pbxBotonCerrar = new System.Windows.Forms.PictureBox();
-            this.btnFormaNuevaSiembra = new System.Windows.Forms.Button();
-            this.btnFormaActualizaSiembra = new System.Windows.Forms.Button();
-            this.btnFormaBorraSiembra = new System.Windows.Forms.Button();
-            this.btnFormaConsultaSiembra = new System.Windows.Forms.Button();
             this.panelContenedor.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelCrudSiembra.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxLogoCorantioquia)).BeginInit();
             this.panelTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogoCorantioquia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBotonMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBotonCerrar)).BeginInit();
             this.SuspendLayout();
@@ -104,6 +104,63 @@
             this.panelCrudSiembra.TabIndex = 5;
             this.panelCrudSiembra.Visible = false;
             // 
+            // btnFormaConsultaSiembra
+            // 
+            this.btnFormaConsultaSiembra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(157)))), ((int)(((byte)(112)))));
+            this.btnFormaConsultaSiembra.FlatAppearance.BorderSize = 0;
+            this.btnFormaConsultaSiembra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormaConsultaSiembra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFormaConsultaSiembra.ForeColor = System.Drawing.Color.White;
+            this.btnFormaConsultaSiembra.Location = new System.Drawing.Point(3, 147);
+            this.btnFormaConsultaSiembra.Name = "btnFormaConsultaSiembra";
+            this.btnFormaConsultaSiembra.Size = new System.Drawing.Size(200, 40);
+            this.btnFormaConsultaSiembra.TabIndex = 8;
+            this.btnFormaConsultaSiembra.Text = "Reportes Siembras";
+            this.btnFormaConsultaSiembra.UseVisualStyleBackColor = true;
+            this.btnFormaConsultaSiembra.Click += new System.EventHandler(this.btnFormaConsultaSiembra_Click);
+            // 
+            // btnFormaBorraSiembra
+            // 
+            this.btnFormaBorraSiembra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(157)))), ((int)(((byte)(112)))));
+            this.btnFormaBorraSiembra.FlatAppearance.BorderSize = 0;
+            this.btnFormaBorraSiembra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormaBorraSiembra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFormaBorraSiembra.ForeColor = System.Drawing.Color.White;
+            this.btnFormaBorraSiembra.Location = new System.Drawing.Point(3, 101);
+            this.btnFormaBorraSiembra.Name = "btnFormaBorraSiembra";
+            this.btnFormaBorraSiembra.Size = new System.Drawing.Size(200, 40);
+            this.btnFormaBorraSiembra.TabIndex = 7;
+            this.btnFormaBorraSiembra.Text = "Elimina Siembra";
+            this.btnFormaBorraSiembra.UseVisualStyleBackColor = true;
+            // 
+            // btnFormaActualizaSiembra
+            // 
+            this.btnFormaActualizaSiembra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(157)))), ((int)(((byte)(112)))));
+            this.btnFormaActualizaSiembra.FlatAppearance.BorderSize = 0;
+            this.btnFormaActualizaSiembra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormaActualizaSiembra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFormaActualizaSiembra.ForeColor = System.Drawing.Color.White;
+            this.btnFormaActualizaSiembra.Location = new System.Drawing.Point(0, 55);
+            this.btnFormaActualizaSiembra.Name = "btnFormaActualizaSiembra";
+            this.btnFormaActualizaSiembra.Size = new System.Drawing.Size(200, 40);
+            this.btnFormaActualizaSiembra.TabIndex = 6;
+            this.btnFormaActualizaSiembra.Text = "Actualiza Siembra";
+            this.btnFormaActualizaSiembra.UseVisualStyleBackColor = true;
+            // 
+            // btnFormaNuevaSiembra
+            // 
+            this.btnFormaNuevaSiembra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(157)))), ((int)(((byte)(112)))));
+            this.btnFormaNuevaSiembra.FlatAppearance.BorderSize = 0;
+            this.btnFormaNuevaSiembra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFormaNuevaSiembra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFormaNuevaSiembra.ForeColor = System.Drawing.Color.White;
+            this.btnFormaNuevaSiembra.Location = new System.Drawing.Point(0, 10);
+            this.btnFormaNuevaSiembra.Name = "btnFormaNuevaSiembra";
+            this.btnFormaNuevaSiembra.Size = new System.Drawing.Size(200, 40);
+            this.btnFormaNuevaSiembra.TabIndex = 5;
+            this.btnFormaNuevaSiembra.Text = "Nueva Siembra";
+            this.btnFormaNuevaSiembra.UseVisualStyleBackColor = true;
+            // 
             // btnFormaSiembras
             // 
             this.btnFormaSiembras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(157)))), ((int)(((byte)(112)))));
@@ -148,15 +205,6 @@
             this.btnFormaContratistas.UseVisualStyleBackColor = true;
             this.btnFormaContratistas.Click += new System.EventHandler(this.btnFormaContratistas_Click);
             // 
-            // pbxLogoCorantioquia
-            // 
-            this.pbxLogoCorantioquia.Image = global::SiembrasCorantioquia.Properties.Resources.logo_corantioquia;
-            this.pbxLogoCorantioquia.Location = new System.Drawing.Point(30, 18);
-            this.pbxLogoCorantioquia.Name = "pbxLogoCorantioquia";
-            this.pbxLogoCorantioquia.Size = new System.Drawing.Size(151, 112);
-            this.pbxLogoCorantioquia.TabIndex = 1;
-            this.pbxLogoCorantioquia.TabStop = false;
-            // 
             // btnFormaArboles
             // 
             this.btnFormaArboles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(157)))), ((int)(((byte)(112)))));
@@ -197,6 +245,15 @@
             this.etiquetaTituloAplicacion.TabIndex = 2;
             this.etiquetaTituloAplicacion.Text = "Siembras de Reforestación en Antioquia";
             // 
+            // pbxLogoCorantioquia
+            // 
+            this.pbxLogoCorantioquia.Image = global::SiembrasCorantioquia.Properties.Resources.logo_corantioquia;
+            this.pbxLogoCorantioquia.Location = new System.Drawing.Point(30, 18);
+            this.pbxLogoCorantioquia.Name = "pbxLogoCorantioquia";
+            this.pbxLogoCorantioquia.Size = new System.Drawing.Size(151, 112);
+            this.pbxLogoCorantioquia.TabIndex = 1;
+            this.pbxLogoCorantioquia.TabStop = false;
+            // 
             // pbxBotonMinimizar
             // 
             this.pbxBotonMinimizar.Image = global::SiembrasCorantioquia.Properties.Resources.minimizar;
@@ -217,62 +274,6 @@
             this.pbxBotonCerrar.TabStop = false;
             this.pbxBotonCerrar.Click += new System.EventHandler(this.pbxBotonCerrar_Click);
             // 
-            // btnFormaNuevaSiembra
-            // 
-            this.btnFormaNuevaSiembra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(157)))), ((int)(((byte)(112)))));
-            this.btnFormaNuevaSiembra.FlatAppearance.BorderSize = 0;
-            this.btnFormaNuevaSiembra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormaNuevaSiembra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFormaNuevaSiembra.ForeColor = System.Drawing.Color.White;
-            this.btnFormaNuevaSiembra.Location = new System.Drawing.Point(0, 10);
-            this.btnFormaNuevaSiembra.Name = "btnFormaNuevaSiembra";
-            this.btnFormaNuevaSiembra.Size = new System.Drawing.Size(200, 40);
-            this.btnFormaNuevaSiembra.TabIndex = 5;
-            this.btnFormaNuevaSiembra.Text = "Nueva Siembra";
-            this.btnFormaNuevaSiembra.UseVisualStyleBackColor = true;
-            // 
-            // btnFormaActualizaSiembra
-            // 
-            this.btnFormaActualizaSiembra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(157)))), ((int)(((byte)(112)))));
-            this.btnFormaActualizaSiembra.FlatAppearance.BorderSize = 0;
-            this.btnFormaActualizaSiembra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormaActualizaSiembra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFormaActualizaSiembra.ForeColor = System.Drawing.Color.White;
-            this.btnFormaActualizaSiembra.Location = new System.Drawing.Point(0, 55);
-            this.btnFormaActualizaSiembra.Name = "btnFormaActualizaSiembra";
-            this.btnFormaActualizaSiembra.Size = new System.Drawing.Size(200, 40);
-            this.btnFormaActualizaSiembra.TabIndex = 6;
-            this.btnFormaActualizaSiembra.Text = "Actualiza Siembra";
-            this.btnFormaActualizaSiembra.UseVisualStyleBackColor = true;
-            // 
-            // btnFormaBorraSiembra
-            // 
-            this.btnFormaBorraSiembra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(157)))), ((int)(((byte)(112)))));
-            this.btnFormaBorraSiembra.FlatAppearance.BorderSize = 0;
-            this.btnFormaBorraSiembra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormaBorraSiembra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFormaBorraSiembra.ForeColor = System.Drawing.Color.White;
-            this.btnFormaBorraSiembra.Location = new System.Drawing.Point(3, 101);
-            this.btnFormaBorraSiembra.Name = "btnFormaBorraSiembra";
-            this.btnFormaBorraSiembra.Size = new System.Drawing.Size(200, 40);
-            this.btnFormaBorraSiembra.TabIndex = 7;
-            this.btnFormaBorraSiembra.Text = "Elimina Siembra";
-            this.btnFormaBorraSiembra.UseVisualStyleBackColor = true;
-            // 
-            // btnFormaConsultaSiembra
-            // 
-            this.btnFormaConsultaSiembra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(157)))), ((int)(((byte)(112)))));
-            this.btnFormaConsultaSiembra.FlatAppearance.BorderSize = 0;
-            this.btnFormaConsultaSiembra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormaConsultaSiembra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFormaConsultaSiembra.ForeColor = System.Drawing.Color.White;
-            this.btnFormaConsultaSiembra.Location = new System.Drawing.Point(3, 147);
-            this.btnFormaConsultaSiembra.Name = "btnFormaConsultaSiembra";
-            this.btnFormaConsultaSiembra.Size = new System.Drawing.Size(200, 40);
-            this.btnFormaConsultaSiembra.TabIndex = 8;
-            this.btnFormaConsultaSiembra.Text = "Reportes Siembras";
-            this.btnFormaConsultaSiembra.UseVisualStyleBackColor = true;
-            // 
             // FormaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,9 +290,9 @@
             this.panelContenedor.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
             this.panelCrudSiembra.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxLogoCorantioquia)).EndInit();
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogoCorantioquia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBotonMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBotonCerrar)).EndInit();
             this.ResumeLayout(false);

@@ -96,6 +96,14 @@ namespace SiembrasCorantioquia
                 btnFormaContratistas.ForeColor = Color.White;
             }
 
+            if (Application.OpenForms["FormaReporteSiembras"] == null)
+            {
+                btnFormaConsultaSiembra.BackColor = Color.FromArgb(144, 157, 112);
+                btnFormaConsultaSiembra.ForeColor = Color.White;
+            }
+
+            
+
             //if (Application.OpenForms["Form2"] == null)
             //    button2.BackColor = Color.FromArgb(4, 41, 68);
             //if (Application.OpenForms["Form3"] == null)
@@ -106,14 +114,14 @@ namespace SiembrasCorantioquia
 
         private void btnFormaArboles_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario<FormaArboles>();
+            AbrirFormulario<FormaArboles>();
             btnFormaArboles.BackColor = Color.FromArgb(216, 236, 191);
             btnFormaArboles.ForeColor = Color.Black;
         }
 
         private void btnFormaContratistas_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario<FormaContratistas>();
+            AbrirFormulario<FormaContratistas>();
             btnFormaContratistas.BackColor = Color.FromArgb(216, 236, 191);
             btnFormaContratistas.ForeColor = Color.Black;   
         }
@@ -132,6 +140,13 @@ namespace SiembrasCorantioquia
                 btnFormaSiembras.BackColor = Color.FromArgb(216, 236, 191);
                 btnFormaSiembras.ForeColor = Color.Black;
             }
+        }
+
+        private void btnFormaConsultaSiembra_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormaReporteSiembras>();
+            btnFormaConsultaSiembra.BackColor = Color.FromArgb(216, 236, 191);
+            btnFormaConsultaSiembra.ForeColor = Color.Black;
         }
     }
 }
