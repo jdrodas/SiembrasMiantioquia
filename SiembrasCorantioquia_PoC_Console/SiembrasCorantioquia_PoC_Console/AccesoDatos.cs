@@ -80,6 +80,7 @@ namespace SiembrasCorantioquia_PoC_Console
         public static bool InsertaSiembra(Siembra nuevaSiembra)
         {
             bool resultado = false;
+            int cantidadFilas = 0;
 
             //Completamos el objeto con los códigos correspondientes a los nombres contenidos en los atributos
             CompletaCodigosSiembra(nuevaSiembra);
@@ -91,8 +92,16 @@ namespace SiembrasCorantioquia_PoC_Console
 
                 using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
                 {
-                    int cantidadFilas = cxnDB.Execute("INSERT INTO siembras (codigo_vereda, codigo_arbol, codigo_contratista, fecha, total_arboles, total_hectareas) " +
-                        "VALUES (@Codigo_Vereda,@codigo_Arbol,@codigo_Contratista,@Fecha_Siembra,@Total_Arboles,@Total_Hectareas)", nuevaSiembra);
+                    try
+                    {
+                        cantidadFilas = cxnDB.Execute("INSERT INTO siembras (codigo_vereda, codigo_arbol, codigo_contratista, fecha, total_arboles, total_hectareas) " +
+                        "VALUES (@Codigo_Vereda,@codigo_Arbol,@codigo_Contratista,@Fecha_Siembra,@Total_Arboles, @Total_Hectareas)", nuevaSiembra);
+                    }
+                    catch (SQLiteException unaExcepcion)
+                    {
+                        resultado = false;
+                        cantidadFilas = 0;
+                    }
 
                     //Si la inserción fue correcta, obtenemos el objeto actualizado con la información que acabamos de insertar
                     if (cantidadFilas > 0) 

@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 
 namespace SiembrasCorantioquia_PoC_Console
 {

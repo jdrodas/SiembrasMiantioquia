@@ -10,13 +10,13 @@ namespace SiembrasCorantioquia_PoC_Console
             Console.WriteLine("Siembras Corantioquia - PoC para conectividad a SQLite");
 
             //Aqui demostramos consulta
-            Console.WriteLine("\nVeredas que se encuentran vinculadas a Medellín:");
+            Console.WriteLine("\nVeredas que se encuentran vinculadas a Copacabana:");
 
-            List<string> listaVeredas = AccesoDatos.ObtieneVeredasMunicipio("Medellín");
+            List<string> listaVeredas = AccesoDatos.ObtieneVeredasMunicipio("Copacabana");
 
             foreach (string unaVereda in listaVeredas)
                 Console.WriteLine($"- {unaVereda}");
-
+            
             //Aqui demostramos la lectura de un objeto desde la DB SQLite - Read del CRUD
             Console.WriteLine("\nInformación sobre la primera siembra:\n");
 
@@ -25,10 +25,10 @@ namespace SiembrasCorantioquia_PoC_Console
             if (unaSiembra.Codigo_Siembra != 0)
                 Console.WriteLine(unaSiembra.ToString());
             else
-                Console.WriteLine($"No hay siembra registradas en la base de datos");
+                Console.WriteLine($"No hay siembra registradas en la base de datos con ese código.");
+
 
             //Aqui demostramos la inserción de una nueva siembra - Create del CRUD
-
             Console.WriteLine("\nDemostrando inserción de una nueva siembra - Create del CRUD");
 
             Siembra nuevaSiembra = new Siembra()
@@ -38,7 +38,7 @@ namespace SiembrasCorantioquia_PoC_Console
                 Nombre_Contratista = "Siembras de Occidente",
                 Nombre_Arbol = "Mango",
                 Total_Arboles = 100,
-                Total_Hectareas = 0.78d,
+                Total_Hectareas = 0.78,
                 Fecha_Siembra = DateTime.Now.ToShortDateString()
             };
 
@@ -51,7 +51,7 @@ namespace SiembrasCorantioquia_PoC_Console
             }
             else
             {
-                Console.WriteLine("Fallo en la inserción. Revisa los datos ingresados e intentamente!");
+                Console.WriteLine("Fallo en la inserción. Revisa los datos ingresados e intenta nuevamente!");
             }
 
 
@@ -77,7 +77,7 @@ namespace SiembrasCorantioquia_PoC_Console
             }
             else
             {
-                Console.WriteLine("Fallo en la actualización. Revisa los datos ingresados e intentamente!");
+                Console.WriteLine("Fallo en la actualización. Revisa los datos ingresados e intenta nuevamente!!");
             }
 
             //Aqui demostramos la eliminación de una siembra existente - delete del CRUD
@@ -91,7 +91,8 @@ namespace SiembrasCorantioquia_PoC_Console
             if (resultadoEliminacion)
                 Console.WriteLine("Siembra eliminada exitosamente!\n");
             else
-                Console.WriteLine("Fallo en la actualización. Revisa los datos ingresados e intentamente!");
+                Console.WriteLine("Fallo en la actualización. Revisa los datos ingresados e intenta nuevamente!");
+
 
             Console.WriteLine("\n\nFin del programa.");
 
