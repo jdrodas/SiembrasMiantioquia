@@ -32,21 +32,21 @@ namespace SiembrasCorantioquia
         private void ActualizaCbxContratistas()
         {
             cbxContratistas.DataSource = null;
-            cbxContratistas.DataSource = AccesoDatos.ObtenerNombresContratistas();
+            cbxContratistas.DataSource = AccesoDatos.ObtieneListaContratistas();
             cbxContratistas.DisplayMember = "nombre";
         }
 
         private void ActualizaCbxArboles()
         {
             cbxArboles.DataSource = null;
-            cbxArboles.DataSource = AccesoDatos.ObtenerNombresArboles();
+            cbxArboles.DataSource = AccesoDatos.ObtieneListaArboles();
             cbxArboles.DisplayMember = "nombre";
         }
 
         public void ActualizaLsbVeredas()
         {
             lsbVeredas.DataSource = null;
-            lsbVeredas.DataSource = AccesoDatos.ObtenerNombreVeredas();
+            lsbVeredas.DataSource = AccesoDatos.ObtieneListaVeredas();
             lsbVeredas.DisplayMember = "nombre";
         }
 
@@ -55,7 +55,7 @@ namespace SiembrasCorantioquia
             if (lsbVeredas.SelectedItem.ToString() != "")
             {
                 cbxMunicipios.DataSource = null;
-                cbxMunicipios.DataSource = AccesoDatos.ObtieneMunicipios(lsbVeredas.SelectedItem.ToString());
+                cbxMunicipios.DataSource = AccesoDatos.ObtieneListaMunicipios(lsbVeredas.SelectedItem.ToString());
                 cbxMunicipios.DisplayMember = "nombre";
             }
         }
@@ -64,6 +64,7 @@ namespace SiembrasCorantioquia
         {
             try
             {
+                string mensajeError;
                 Siembra unaSiembra = new Siembra();
                 unaSiembra.Total_Hectareas = double.Parse(txtTotalHectareas.Text);
                 unaSiembra.Total_Arboles = int.Parse(txtTotalArboles.Text);
@@ -73,7 +74,7 @@ namespace SiembrasCorantioquia
                 unaSiembra.Nombre_Arbol = cbxArboles.SelectedItem.ToString();
                 unaSiembra.Nombre_Contratista = cbxContratistas.SelectedItem.ToString();
 
-                bool registroCorrecto = AccesoDatos.GuardarSiembra(unaSiembra);
+                bool registroCorrecto = AccesoDatos.GuardarSiembra(unaSiembra, out mensajeError);
 
                 if (registroCorrecto)
                 {
@@ -81,7 +82,10 @@ namespace SiembrasCorantioquia
                 }
                 else
                 {
-                    MessageBox.Show("Se presentaron problemas con la siembra. Intenta nuevamente!");
+                    MessageBox.Show($"Se presentaron problemas con la siembra. {mensajeError}",
+                        "Fallo al guardar la siembra",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             }
             catch (FormatException unErrorFormato)

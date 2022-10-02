@@ -17,93 +17,28 @@ namespace SiembrasCorantioquia
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
+        #region CRUD de Siembra
+
         /// <summary>
-        /// Obtiene una lista con los nombres de las Veredas y Municipios
+        /// Valida si la siembra tiene valores válidos para operaciones CRUD
         /// </summary>
-        public static List<string> ObtenerNombreVeredas()
+        /// <param name="unaSiembra">Objeto siembra</param>
+        /// <returns>Verdadero si tiene todos los valores requeridos</returns>
+        private static bool ValidaSiembra(Siembra unaSiembra)
         {
-            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
+            bool resultado = false;
 
-            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
-            {
-                var salida = cxnDB.Query<string>("select distinct nombre from veredas order by nombre", new DynamicParameters());
-                return salida.ToList();
-            }
-        }
+            if (unaSiembra.Codigo_Arbol != 0 && unaSiembra.Codigo_Contratista != 0 &&
+                    unaSiembra.Codigo_Municipio != 0 && unaSiembra.Codigo_Vereda != 0)
+                resultado = true;
 
-        public static List<string> ObtieneMunicipios(string nombreVereda)
-        {
-            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
-
-            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
-            {
-                //El Id se asigna como parametro de la sentencia, 
-                DynamicParameters parametrosSentencia = new DynamicParameters();
-                parametrosSentencia.Add("@nombre_vereda", nombreVereda, DbType.String, ParameterDirection.Input);
-                string laSentenciaSQL = "select nombre_municipio from v_detalle_vereda " +
-                    "where nombre_vereda = @nombre_vereda order by nombre_municipio";
-
-                var salida = cxnDB.Query<string>(laSentenciaSQL, parametrosSentencia);
-                return salida.ToList();
-            }
-        }
-
-        public static List<string> ObtenerNombresContratistas()
-        {
-            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
-
-            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
-            {
-                var salida = cxnDB.Query<string>("select nombre from contratistas order by nombre", new DynamicParameters());
-                return salida.ToList();
-            }
+            return resultado;
         }
 
         /// <summary>
-        /// Obtiene la lista de los árboles disponibles para las siembras
+        /// Obtiene el detalle de las siembras registradas en la DB
         /// </summary>
-        /// <returns>Lista de Strings con los nombres de los árboles</returns>
-        public static List<string> ObtenerNombresArboles()
-        {
-            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
-
-            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
-            {
-                var salida = cxnDB.Query<string>("select nombre from arboles order by nombre", new DynamicParameters());
-                return salida.ToList();
-            }
-        }
-
-        /// <summary>
-        /// Obtiene la información de una siembra
-        /// </summary>
-        /// <param name="codigoSiembra">ID que identifica una siembra</param>
-        /// <returns></returns>
-        public static Siembra ObtenerSiembra(int codigoSiembra)
-        {
-            Siembra siembraResultado = new Siembra();
-            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
-
-            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
-            {
-                // se define la sentencia SQL a utilizar, pero sin concatenar el id
-                string sentenciaSQL = "select s.codigo, s.fecha, s.total_hectareas, s.total_arboles, s.codigo_vereda, s.codigo_contratista, s.codigo_arbol from siembras s where s.codigo = @codigo";
-
-                //El Id se asigna como parametro de la sentencia, 
-                DynamicParameters parametrosSentencia = new DynamicParameters();
-                parametrosSentencia.Add("@codigo", codigoSiembra, DbType.Int32, ParameterDirection.Input);
-
-                var salida = cxnDB.Query<Siembra>(sentenciaSQL, parametrosSentencia);
-
-                //validamos cuantos registros devuelve la lista
-                if (salida.ToArray().Length != 0)
-                {
-                    siembraResultado = salida.First();
-                }
-                return siembraResultado;
-            }
-        }
-
+        /// <returns>DataTable con la información requerida</returns>
         public static DataTable ObtenerDetalleSiembras()
         {
             string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
@@ -148,41 +83,6 @@ namespace SiembrasCorantioquia
             }
         }
 
-        static public bool GuardarSiembra(Siembra laSiembra)
-        {
-            bool resultado = false;
-            int cantidadFilas = 0;
-
-            //Completamos el objeto con los códigos correspondientes a los nombres contenidos en los atributos
-            CompletaCodigosSiembra(laSiembra);
-
-            //Validamos que la siembra tenga valores válidos en los campos correspondientes a códigos
-            if (ValidaSiembra(laSiembra))
-            {
-                string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
-
-                using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
-                {
-                    try
-                    {
-                        cantidadFilas = cxnDB.Execute("INSERT INTO siembras (codigo_vereda, codigo_arbol, codigo_contratista, fecha, total_arboles, total_hectareas) " +
-                        "VALUES (@Codigo_Vereda,@codigo_Arbol,@codigo_Contratista,@Fecha_Siembra,@Total_Arboles, @Total_Hectareas)", laSiembra);
-                    }
-                    catch (SQLiteException unaExcepcion)
-                    {
-                        resultado = false;
-                        cantidadFilas = 0;
-                    }
-
-                    //Si la inserción fue correcta, obtenemos el objeto actualizado con la información que acabamos de insertar
-                    if (cantidadFilas > 0)
-                        resultado = true;
-                }
-            }
-            return resultado;
-        }
-
-
         /// <summary>
         /// Completa el objeto siembra con los códigos correspondientes a los nombres contenidos en los atributos
         /// </summary>
@@ -206,6 +106,82 @@ namespace SiembrasCorantioquia
             unaSiembra.Nombre_Vereda = ObtieneNombreVereda(unaSiembra.Codigo_Vereda);
             unaSiembra.Nombre_Arbol = ObtieneNombreArbol(unaSiembra.Codigo_Arbol);
         }
+
+        /// <summary>
+        /// Obtiene la información de una siembra
+        /// </summary>
+        /// <param name="codigoSiembra">ID que identifica una siembra</param>
+        /// <returns></returns>
+        public static Siembra ObtenerSiembra(int codigoSiembra)
+        {
+            Siembra siembraResultado = new Siembra();
+            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
+
+            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
+            {
+                // se define la sentencia SQL a utilizar, pero sin concatenar el id
+                string sentenciaSQL = "select s.codigo, s.fecha, s.total_hectareas, s.total_arboles, s.codigo_vereda, s.codigo_contratista, s.codigo_arbol from siembras s where s.codigo = @codigo";
+
+                //El Id se asigna como parametro de la sentencia, 
+                DynamicParameters parametrosSentencia = new DynamicParameters();
+                parametrosSentencia.Add("@codigo", codigoSiembra, DbType.Int32, ParameterDirection.Input);
+
+                var salida = cxnDB.Query<Siembra>(sentenciaSQL, parametrosSentencia);
+
+                //validamos cuantos registros devuelve la lista
+                if (salida.ToArray().Length != 0)
+                {
+                    siembraResultado = salida.First();
+                }
+                return siembraResultado;
+            }
+        }
+
+        /// <summary>
+        /// Guarda la información del objeto siembra en la DB
+        /// </summary>
+        /// <param name="laSiembra">Objeto siembra</param>
+        /// <param name="mensajeError">En caso de falla, se obtiene el mensaje de error</param>
+        /// <returns></returns>
+        static public bool GuardarSiembra(Siembra laSiembra, out string mensajeError)
+        {
+            bool resultado = false;            
+            int cantidadFilas;
+            mensajeError = "";
+
+            //Completamos el objeto con los códigos correspondientes a los nombres contenidos en los atributos
+            CompletaCodigosSiembra(laSiembra);
+
+            //Validamos que la siembra tenga valores válidos en los campos correspondientes a códigos
+            if (ValidaSiembra(laSiembra))
+            {
+                string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
+
+                using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
+                {
+                    try
+                    {
+                        cantidadFilas = cxnDB.Execute("INSERT INTO siembras (codigo_vereda, codigo_arbol, codigo_contratista, fecha, total_arboles, total_hectareas) " +
+                        "VALUES (@Codigo_Vereda,@codigo_Arbol,@codigo_Contratista,@Fecha_Siembra,@Total_Arboles, @Total_Hectareas)", laSiembra);
+                    }
+                    catch (SQLiteException unaExcepcion)
+                    {
+                        resultado = false;
+                        mensajeError = unaExcepcion.Message;
+                        cantidadFilas = 0;
+                    }
+
+                    //Si la inserción fue correcta, obtenemos el objeto actualizado con la información que acabamos de insertar
+                    if (cantidadFilas > 0)
+                        resultado = true;
+                }
+            }
+            return resultado;
+        }
+
+        #endregion CRUD de Siembra
+
+        #region CRUD de Veredas
 
         /// <summary>
         /// Obtiene el código de la vereda a partir del nombre y el código del municipio
@@ -267,62 +243,22 @@ namespace SiembrasCorantioquia
         }
 
         /// <summary>
-        /// Obtiene el código del Arbol a partir del nombre
+        /// Obtiene una lista con los nombres de las Veredas y Municipios
         /// </summary>
-        /// <param name="nombreArbol">Nombre del Árbol</param>
-        /// <returns>código del arbol</returns>
-        private static int ObtieneCodigoArbol(string nombreArbol)
+        public static List<string> ObtieneListaVeredas()
         {
             string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
-            int codigo_arbol = 0;
 
             using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
             {
-                //El Id se asigna como parametro de la sentencia, 
-                DynamicParameters parametrosSentencia = new DynamicParameters();
-                parametrosSentencia.Add("@nombre", nombreArbol, DbType.String, ParameterDirection.Input);
-
-                // se define la sentencia SQL a utilizar, pero sin concatenar el id
-                string sentenciaSQL = "select codigo from arboles where nombre = @nombre";
-                var salida = cxnDB.Query<int>(sentenciaSQL, parametrosSentencia);
-
-                //validamos cuantos registros devuelve la lista
-                if (salida.ToArray().Length != 0)
-                {
-                    codigo_arbol = salida.First();
-                }
-                return codigo_arbol;
+                var salida = cxnDB.Query<string>("select distinct nombre from veredas order by nombre", new DynamicParameters());
+                return salida.ToList();
             }
         }
 
-        /// <summary>
-        /// Obtiene el nombre del Arbol a partir del codigo
-        /// </summary>
-        /// <param name="codigo_arbol">Nombre del Árbol</param>
-        /// <returns>nombre del arbol</returns>
-        private static string ObtieneNombreArbol(int codigo_arbol)
-        {
-            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
-            string nombre_arbol = "";
+        #endregion CRUD de Veredas
 
-            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
-            {
-                //El Id se asigna como parametro de la sentencia, 
-                DynamicParameters parametrosSentencia = new DynamicParameters();
-                parametrosSentencia.Add("@codigo", codigo_arbol, DbType.String, ParameterDirection.Input);
-
-                // se define la sentencia SQL a utilizar, pero sin concatenar el id
-                string sentenciaSQL = "select nombre from arboles where codigo = @codigo";
-                var salida = cxnDB.Query<string>(sentenciaSQL, parametrosSentencia);
-
-                //validamos cuantos registros devuelve la lista
-                if (salida.ToArray().Length != 0)
-                {
-                    nombre_arbol = salida.First();
-                }
-                return nombre_arbol;
-            }
-        }
+        #region CRUD de Contratistas
 
         /// <summary>
         /// Obtiene el Código del Contratista a partir del nombre
@@ -383,6 +319,25 @@ namespace SiembrasCorantioquia
         }
 
         /// <summary>
+        /// Obtiene el nombre de los contratistas registrados en la DB
+        /// </summary>
+        /// <returns>Lista con el nombre de los contratistas</returns>
+        public static List<string> ObtieneListaContratistas()
+        {
+            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
+
+            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
+            {
+                var salida = cxnDB.Query<string>("select nombre from contratistas order by nombre", new DynamicParameters());
+                return salida.ToList();
+            }
+        }
+
+        #endregion CRUD de Contratistas
+
+        #region CRUD de Municipios
+
+        /// <summary>
         /// Obtiene El código del Municipio a partir del nombre
         /// </summary>
         /// <param name="nombreMunicipio">Nombre del municipio</param>
@@ -440,21 +395,105 @@ namespace SiembrasCorantioquia
             }
         }
 
+        /// <summary>
+        /// Obtiene el nombre de los municipios registrados en la DB
+        /// </summary>
+        /// <returns>Lista con el nombre de los municipios</returns>
+        public static List<string> ObtieneListaMunicipios(string nombreVereda)
+        {
+            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
+
+            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
+            {
+                //El Id se asigna como parametro de la sentencia, 
+                DynamicParameters parametrosSentencia = new DynamicParameters();
+                parametrosSentencia.Add("@nombre_vereda", nombreVereda, DbType.String, ParameterDirection.Input);
+                string laSentenciaSQL = "select nombre_municipio from v_detalle_vereda " +
+                    "where nombre_vereda = @nombre_vereda order by nombre_municipio";
+
+                var salida = cxnDB.Query<string>(laSentenciaSQL, parametrosSentencia);
+                return salida.ToList();
+            }
+        }
+
+        #endregion CRUD de Municipios
+
+        #region CRUD de Arboles
 
         /// <summary>
-        /// Valida si la siembra tiene valores válidos para operaciones CRUD
+        /// Obtiene la lista de los árboles disponibles para las siembras
         /// </summary>
-        /// <param name="unaSiembra">Objeto siembra</param>
-        /// <returns>Verdadero si tiene todos los valores requeridos</returns>
-        private static bool ValidaSiembra(Siembra unaSiembra)
+        /// <returns>Lista de Strings con los nombres de los árboles</returns>
+        public static List<string> ObtieneListaArboles()
         {
-            bool resultado = false;
+            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
 
-            if (unaSiembra.Codigo_Arbol != 0 && unaSiembra.Codigo_Contratista != 0 &&
-                    unaSiembra.Codigo_Municipio != 0 && unaSiembra.Codigo_Vereda != 0)
-                resultado = true;
-
-            return resultado;
+            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
+            {
+                var salida = cxnDB.Query<string>("select nombre from arboles order by nombre", new DynamicParameters());
+                return salida.ToList();
+            }
         }
+
+        /// <summary>
+        /// Obtiene el código del Arbol a partir del nombre
+        /// </summary>
+        /// <param name="nombreArbol">Nombre del Árbol</param>
+        /// <returns>código del arbol</returns>
+        private static int ObtieneCodigoArbol(string nombreArbol)
+        {
+            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
+            int codigo_arbol = 0;
+
+            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
+            {
+                //El Id se asigna como parametro de la sentencia, 
+                DynamicParameters parametrosSentencia = new DynamicParameters();
+                parametrosSentencia.Add("@nombre", nombreArbol, DbType.String, ParameterDirection.Input);
+
+                // se define la sentencia SQL a utilizar, pero sin concatenar el id
+                string sentenciaSQL = "select codigo from arboles where nombre = @nombre";
+                var salida = cxnDB.Query<int>(sentenciaSQL, parametrosSentencia);
+
+                //validamos cuantos registros devuelve la lista
+                if (salida.ToArray().Length != 0)
+                {
+                    codigo_arbol = salida.First();
+                }
+                return codigo_arbol;
+            }
+        }
+
+        /// <summary>
+        /// Obtiene el nombre del Arbol a partir del codigo
+        /// </summary>
+        /// <param name="codigo_arbol">Nombre del Árbol</param>
+        /// <returns>nombre del arbol</returns>
+        private static string ObtieneNombreArbol(int codigo_arbol)
+        {
+            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
+            string nombre_arbol = "";
+
+            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
+            {
+                //El Id se asigna como parametro de la sentencia, 
+                DynamicParameters parametrosSentencia = new DynamicParameters();
+                parametrosSentencia.Add("@codigo", codigo_arbol, DbType.String, ParameterDirection.Input);
+
+                // se define la sentencia SQL a utilizar, pero sin concatenar el id
+                string sentenciaSQL = "select nombre from arboles where codigo = @codigo";
+                var salida = cxnDB.Query<string>(sentenciaSQL, parametrosSentencia);
+
+                //validamos cuantos registros devuelve la lista
+                if (salida.ToArray().Length != 0)
+                {
+                    nombre_arbol = salida.First();
+                }
+                return nombre_arbol;
+            }
+        }
+
+        #endregion CRUD de Arboles
+
     }
 }
