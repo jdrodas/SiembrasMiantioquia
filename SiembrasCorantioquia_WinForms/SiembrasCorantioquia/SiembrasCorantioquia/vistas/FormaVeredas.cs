@@ -10,16 +10,17 @@ using System.Windows.Forms;
 
 namespace SiembrasCorantioquia.vistas
 {
-    public partial class FormaContratistas : Form
+    public partial class FormaVeredas : Form
     {
-        public FormaContratistas()
+        public FormaVeredas()
         {
             InitializeComponent();
         }
-
+        
         private void pbxBotonCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

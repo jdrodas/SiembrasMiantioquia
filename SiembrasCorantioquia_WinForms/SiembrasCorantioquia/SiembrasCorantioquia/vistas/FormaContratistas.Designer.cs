@@ -1,4 +1,4 @@
-﻿namespace SiembrasCorantioquia
+﻿namespace SiembrasCorantioquia.vistas
 {
     partial class FormaContratistas
     {
@@ -35,39 +35,42 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(236)))), ((int)(((byte)(191)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Teal;
-            this.label1.Location = new System.Drawing.Point(292, 51);
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 25);
+            this.label1.Size = new System.Drawing.Size(1132, 50);
             this.label1.TabIndex = 0;
             this.label1.Text = "Contratistas Registrados";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pbxBotonCerrar
             // 
             this.pbxBotonCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.pbxBotonCerrar.Image = global::SiembrasCorantioquia.Properties.Resources.cerrar;
-            this.pbxBotonCerrar.Location = new System.Drawing.Point(806, 12);
+            this.pbxBotonCerrar.Location = new System.Drawing.Point(1075, 15);
+            this.pbxBotonCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.pbxBotonCerrar.Name = "pbxBotonCerrar";
-            this.pbxBotonCerrar.Size = new System.Drawing.Size(16, 16);
+            this.pbxBotonCerrar.Size = new System.Drawing.Size(21, 20);
             this.pbxBotonCerrar.TabIndex = 1;
             this.pbxBotonCerrar.TabStop = false;
             this.pbxBotonCerrar.Click += new System.EventHandler(this.pbxBotonCerrar_Click);
             // 
             // FormaContratistas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 571);
+            this.ClientSize = new System.Drawing.Size(1132, 704);
             this.Controls.Add(this.pbxBotonCerrar);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormaContratistas";
             this.Text = "Gestión de Contratistas";
             ((System.ComponentModel.ISupportInitialize)(this.pbxBotonCerrar)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

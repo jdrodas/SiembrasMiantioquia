@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SiembrasCorantioquia
+namespace SiembrasCorantioquia.vistas
 {
     public partial class FormaArboles : Form
     {

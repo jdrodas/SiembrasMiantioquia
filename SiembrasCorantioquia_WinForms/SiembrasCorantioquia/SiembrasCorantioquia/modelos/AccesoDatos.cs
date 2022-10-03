@@ -145,7 +145,7 @@ namespace SiembrasCorantioquia
         /// <returns></returns>
         static public bool GuardarSiembra(Siembra laSiembra, out string mensajeError)
         {
-            bool resultado = false;            
+            bool resultado = false;
             int cantidadFilas;
             mensajeError = "";
 
@@ -253,6 +253,29 @@ namespace SiembrasCorantioquia
             {
                 var salida = cxnDB.Query<string>("select distinct nombre from veredas order by nombre", new DynamicParameters());
                 return salida.ToList();
+            }
+        }
+
+        public static List<string> ObtieneListaVeredas(string nombreMunicipio)
+        {
+            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
+
+            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
+            {
+                //El Id se asigna como parametro de la sentencia, 
+                DynamicParameters parametrosSentencia = new DynamicParameters();
+                parametrosSentencia.Add("@nombre", nombreMunicipio, DbType.String, ParameterDirection.Input);
+
+                // se define la sentencia SQL a utilizar, pero sin concatenar el id
+                string sentenciaSQL = "SELECT nombre_vereda FROM v_detalle_vereda " +
+                    "WHERE nombre_municipio = @nombre";
+                var salida = cxnDB.Query<string>(sentenciaSQL, parametrosSentencia);
+
+                //validamos cuantos registros devuelve la lista
+                if (salida.ToArray().Length != 0)
+                    return salida.ToList();
+                else
+                    return new List<string>();
             }
         }
 
@@ -399,19 +422,17 @@ namespace SiembrasCorantioquia
         /// Obtiene el nombre de los municipios registrados en la DB
         /// </summary>
         /// <returns>Lista con el nombre de los municipios</returns>
-        public static List<string> ObtieneListaMunicipios(string nombreVereda)
+        public static List<string> ObtieneListaMunicipios()
         {
             string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
 
             using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
             {
                 //El Id se asigna como parametro de la sentencia, 
-                DynamicParameters parametrosSentencia = new DynamicParameters();
-                parametrosSentencia.Add("@nombre_vereda", nombreVereda, DbType.String, ParameterDirection.Input);
-                string laSentenciaSQL = "select nombre_municipio from v_detalle_vereda " +
-                    "where nombre_vereda = @nombre_vereda order by nombre_municipio";
+                string laSentenciaSQL = "SELECT DISTINCT nombre FROM municipios " +
+                    "ORDER BY nombre";
 
-                var salida = cxnDB.Query<string>(laSentenciaSQL, parametrosSentencia);
+                var salida = cxnDB.Query<string>(laSentenciaSQL, new DynamicParameters());
                 return salida.ToList();
             }
         }

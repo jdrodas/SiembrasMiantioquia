@@ -82,11 +82,11 @@
     <Compile Include="vistas\FormaContratistas.Designer.cs">
       <DependentUpon>FormaContratistas.cs</DependentUpon>
     </Compile>
-    <Compile Include="vistas\FormaInsertaSiembra.cs">
+    <Compile Include="vistas\FormaNuevaSiembra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="vistas\FormaInsertaSiembra.Designer.cs">
-      <DependentUpon>FormaInsertaSiembra.cs</DependentUpon>
+    <Compile Include="vistas\FormaNuevaSiembra.Designer.cs">
+      <DependentUpon>FormaNuevaSiembra.cs</DependentUpon>
     </Compile>
     <Compile Include="vistas\FormaPrincipal.cs">
       <SubType>Form</SubType>
@@ -103,14 +103,20 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="modelos\Siembra.cs" />
+    <Compile Include="vistas\FormaVeredas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\FormaVeredas.Designer.cs">
+      <DependentUpon>FormaVeredas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="vistas\FormaArboles.resx">
       <DependentUpon>FormaArboles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormaContratistas.resx">
       <DependentUpon>FormaContratistas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="vistas\FormaInsertaSiembra.resx">
-      <DependentUpon>FormaInsertaSiembra.cs</DependentUpon>
+    <EmbeddedResource Include="vistas\FormaNuevaSiembra.resx">
+      <DependentUpon>FormaNuevaSiembra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormaPrincipal.resx">
       <DependentUpon>FormaPrincipal.cs</DependentUpon>
@@ -128,6 +134,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="vistas\FormaVeredas.resx">
+      <DependentUpon>FormaVeredas.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
