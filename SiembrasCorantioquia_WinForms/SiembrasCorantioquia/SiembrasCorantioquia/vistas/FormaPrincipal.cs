@@ -22,6 +22,7 @@ namespace SiembrasCorantioquia.vistas
         public FormaPrincipal()
         {
             InitializeComponent();
+            OcultaPanelesCrud();
 
             //Reduce el "flickering"
             this.SetStyle(ControlStyles.ResizeRedraw, true);
@@ -80,27 +81,54 @@ namespace SiembrasCorantioquia.vistas
             }
         }
 
+        private void OcultaPanelesCrud()
+        {
+            Panel[] panelesCrud =   
+                { 
+                    panelCrudArboles, 
+                    panelCrudContratistas, 
+                    panelCrudVeredas, 
+                    panelCrudSiembras 
+                };
+
+            foreach(Panel unPanel in panelesCrud)
+                unPanel.Visible = false;
+
+            Button[] botonesCrud =
+                {
+                    btnFormaArboles,
+                    btnFormaContratistas,
+                    btnFormaVeredas,
+                    btnFormaSiembras
+                };
+
+            foreach (Button unBoton in botonesCrud)
+            {
+                unBoton.BackColor = Color.FromArgb(144, 157, 112);
+                unBoton.ForeColor = Color.White;
+            }
+        }
+
+        private void VisualizaPanelCrud(Panel elPanel, Button botonCrud)
+        {
+            if (!elPanel.Visible)
+            {
+                OcultaPanelesCrud();
+                elPanel.Visible = true;
+                botonCrud.BackColor = Color.FromArgb(216, 236, 191);
+                botonCrud.ForeColor = Color.Black;
+            }
+            else
+            {
+                elPanel.Visible = false;
+                botonCrud.BackColor = Color.FromArgb(144, 157, 112);
+                botonCrud.ForeColor = Color.White;
+            }
+
+        }
+
         private void CerrarFormulario(object sender, FormClosedEventArgs e)
         {
-
-            if (Application.OpenForms["FormaArboles"] == null)
-            {
-                btnFormaArboles.BackColor = Color.FromArgb(144, 157, 112);
-                btnFormaArboles.ForeColor = Color.White;
-            }
-
-            if (Application.OpenForms["FormaContratistas"] == null)
-            {
-                btnFormaContratistas.BackColor = Color.FromArgb(144, 157, 112);
-                btnFormaContratistas.ForeColor = Color.White;
-            }
-
-            if (Application.OpenForms["FormaVeredas"] == null)
-            {
-                btnFormaVeredas.BackColor = Color.FromArgb(144, 157, 112);
-                btnFormaVeredas.ForeColor = Color.White;
-            }
-
             if (Application.OpenForms["FormaReporteSiembras"] == null)
             {
                 btnFormaReporteSiembras.BackColor = Color.FromArgb(144, 157, 112);
@@ -116,34 +144,24 @@ namespace SiembrasCorantioquia.vistas
 
         #endregion
 
+        private void btnFormaSiembras_Click(object sender, EventArgs e)
+        {
+            VisualizaPanelCrud(panelCrudSiembras, btnFormaSiembras);
+        }
+
         private void btnFormaArboles_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormaArboles>();
-            btnFormaArboles.BackColor = Color.FromArgb(216, 236, 191);
-            btnFormaArboles.ForeColor = Color.Black;
+            VisualizaPanelCrud(panelCrudArboles, btnFormaArboles);
         }
 
         private void btnFormaContratistas_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormaContratistas>();
-            btnFormaContratistas.BackColor = Color.FromArgb(216, 236, 191);
-            btnFormaContratistas.ForeColor = Color.Black;   
+            VisualizaPanelCrud(panelCrudContratistas, btnFormaContratistas);
         }
 
-        private void btnFormaSiembras_Click(object sender, EventArgs e)
+        private void btnFormaVeredas_Click(object sender, EventArgs e)
         {
-            if (panelCrudSiembra.Visible)
-            {
-                panelCrudSiembra.Visible = false;
-                btnFormaSiembras.BackColor = Color.FromArgb(144, 157, 112);
-                btnFormaSiembras.ForeColor = Color.White;
-            }
-            else
-            {
-                panelCrudSiembra.Visible = true;
-                btnFormaSiembras.BackColor = Color.FromArgb(216, 236, 191);
-                btnFormaSiembras.ForeColor = Color.Black;
-            }
+            VisualizaPanelCrud(panelCrudVeredas, btnFormaVeredas);
         }
 
         private void btnFormaNuevaSiembra_Click(object sender, EventArgs e)
@@ -158,13 +176,6 @@ namespace SiembrasCorantioquia.vistas
             AbrirFormulario<FormaReporteSiembras>();
             btnFormaReporteSiembras.BackColor = Color.FromArgb(216, 236, 191);
             btnFormaReporteSiembras.ForeColor = Color.Black;
-        }
-
-        private void btnFormaVeredas_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario<FormaVeredas>();
-            btnFormaVeredas.BackColor = Color.FromArgb(216, 236, 191);
-            btnFormaVeredas.ForeColor = Color.Black;
         }
     }
 }

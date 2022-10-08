@@ -147,9 +147,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\logo_corantioquia.png" />
     <None Include="Resources\minimizar.png" />
     <None Include="Resources\cerrar.png" />
+    <None Include="Resources\logo_corantioquia.png" />
     <Content Include="siembrasDB.sqlite">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
