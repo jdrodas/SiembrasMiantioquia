@@ -120,7 +120,11 @@ namespace SiembrasCorantioquia
             using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
             {
                 // se define la sentencia SQL a utilizar, pero sin concatenar el id
-                string sentenciaSQL = "select s.codigo, s.fecha, s.total_hectareas, s.total_arboles, s.codigo_vereda, s.codigo_contratista, s.codigo_arbol from siembras s where s.codigo = @codigo";
+                string sentenciaSQL = "SELECT s.codigo, s.fecha fecha_siembra, s.total_hectareas, " +
+                    "s.total_arboles, s.codigo_vereda, s.codigo_contratista, " +
+                    "s.codigo_arbol, v.codigo_municipio " +
+                    "FROM siembras s JOIN veredas v ON s.codigo_vereda = v.codigo " +
+                    "WHERE s.codigo = @codigo";
 
                 //El Id se asigna como parametro de la sentencia, 
                 DynamicParameters parametrosSentencia = new DynamicParameters();
@@ -132,6 +136,8 @@ namespace SiembrasCorantioquia
                 if (salida.ToArray().Length != 0)
                 {
                     siembraResultado = salida.First();
+                    CompletaNombresSiembra(siembraResultado);
+
                 }
                 return siembraResultado;
             }
@@ -177,6 +183,69 @@ namespace SiembrasCorantioquia
                 }
             }
             return resultado;
+        }
+
+        static public bool ActualizarSiembra(Siembra laSiembra, out string mensajeError)
+        {
+            bool resultado = false;
+            int cantidadFilas;
+            mensajeError = "";
+
+            //Completamos el objeto con los códigos correspondientes a los nombres contenidos en los atributos
+            CompletaCodigosSiembra(laSiembra);
+
+            //Validamos que la siembra tenga valores válidos en los campos correspondientes a códigos
+            if (ValidaSiembra(laSiembra))
+            {
+                string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
+
+                using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
+                {
+                    try
+                    {
+                        cantidadFilas = cxnDB.Execute("UPDATE siembras SET " +
+                        "codigo_vereda = @Codigo_Vereda, " +
+                        "codigo_arbol = @Codigo_Arbol, " +
+                        "codigo_contratista = @Codigo_Contratista, " +
+                        "total_arboles = @Total_Arboles, " +
+                        "total_hectareas = @Total_Hectareas, " +
+                        "fecha = @Fecha_Siembra " +
+                        "WHERE codigo = @Codigo_Siembra", laSiembra);
+                    }
+                    catch (SQLiteException unaExcepcion)
+                    {
+                        resultado = false;
+                        mensajeError = unaExcepcion.Message;
+                        cantidadFilas = 0;
+                    }
+
+                    //Si la inserción fue correcta, obtenemos el objeto actualizado con la información que acabamos de insertar
+                    if (cantidadFilas > 0)
+                        resultado = true;
+                }
+            }
+
+
+            return resultado;
+        }
+
+        /// <summary>
+        /// Obtiene lista con información ampliada de la siembra
+        /// </summary>
+        /// <returns>Lista con información de la siembra</returns>
+        public static List<string> ObtieneListaInfoSiembras()
+        {
+            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
+
+            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
+            {
+                var salida = cxnDB.Query<string>("SELECT (codigo_siembra || ' - ' || " +
+                    "nombre_municipio || ' - ' || " +
+                    "nombre_vereda || ' - ' || " +
+                    "nombre_contratista || ' - ' || " +
+                    "fecha_siembra) infoSiembra FROM v_detalle_siembra;", new DynamicParameters());
+                return salida.ToList();
+            }
         }
 
         #endregion CRUD de Siembra

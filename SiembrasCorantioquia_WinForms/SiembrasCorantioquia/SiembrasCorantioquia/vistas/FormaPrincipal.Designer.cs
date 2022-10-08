@@ -498,6 +498,7 @@
             this.btnFormaActualizaSiembra.Text = "Actualiza Siembra";
             this.btnFormaActualizaSiembra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFormaActualizaSiembra.UseVisualStyleBackColor = true;
+            this.btnFormaActualizaSiembra.Click += new System.EventHandler(this.btnFormaActualizaSiembra_Click);
             // 
             // btnFormaNuevaSiembra
             // 

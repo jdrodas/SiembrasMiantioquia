@@ -81,12 +81,8 @@ namespace SiembrasCorantioquia.vistas
                 {
                     MessageBox.Show("La siembra se registró correctamente");
 
-                    //Reiniciamos los controles de la forma
-                    txtTotalArboles.Text = "0";
-                    txtTotalHectareas.Text = "0";
-                    lstMunicipios.SelectedIndex = 0;
-                    lstArboles.SelectedIndex = 0;
-                    lstContratistas.SelectedIndex = 0;
+                    //Cerramos la forma
+                    this.Close();
                 }
                 else
                 {
@@ -100,9 +96,6 @@ namespace SiembrasCorantioquia.vistas
             {
                 MessageBox.Show($"Datos numéricos no tienen el formato Esperado. {unErrorFormato.Message}");
             }
-
-
-
         }
 
         private void lstMunicipios_SelectedIndexChanged(object sender, EventArgs e)

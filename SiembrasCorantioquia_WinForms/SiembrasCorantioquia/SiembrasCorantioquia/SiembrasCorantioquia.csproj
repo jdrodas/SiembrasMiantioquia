@@ -70,6 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="modelos\AccesoDatos.cs" />
+    <Compile Include="vistas\FormaActualizaSiembra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\FormaActualizaSiembra.Designer.cs">
+      <DependentUpon>FormaActualizaSiembra.cs</DependentUpon>
+    </Compile>
     <Compile Include="vistas\FormaArboles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     <Compile Include="vistas\FormaVeredas.Designer.cs">
       <DependentUpon>FormaVeredas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="vistas\FormaActualizaSiembra.resx">
+      <DependentUpon>FormaActualizaSiembra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormaArboles.resx">
       <DependentUpon>FormaArboles.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,7 +160,7 @@
     <None Include="Resources\cerrar.png" />
     <None Include="Resources\logo_corantioquia.png" />
     <Content Include="siembrasDB.sqlite">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
