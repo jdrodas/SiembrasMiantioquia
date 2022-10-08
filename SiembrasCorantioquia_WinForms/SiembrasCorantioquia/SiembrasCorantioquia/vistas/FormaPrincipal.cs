@@ -146,6 +146,12 @@ namespace SiembrasCorantioquia.vistas
                 btnFormaActualizaSiembra.BackColor = Color.FromArgb(144, 157, 112);
                 btnFormaActualizaSiembra.ForeColor = Color.White;
             }
+
+            if (Application.OpenForms["FormaBorraSiembra"] == null)
+            {
+                btnFormaBorraSiembra.BackColor = Color.FromArgb(144, 157, 112);
+                btnFormaBorraSiembra.ForeColor = Color.White;
+            }
         }
 
         #endregion
@@ -187,6 +193,13 @@ namespace SiembrasCorantioquia.vistas
         private void btnFormaActualizaSiembra_Click(object sender, EventArgs e)
         {
             AbrirFormulario<FormaActualizaSiembra>();
+            btnFormaReporteSiembras.BackColor = Color.FromArgb(216, 236, 191);
+            btnFormaReporteSiembras.ForeColor = Color.Black;
+        }
+
+        private void btnFormaBorraSiembra_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormaBorraSiembra>();
             btnFormaReporteSiembras.BackColor = Color.FromArgb(216, 236, 191);
             btnFormaReporteSiembras.ForeColor = Color.Black;
         }

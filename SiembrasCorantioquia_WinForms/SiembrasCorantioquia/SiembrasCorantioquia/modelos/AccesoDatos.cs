@@ -229,6 +229,41 @@ namespace SiembrasCorantioquia
             return resultado;
         }
 
+        static public bool BorrarSiembra(int codigoSiembra, out string mensajeError)
+        {
+            bool resultado = false;
+            int cantidadFilas;
+            mensajeError = "";
+
+            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
+
+            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
+            {
+                try
+                {
+                    // se define la sentencia SQL a utilizar, pero sin concatenar el id
+                    string sentenciaSQL = "DELETE FROM siembras WHERE codigo = @codigo";
+
+                    //El Id se asigna como parametro de la sentencia, 
+                    DynamicParameters parametrosSentencia = new DynamicParameters();
+                    parametrosSentencia.Add("@codigo", codigoSiembra, DbType.Int32, ParameterDirection.Input);
+
+                    cantidadFilas = cxnDB.Execute(sentenciaSQL, parametrosSentencia);
+
+                    // Si la cantidad de registros es diferente de 0, se encontró y eliminó registro
+                    if (cantidadFilas > 0)
+                        resultado = true;
+                }
+                catch (SQLiteException unaExcepcion)
+                {
+                    resultado = false;
+                    mensajeError = unaExcepcion.Message;
+                    cantidadFilas = 0;
+                }
+            }
+            return resultado;
+        }
+
         /// <summary>
         /// Obtiene lista con información ampliada de la siembra
         /// </summary>

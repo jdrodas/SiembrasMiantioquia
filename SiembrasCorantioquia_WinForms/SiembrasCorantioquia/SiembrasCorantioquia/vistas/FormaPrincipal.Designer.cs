@@ -480,6 +480,7 @@
             this.btnFormaBorraSiembra.Text = "Elimina Siembra";
             this.btnFormaBorraSiembra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFormaBorraSiembra.UseVisualStyleBackColor = true;
+            this.btnFormaBorraSiembra.Click += new System.EventHandler(this.btnFormaBorraSiembra_Click);
             // 
             // btnFormaActualizaSiembra
             // 

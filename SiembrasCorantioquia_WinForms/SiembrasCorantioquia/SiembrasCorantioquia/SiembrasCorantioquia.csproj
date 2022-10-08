@@ -82,6 +82,12 @@
     <Compile Include="vistas\FormaArboles.Designer.cs">
       <DependentUpon>FormaArboles.cs</DependentUpon>
     </Compile>
+    <Compile Include="vistas\FormaBorraSiembra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vistas\FormaBorraSiembra.Designer.cs">
+      <DependentUpon>FormaBorraSiembra.cs</DependentUpon>
+    </Compile>
     <Compile Include="vistas\FormaContratistas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormaArboles.resx">
       <DependentUpon>FormaArboles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vistas\FormaBorraSiembra.resx">
+      <DependentUpon>FormaBorraSiembra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vistas\FormaContratistas.resx">
       <DependentUpon>FormaContratistas.cs</DependentUpon>
