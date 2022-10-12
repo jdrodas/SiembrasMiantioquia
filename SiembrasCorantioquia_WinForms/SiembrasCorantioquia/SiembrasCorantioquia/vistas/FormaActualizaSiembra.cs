@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SiembrasCorantioquia.vistas
@@ -35,7 +28,7 @@ namespace SiembrasCorantioquia.vistas
         /// <summary>
         /// Inicializa la lista que contiene la información resumida de la siembras
         /// </summary>
-        private void InicializaLstInfoSiembras()
+        public void InicializaLstInfoSiembras()
         {
             lstInfoSiembras.DataSource = null;
             lstInfoSiembras.DataSource = AccesoDatos.ObtieneListaInfoSiembras();
@@ -205,7 +198,13 @@ namespace SiembrasCorantioquia.vistas
 
                 if (registroCorrecto)
                 {
-                    MessageBox.Show("La siembra se actualizó correctamente");
+                    MessageBox.Show("La siembra se actualizó correctamente",
+                        "Actualización exitosa",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    //Aqui actualizamos las formas de las siembras, si se encuentran abiertas
+                    RefrescaFormasSiembras();
 
                     //Cerramos la forma
                     this.Close();
@@ -247,6 +246,19 @@ namespace SiembrasCorantioquia.vistas
                 lstVeredas.DataSource = AccesoDatos.ObtieneListaVeredas(lstMunicipios.SelectedItem.ToString());
                 lstVeredas.DisplayMember = "nombre";
             }
+        }
+
+        /// <summary>
+        /// Refresca la forma de reporte de siembras, si ésta se encuentra abierta
+        /// </summary>
+        public void RefrescaFormasSiembras()
+        {
+            //FormaReporteSiembras
+            FormaReporteSiembras formaReportes =
+                (FormaReporteSiembras)Application.OpenForms["FormaReporteSiembras"];
+
+            if (formaReportes != null)
+                formaReportes.InicializaDgvDetalleSiembras();
         }
     }
 }

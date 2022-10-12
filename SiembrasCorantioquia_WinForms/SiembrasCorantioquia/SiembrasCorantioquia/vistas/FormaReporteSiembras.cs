@@ -30,15 +30,10 @@ namespace SiembrasCorantioquia.vistas
         /// <summary>
         /// Inicializa el DataGridView con el detalle de siembras
         /// </summary>
-        private void InicializaDgvDetalleSiembras()
+        public void InicializaDgvDetalleSiembras()
         {
             dgvDetalleSiembras.DataSource = null;
             dgvDetalleSiembras.DataSource = AccesoDatos.ObtenerDetalleSiembras();
-        }
-
-        private void FormaReporteSiembras_Enter(object sender, EventArgs e)
-        {
-            InicializaDgvDetalleSiembras();
         }
     }
 }

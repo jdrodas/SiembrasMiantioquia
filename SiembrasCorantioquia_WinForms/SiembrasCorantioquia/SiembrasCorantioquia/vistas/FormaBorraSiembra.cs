@@ -24,17 +24,20 @@ namespace SiembrasCorantioquia.vistas
 
         private void FormaBorraSiembra_Load(object sender, EventArgs e)
         {
-            InicializaListaInfoSiembras();
+            InicializaLstInfoSiembras();
         }
 
         /// <summary>
         /// Inicializa la lista con la información resumida de las siembras
         /// </summary>
-        private void InicializaListaInfoSiembras()
+        public void InicializaLstInfoSiembras()
         {
             lstInfoSiembras.DataSource = null;
             lstInfoSiembras.DataSource = AccesoDatos.ObtieneListaInfoSiembras();
             lstInfoSiembras.DisplayMember = "infoSiembra";
+
+            lstInfoSiembras.Invalidate();
+            lstInfoSiembras.Refresh();
 
             //Seleccionamos el primer municipio de la lista
             lstInfoSiembras.SelectedIndex = 0;
@@ -55,7 +58,7 @@ namespace SiembrasCorantioquia.vistas
 
             
             DialogResult resultado = MessageBox.Show("Esta seguro de querer borrar esta siembra?",
-                "Borrar siembra, WTF?",
+                "Confirmación borrado siembra",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Hand);
 
@@ -66,7 +69,13 @@ namespace SiembrasCorantioquia.vistas
 
                 if (borradoCorrecto)
                 {
-                    MessageBox.Show("La siembra se borró correctamente");
+                    MessageBox.Show("La siembra se borró correctamente",
+                        "Borrado exitoso",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    //Aqui actualizamos las formas de las siembras, si se encuentran abiertas
+                    RefrescaFormasSiembras();
 
                     //Cerramos la forma
                     this.Close();
@@ -79,7 +88,19 @@ namespace SiembrasCorantioquia.vistas
                         MessageBoxIcon.Error);
                 }
             }
+        }
 
+        /// <summary>
+        /// Refresca la forma de reporte de siembras, si ésta se encuentra abierta
+        /// </summary>
+        public void RefrescaFormasSiembras()
+        {
+            //FormaReporteSiembras
+            FormaReporteSiembras formaReportes =
+                (FormaReporteSiembras)Application.OpenForms["FormaReporteSiembras"];
+
+            if (formaReportes != null)
+                formaReportes.InicializaDgvDetalleSiembras();
         }
     }
 }

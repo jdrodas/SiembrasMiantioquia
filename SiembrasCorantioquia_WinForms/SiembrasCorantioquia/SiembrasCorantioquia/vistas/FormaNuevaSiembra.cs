@@ -95,7 +95,13 @@ namespace SiembrasCorantioquia.vistas
 
                 if (registroCorrecto)
                 {
-                    MessageBox.Show("La siembra se registró correctamente");
+                    MessageBox.Show("La siembra se registró correctamente",
+                        "Inserción exitosa",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    //Aqui actualizamos las formas de las siembras, si se encuentran abiertas
+                    RefrescaFormasSiembras();
 
                     //Cerramos la forma
                     this.Close();
@@ -126,6 +132,19 @@ namespace SiembrasCorantioquia.vistas
                 //De lo contrario, se borra la lista de Veredas
                 lstVeredas.DataSource = null;
             }
+        }
+
+        /// <summary>
+        /// Refresca las formas de siembras, si éstas se encuentran abiertas
+        /// </summary>
+        public void RefrescaFormasSiembras()
+        {
+            //FormaReporteSiembras
+            FormaReporteSiembras formaReportes =
+                (FormaReporteSiembras)Application.OpenForms["FormaReporteSiembras"];
+
+            if (formaReportes != null)
+                formaReportes.InicializaDgvDetalleSiembras();
         }
     }
 }

@@ -69,7 +69,7 @@
             this.dgvDetalleSiembras.Name = "dgvDetalleSiembras";
             this.dgvDetalleSiembras.RowHeadersWidth = 51;
             this.dgvDetalleSiembras.RowTemplate.Height = 24;
-            this.dgvDetalleSiembras.Size = new System.Drawing.Size(1034, 595);
+            this.dgvDetalleSiembras.Size = new System.Drawing.Size(1034, 494);
             this.dgvDetalleSiembras.TabIndex = 8;
             // 
             // FormaReporteSiembras
@@ -84,7 +84,6 @@
             this.Name = "FormaReporteSiembras";
             this.Text = "Reporte de Siembras registradas";
             this.Load += new System.EventHandler(this.FormaReporteSiembras_Load);
-            this.Enter += new System.EventHandler(this.FormaReporteSiembras_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBotonCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleSiembras)).EndInit();
             this.ResumeLayout(false);
