@@ -27,6 +27,9 @@ namespace SiembrasCorantioquia.vistas
             InicializaListaInfoSiembras();
         }
 
+        /// <summary>
+        /// Inicializa la lista con la información resumida de las siembras
+        /// </summary>
         private void InicializaListaInfoSiembras()
         {
             lstInfoSiembras.DataSource = null;

@@ -30,9 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.pbxBotonCerrar = new System.Windows.Forms.PictureBox();
-            this.dgvSiembras = new System.Windows.Forms.DataGridView();
+            this.dgvDetalleSiembras = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBotonCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSiembras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleSiembras)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,39 +54,39 @@
             this.pbxBotonCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.pbxBotonCerrar.Image = global::SiembrasCorantioquia.Properties.Resources.cerrar;
             this.pbxBotonCerrar.Location = new System.Drawing.Point(1075, 15);
-            this.pbxBotonCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbxBotonCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.pbxBotonCerrar.Name = "pbxBotonCerrar";
             this.pbxBotonCerrar.Size = new System.Drawing.Size(21, 20);
             this.pbxBotonCerrar.TabIndex = 2;
             this.pbxBotonCerrar.TabStop = false;
             this.pbxBotonCerrar.Click += new System.EventHandler(this.pbxBotonCerrar_Click);
             // 
-            // dgvSiembras
+            // dgvDetalleSiembras
             // 
-            this.dgvSiembras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSiembras.Location = new System.Drawing.Point(41, 78);
-            this.dgvSiembras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvSiembras.Name = "dgvSiembras";
-            this.dgvSiembras.RowHeadersWidth = 51;
-            this.dgvSiembras.RowTemplate.Height = 24;
-            this.dgvSiembras.Size = new System.Drawing.Size(1034, 595);
-            this.dgvSiembras.TabIndex = 8;
+            this.dgvDetalleSiembras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalleSiembras.Location = new System.Drawing.Point(41, 78);
+            this.dgvDetalleSiembras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvDetalleSiembras.Name = "dgvDetalleSiembras";
+            this.dgvDetalleSiembras.RowHeadersWidth = 51;
+            this.dgvDetalleSiembras.RowTemplate.Height = 24;
+            this.dgvDetalleSiembras.Size = new System.Drawing.Size(1034, 595);
+            this.dgvDetalleSiembras.TabIndex = 8;
             // 
             // FormaReporteSiembras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 703);
-            this.Controls.Add(this.dgvSiembras);
+            this.Controls.Add(this.dgvDetalleSiembras);
             this.Controls.Add(this.pbxBotonCerrar);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormaReporteSiembras";
             this.Text = "Reporte de Siembras registradas";
             this.Load += new System.EventHandler(this.FormaReporteSiembras_Load);
             this.Enter += new System.EventHandler(this.FormaReporteSiembras_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBotonCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSiembras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleSiembras)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -95,6 +95,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbxBotonCerrar;
-        private System.Windows.Forms.DataGridView dgvSiembras;
+        private System.Windows.Forms.DataGridView dgvDetalleSiembras;
     }
 }

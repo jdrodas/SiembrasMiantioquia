@@ -29,6 +29,9 @@ namespace SiembrasCorantioquia.vistas
             InicializaLstContratistas();
         }
 
+        /// <summary>
+        /// Inicializa la lista de los municipios
+        /// </summary>
         public void InicializaLstMunicipios()
         {
             lstMunicipios.DataSource = null;
@@ -39,7 +42,9 @@ namespace SiembrasCorantioquia.vistas
             lstMunicipios.SelectedIndex = 0;
         }
 
-
+        /// <summary>
+        /// Inicializa la lista de contratista
+        /// </summary>
         private void InicializaLstContratistas()
         {
             lstContratistas.DataSource = null;
@@ -47,6 +52,9 @@ namespace SiembrasCorantioquia.vistas
             lstContratistas.DisplayMember = "nombre";
         }
 
+        /// <summary>
+        /// Inicializa la lista de árboles
+        /// </summary>
         private void InicializaLstArboles()
         {
             lstArboles.DataSource = null;

@@ -24,23 +24,21 @@ namespace SiembrasCorantioquia.vistas
 
         private void FormaReporteSiembras_Load(object sender, EventArgs e)
         {
-            InicializaDgvSiembrasDetalleSiembras();
+            InicializaDgvDetalleSiembras();
         }
 
-        private void InicializaDgvSiembrasDetalleSiembras()
+        /// <summary>
+        /// Inicializa el DataGridView con el detalle de siembras
+        /// </summary>
+        private void InicializaDgvDetalleSiembras()
         {
-            dgvSiembras.DataSource = null;
-            dgvSiembras.DataSource = AccesoDatos.ObtenerDetalleSiembras();
-        }
-
-        private void FormaReporteSiembras_Activated(object sender, EventArgs e)
-        {
-            InicializaDgvSiembrasDetalleSiembras();
+            dgvDetalleSiembras.DataSource = null;
+            dgvDetalleSiembras.DataSource = AccesoDatos.ObtenerDetalleSiembras();
         }
 
         private void FormaReporteSiembras_Enter(object sender, EventArgs e)
         {
-            InicializaDgvSiembrasDetalleSiembras();
+            InicializaDgvDetalleSiembras();
         }
     }
 }
