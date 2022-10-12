@@ -193,15 +193,15 @@ namespace SiembrasCorantioquia.vistas
         private void btnFormaActualizaSiembra_Click(object sender, EventArgs e)
         {
             AbrirFormulario<FormaActualizaSiembra>();
-            btnFormaReporteSiembras.BackColor = Color.FromArgb(216, 236, 191);
-            btnFormaReporteSiembras.ForeColor = Color.Black;
+            btnFormaActualizaSiembra.BackColor = Color.FromArgb(216, 236, 191);
+            btnFormaActualizaSiembra.ForeColor = Color.Black;
         }
 
         private void btnFormaBorraSiembra_Click(object sender, EventArgs e)
         {
             AbrirFormulario<FormaBorraSiembra>();
-            btnFormaReporteSiembras.BackColor = Color.FromArgb(216, 236, 191);
-            btnFormaReporteSiembras.ForeColor = Color.Black;
+            btnFormaBorraSiembra.BackColor = Color.FromArgb(216, 236, 191);
+            btnFormaBorraSiembra.ForeColor = Color.Black;
         }
     }
 }

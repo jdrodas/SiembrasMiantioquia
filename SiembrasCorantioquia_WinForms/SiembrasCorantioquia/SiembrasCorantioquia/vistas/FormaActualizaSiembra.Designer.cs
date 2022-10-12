@@ -128,6 +128,7 @@
             this.lstMunicipios.Name = "lstMunicipios";
             this.lstMunicipios.Size = new System.Drawing.Size(300, 79);
             this.lstMunicipios.TabIndex = 49;
+            this.lstMunicipios.SelectedIndexChanged += new System.EventHandler(this.lstMunicipios_SelectedIndexChanged);
             // 
             // btnActualizaSiembra
             // 
@@ -148,15 +149,15 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(375, 523);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(150, 25);
+            this.label8.Size = new System.Drawing.Size(156, 25);
             this.label8.TabIndex = 47;
-            this.label8.Text = "Total Hectáreas";
+            this.label8.Text = "Total Hectáreas:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(395, 473);
+            this.label7.Location = new System.Drawing.Point(397, 473);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(134, 25);
             this.label7.TabIndex = 46;
@@ -198,10 +199,11 @@
             // 
             this.dtpFecha.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFecha.CustomFormat = "\"dd/MM/yyyy\"";
-            this.dtpFecha.Location = new System.Drawing.Point(549, 573);
+            this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFecha.Location = new System.Drawing.Point(549, 568);
             this.dtpFecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(285, 22);
+            this.dtpFecha.Size = new System.Drawing.Size(285, 30);
             this.dtpFecha.TabIndex = 42;
             // 
             // lstVeredas

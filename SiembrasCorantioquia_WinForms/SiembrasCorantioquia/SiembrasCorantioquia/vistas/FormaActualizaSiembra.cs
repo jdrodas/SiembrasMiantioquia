@@ -24,54 +24,18 @@ namespace SiembrasCorantioquia.vistas
 
         private void FormaActualizaSiembra_Load(object sender, EventArgs e)
         {
-            InicializaListaInfoSiembras();
+            InicializaLstInfoSiembras();
         }
 
-        public void InicializaLstMunicipios(string nombreMunicipio)
+        private void FormaActualizaSiembra_Activated(object sender, EventArgs e)
         {
-            lstMunicipios.DataSource = null;
-            lstMunicipios.DataSource = AccesoDatos.ObtieneListaMunicipios();
-            lstMunicipios.DisplayMember = "nombre";
-
-            //Seleccionamos el municipio que se llama igual al de la siembra seleccionada
-            int municipioSeleccionado = lstMunicipios.Items.IndexOf(nombreMunicipio);
-            lstMunicipios.SelectedIndex = municipioSeleccionado;
+            InicializaLstInfoSiembras();
         }
 
-        public void InicializaLstVeredas(string nombreVereda)
-        {
-            lstVeredas.DataSource = null;
-            lstVeredas.DataSource = AccesoDatos.ObtieneListaVeredas(lstMunicipios.SelectedItem.ToString());
-            lstVeredas.DisplayMember = "nombre";
-
-            //Seleccionamos el municipio que se llama igual al de la siembra seleccionada
-            int veredaSeleccionada = lstVeredas.Items.IndexOf(nombreVereda);
-            lstVeredas.SelectedIndex = veredaSeleccionada;
-        }
-
-        private void InicializaLstArboles(string nombreArbol)
-        {
-            lstArboles.DataSource = null;
-            lstArboles.DataSource = AccesoDatos.ObtieneListaArboles();
-            lstArboles.DisplayMember = "nombre";
-
-            //Seleccionamos el arbol que se llama igual al de la siembra seleccionada
-            int arbolSeleccionado = lstArboles.Items.IndexOf(nombreArbol);
-            lstArboles.SelectedIndex = arbolSeleccionado;
-        }
-
-        private void InicializaLstContratistas(string nombreContratista)
-        {
-            lstContratistas.DataSource = null;
-            lstContratistas.DataSource = AccesoDatos.ObtieneListaContratistas();
-            lstContratistas.DisplayMember = "nombre";
-
-            //Seleccionamos el arbol que se llama igual al de la siembra seleccionada
-            int contratistaSeleccionado = lstContratistas.Items.IndexOf(nombreContratista);
-            lstContratistas.SelectedIndex = contratistaSeleccionado;
-        }
-
-        private void InicializaListaInfoSiembras()
+        /// <summary>
+        /// Inicializa la lista que contiene la información resumida de la siembras
+        /// </summary>
+        private void InicializaLstInfoSiembras()
         {
             lstInfoSiembras.DataSource = null;
             lstInfoSiembras.DataSource = AccesoDatos.ObtieneListaInfoSiembras();
@@ -81,19 +45,18 @@ namespace SiembrasCorantioquia.vistas
             lstInfoSiembras.SelectedIndex = 0;
         }
 
-        private void FormaActualizaSiembra_Activated(object sender, EventArgs e)
-        {
-            InicializaListaInfoSiembras();
-        }
-
         private void lstInfoSiembras_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Obtenemos el código de la siembra
             string[] infoSiembra = lstInfoSiembras.SelectedItem.ToString().Split('-');
             int codigo_siembra = int.Parse(infoSiembra[0].Trim());
             txtCodigoSiembra.Text = codigo_siembra.ToString();
 
-            //Leemos la siembra asociada al codigo_obtenido
+            //Leemos desde la DB, la siembra asociada al codigo_obtenido
             Siembra unaSiembra = AccesoDatos.ObtenerSiembra(codigo_siembra);
+
+            //Actualizamos las listas asignando como item seleccionado
+            //el valor correspondiente de la siembra
 
             //Actualiza las listas de los atributos de la siembra
             InicializaLstMunicipios(unaSiembra.Nombre_Municipio);
@@ -110,19 +73,117 @@ namespace SiembrasCorantioquia.vistas
             //Actualizamos total arboles, total hectáreas y Fecha de la siembra
             txtTotalArboles.Text = unaSiembra.Total_Arboles.ToString();
             txtTotalHectareas.Text = unaSiembra.Total_Hectareas.ToString();
-            dtpFecha.Value = ObtieneFechaSiembra(unaSiembra.Fecha_Siembra);
+
+            //Aqui controlamos la visualización del formato de fecha
+            DateTime fechaNormalizada;
+            string mensajeError;
+            bool resultadoCorrecto = ObtieneFechaSiembra(unaSiembra.Fecha_Siembra, 
+                out fechaNormalizada, out mensajeError);
+
+            if (resultadoCorrecto)
+                dtpFecha.Value = fechaNormalizada;
+            else
+                MessageBox.Show($"La fecha no tiene el formato DD/MM/YYYY. {mensajeError}",
+                    "Error al extraer fecha",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Stop);
         }
 
-        private DateTime ObtieneFechaSiembra(string datoFecha)
+        /// <summary>
+        /// Inicializa la lista de los municipios
+        /// </summary>
+        /// <param name="nombreMunicipio">el municipio que se espera sea seleccionado</param>
+        public void InicializaLstMunicipios(string nombreMunicipio)
         {
-            string[] laFecha = datoFecha.Split('/');
-            DateTime resultado = new DateTime(
-                int.Parse(laFecha[2]),
-                int.Parse(laFecha[1]),
-                int.Parse(laFecha[0])
-                );
+            lstMunicipios.DataSource = null;
+            lstMunicipios.DataSource = AccesoDatos.ObtieneListaMunicipios();
+            lstMunicipios.DisplayMember = "nombre";
 
-            return resultado;
+            //Seleccionamos el municipio que se llama igual al de la siembra seleccionada
+            if (string.IsNullOrEmpty(nombreMunicipio))
+                lstMunicipios.SelectedIndex = 0;
+            else
+                lstMunicipios.SelectedIndex = lstMunicipios.Items.IndexOf(nombreMunicipio);
+        }
+
+        /// <summary>
+        /// Inicializa la lista de los veredas
+        /// </summary>
+        /// <param name="nombreVereda">la vereda que se espera sea seleccionada</param>
+        public void InicializaLstVeredas(string nombreVereda)
+        {
+            lstVeredas.DataSource = null;
+            lstVeredas.DataSource = AccesoDatos.ObtieneListaVeredas(lstMunicipios.SelectedItem.ToString());
+            lstVeredas.DisplayMember = "nombre";
+
+            //Seleccionamos la vereda que se llama igual al de la siembra seleccionada
+            if (string.IsNullOrEmpty(nombreVereda))
+                lstVeredas.SelectedIndex = 0;
+            else
+                lstVeredas.SelectedIndex = lstVeredas.Items.IndexOf(nombreVereda);
+        }
+
+        /// <summary>
+        /// Inicializa la lista de los arboles
+        /// </summary>
+        /// <param name="nombreArbol">El arbol que se espera sea seleccionado</param>
+        private void InicializaLstArboles(string nombreArbol)
+        {
+            lstArboles.DataSource = null;
+            lstArboles.DataSource = AccesoDatos.ObtieneListaArboles();
+            lstArboles.DisplayMember = "nombre";
+
+            //Seleccionamos el arbol que se llama igual al de la siembra seleccionada
+            if (string.IsNullOrEmpty(nombreArbol))
+                lstArboles.SelectedIndex = 0;
+            else
+                lstArboles.SelectedIndex = lstArboles.Items.IndexOf(nombreArbol);
+        }
+
+        /// <summary>
+        /// Inicializa la lista de contratista
+        /// </summary>
+        /// <param name="nombreContratista">El contratista que se espera sea seleccionado</param>
+        private void InicializaLstContratistas(string nombreContratista)
+        {
+            lstContratistas.DataSource = null;
+            lstContratistas.DataSource = AccesoDatos.ObtieneListaContratistas();
+            lstContratistas.DisplayMember = "nombre";
+
+            //Seleccionamos el arbol que se llama igual al de la siembra seleccionada
+            if (string.IsNullOrEmpty(nombreContratista))
+                lstContratistas.SelectedIndex = 0;
+            else
+                lstContratistas.SelectedIndex = lstContratistas.Items.IndexOf(nombreContratista);
+        }
+
+        /// <summary>
+        /// Obtiene objeto tipo fecha a partir de su representación como cadena corta
+        /// </summary>
+        /// <param name="datoFecha">La fecha en formato cadena corta</param>
+        /// <returns></returns>
+        private bool ObtieneFechaSiembra(string datoFecha, out DateTime fechaResultado, out string mensajeError)
+        {
+            bool resultadoConversion = false;
+            try
+            {
+                string[] laFecha = datoFecha.Split('/');
+                fechaResultado = new DateTime(
+                    int.Parse(laFecha[2]),
+                    int.Parse(laFecha[1]),
+                    int.Parse(laFecha[0])
+                    );
+                resultadoConversion = true;
+                mensajeError = "";
+            }
+            catch(ArgumentOutOfRangeException error)
+            { 
+                resultadoConversion=false;
+                mensajeError = error.Message;
+                fechaResultado = DateTime.Now;
+            }
+
+            return resultadoConversion;
         }
 
         private void btnActualizaSiembra_Click(object sender, EventArgs e)
@@ -160,6 +221,31 @@ namespace SiembrasCorantioquia.vistas
             catch (FormatException unErrorFormato)
             {
                 MessageBox.Show($"Datos numéricos no tienen el formato Esperado. {unErrorFormato.Message}");
+            }
+        }
+
+        private void lstMunicipios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Si hay municipios seleccionados, se actualiza la lista de veredas
+            if (lstMunicipios.SelectedItems.Count != 0)
+                ActualizaLstVeredas();
+            else
+                //De lo contrario, se borra la lista de Veredas
+                lstVeredas.DataSource = null;
+        }
+
+        /// <summary>
+        /// Actualiza la lista de Veredas
+        /// </summary>
+        public void ActualizaLstVeredas()
+        {
+            lstVeredas.DataSource = null;
+
+            //Verificamos que haya un municipio seleccionado en lstMunicipios
+            if (lstMunicipios.SelectedItems.Count != 0)
+            {
+                lstVeredas.DataSource = AccesoDatos.ObtieneListaVeredas(lstMunicipios.SelectedItem.ToString());
+                lstVeredas.DisplayMember = "nombre";
             }
         }
     }

@@ -54,11 +54,19 @@ namespace SiembrasCorantioquia.vistas
             lstArboles.DisplayMember = "nombre";
         }
 
+        /// <summary>
+        /// Actualiza la lista de Veredas
+        /// </summary>
         public void ActualizaLstVeredas()
         {
             lstVeredas.DataSource = null;
-            lstVeredas.DataSource = AccesoDatos.ObtieneListaVeredas(lstMunicipios.SelectedItem.ToString());
-            lstVeredas.DisplayMember = "nombre";
+
+            //Verificamos que haya un municipio seleccionado en lstMunicipios
+            if (lstMunicipios.SelectedItems.Count != 0)
+            {
+                lstVeredas.DataSource = AccesoDatos.ObtieneListaVeredas(lstMunicipios.SelectedItem.ToString());
+                lstVeredas.DisplayMember = "nombre";
+            }
         }
 
         private void btnAgregarSiembra_Click(object sender, EventArgs e)
@@ -110,7 +118,6 @@ namespace SiembrasCorantioquia.vistas
                 //De lo contrario, se borra la lista de Veredas
                 lstVeredas.DataSource = null;
             }
-
         }
     }
 }
