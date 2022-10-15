@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiembrasCorantioquia_PoC_NoSQL_Console", "SiembrasCorantioquia_PoC_NoSQL_Console\SiembrasCorantioquia_PoC_NoSQL_Console.csproj", "{D59EFC9D-3BBA-45EE-B694-E8DACB26F851}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D59EFC9D-3BBA-45EE-B694-E8DACB26F851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D59EFC9D-3BBA-45EE-B694-E8DACB26F851}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D59EFC9D-3BBA-45EE-B694-E8DACB26F851}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D59EFC9D-3BBA-45EE-B694-E8DACB26F851}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B6F3C469-9B37-449A-A18F-BF0CA4022425}
+	EndGlobalSection
+EndGlobal
