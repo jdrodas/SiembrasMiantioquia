@@ -1,4 +1,4 @@
-﻿namespace SiembrasCorantioquia.vistas
+﻿namespace SiembrasMiantioquia_WinForms
 {
     partial class FormaVeredas
     {
@@ -51,7 +51,7 @@
             // pbxBotonCerrar
             // 
             this.pbxBotonCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pbxBotonCerrar.Image = global::SiembrasCorantioquia.Properties.Resources.cerrar;
+            this.pbxBotonCerrar.Image = global::SiembrasMiantioquia_WinForms.Properties.Resources.cerrar;
             this.pbxBotonCerrar.Location = new System.Drawing.Point(1075, 15);
             this.pbxBotonCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.pbxBotonCerrar.Name = "pbxBotonCerrar";

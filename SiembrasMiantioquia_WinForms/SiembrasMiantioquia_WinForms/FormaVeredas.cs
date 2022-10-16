@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SiembrasCorantioquia.vistas
+namespace SiembrasMiantioquia_WinForms
 {
     public partial class FormaVeredas : Form
     {
