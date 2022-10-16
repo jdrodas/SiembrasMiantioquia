@@ -9,10 +9,10 @@ Aplicaciones tipo Desktop para demostrar conectividad con SQLite.
 
 ## Version 1.0.0 - Septiembre de 2022
 
-![ScreenShot - Consulta - Septiembre de 20222](/screenshots/siembras_consulta.png)
+![ScreenShot - Consulta - Septiembre de 20222](screenshots/siembras_consulta.png)
 
-![ScreenShot - Actualización - Septiembre de 20222](/screenshots/siembras_actualizacion.png)
+![ScreenShot - Actualización - Septiembre de 20222](screenshots/siembras_actualizacion.png)
 
-![ScreenShot - Inserción - Septiembre de 20222](/screenshots/siembras_insercion.png)
+![ScreenShot - Inserción - Septiembre de 20222](screenshots/siembras_insercion.png)
 
-![ScreenShot - Borrado - Septiembre de 20222](/screenshots/siembras_borrado.png)
+![ScreenShot - Borrado - Septiembre de 20222](screenshots/siembras_borrado.png)
