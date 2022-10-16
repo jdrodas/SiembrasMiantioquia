@@ -10,11 +10,11 @@
 - UI tipo MDA con menú de navegación lateral
 - Implementación de acciones CRUD para la siembra
 
-![ScreenShot - V1.0.0 - Septiembre de 20222](screenshots/Siembras_insertar.png)
+![ScreenShot - V1.0.0 - Septiembre de 20222](/SiembrasMiantioquia_WinForms/ScreenShots/siembras_insertar.png)
 
-![ScreenShot - V1.0.0 - Septiembre de 20222](screenshots/Siembras_actualizar.png)
+![ScreenShot - V1.0.0 - Septiembre de 20222](/SiembrasMiantioquia_WinForms/ScreenShots/siembras_actualizar.png)
 
-![ScreenShot - V1.0.0 - Septiembre de 20222](screenshots/Siembras_borrar.png)
+![ScreenShot - V1.0.0 - Septiembre de 20222](/SiembrasMiantioquia_WinForms/ScreenShots/siembras_borrar.png)
 
-![ScreenShot - V1.0.0 - Septiembre de 20222](screenshots/Siembras_consultar.png)
+![ScreenShot - V1.0.0 - Septiembre de 20222](/SiembrasMiantioquia_WinForms/ScreenShots/siembras_consultar.png)
 
