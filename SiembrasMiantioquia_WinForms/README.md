@@ -1,20 +1,12 @@
-# SiembrasMiantioquia - Windows Forms
-- Aplicaciones tipo Desktop para demostrar conectividad con SQLite.
-- Framework: .NET 4.8.1
-- DB: Sqlite 3
-- ORM: Dapper
+# SiembrasMiantioquia
+Aplicaciones tipo Desktop para demostrar conectividad con SQLite.
 
 
-## Version 1.0.0 - Septiembre de 2022
-- Conectividad inicial a la base de datos instalada.
-- UI tipo MDA con menú de navegación lateral
-- Implementación de acciones CRUD para la siembra
+>### [SiembrasMiantioquia_WinForms](https://github.com/jdrodas/SiembrasMiantioquia/tree/main/SiembrasMiantioquia_WinForms)
+>>Aplicación en Windows Forms en .NET Framework 4.8.x para demostrar conectividad a SQLite
 
-![ScreenShot - V1.0.0 - Septiembre de 20222](/SiembrasMiantioquia_WinForms/ScreenShots/siembras_insertar.png)
 
-![ScreenShot - V1.0.0 - Septiembre de 20222](/SiembrasMiantioquia_WinForms/ScreenShots/siembras_actualizar.png)
+## PoC - Pruebas de Concepto
 
-![ScreenShot - V1.0.0 - Septiembre de 20222](/SiembrasMiantioquia_WinForms/ScreenShots/siembras_borrar.png)
-
-![ScreenShot - V1.0.0 - Septiembre de 20222](/SiembrasMiantioquia_WinForms/ScreenShots/siembras_consultar.png)
-
+>### [SiembrasCorantioquia_PoC_Console](https://github.com/jdrodas/SiembrasCorantioquia/tree/main/SiembrasCorantioquia_PoC_Console)
+>>Aplicación de Consola en C# para .NET Framework 4.8.x para demostrar acciones básicas de CRUD sobre una DB SQLite
