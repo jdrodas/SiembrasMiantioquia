@@ -5,10 +5,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BE56673D-50AA-4692-850E-3E0781D1200F}</ProjectGuid>
+    <ProjectGuid>{6D5E4F6A-2765-4B8D-A3E8-2219B78F586C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SiembrasCorantioquia_PoC_Console</RootNamespace>
-    <AssemblyName>SiembrasCorantioquia_PoC_Console</AssemblyName>
+    <RootNamespace>SiembrasMiantioquia_PoC_Console</RootNamespace>
+    <AssemblyName>SiembrasMiantioquia_PoC_Console</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

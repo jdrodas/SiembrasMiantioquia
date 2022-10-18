@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SiembrasCorantioquia_PoC_Console
+namespace SiembrasMiantioquia_PoC_Console
 {
     public class Siembra
     {

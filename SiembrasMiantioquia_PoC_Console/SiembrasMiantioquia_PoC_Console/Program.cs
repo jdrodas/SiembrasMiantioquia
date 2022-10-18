@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SiembrasCorantioquia_PoC_Console
+namespace SiembrasMiantioquia_PoC_Console
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Siembras Corantioquia - PoC para conectividad a SQLite");
+            Console.WriteLine("Siembras Miantioquia - PoC para conectividad a SQLite");
 
             //Aqui demostramos consulta
             Console.WriteLine("\nVeredas que se encuentran vinculadas a Copacabana:");
