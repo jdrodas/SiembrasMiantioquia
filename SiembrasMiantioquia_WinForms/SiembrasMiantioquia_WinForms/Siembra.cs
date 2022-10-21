@@ -47,6 +47,7 @@ namespace SiembrasMiantioquia_WinForms
         public override string ToString()
         {
             return string.Format(
+                $"Código siembra: {Codigo_Siembra} " + Environment.NewLine +
                 $"Nombre vereda: {Nombre_Vereda} " + Environment.NewLine +
                 $"Nombre municipio: {Nombre_Municipio} " + Environment.NewLine +
                 $"Nombre arbol: {Nombre_Arbol} " + Environment.NewLine +

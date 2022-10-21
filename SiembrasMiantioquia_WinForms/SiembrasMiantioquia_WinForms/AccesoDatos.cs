@@ -96,7 +96,7 @@ namespace SiembrasMiantioquia_WinForms
             using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
             {
                 // se define la sentencia SQL a utilizar, pero sin concatenar el id
-                string sentenciaSQL = "SELECT s.codigo, s.fecha fecha_siembra, s.total_hectareas, " +
+                string sentenciaSQL = "SELECT s.codigo codigo_siembra, s.fecha fecha_siembra, s.total_hectareas, " +
                     "s.total_arboles, s.codigo_vereda, s.codigo_contratista, " +
                     "s.codigo_arbol, v.codigo_municipio " +
                     "FROM siembras s JOIN veredas v ON s.codigo_vereda = v.codigo " +

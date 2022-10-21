@@ -31,6 +31,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pbxBotonCerrar = new System.Windows.Forms.PictureBox();
             this.dgvDetalleSiembras = new System.Windows.Forms.DataGridView();
+            this.txtCodigoSiembra = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSiembraJSON = new System.Windows.Forms.TextBox();
+            this.txtSiembraXML = new System.Windows.Forms.TextBox();
+            this.txtSiembraTextoPlano = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBotonCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleSiembras)).BeginInit();
             this.SuspendLayout();
@@ -63,20 +71,109 @@
             // 
             // dgvDetalleSiembras
             // 
+            this.dgvDetalleSiembras.AllowUserToAddRows = false;
+            this.dgvDetalleSiembras.AllowUserToDeleteRows = false;
             this.dgvDetalleSiembras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalleSiembras.Location = new System.Drawing.Point(41, 78);
+            this.dgvDetalleSiembras.Location = new System.Drawing.Point(37, 63);
             this.dgvDetalleSiembras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvDetalleSiembras.Name = "dgvDetalleSiembras";
+            this.dgvDetalleSiembras.ReadOnly = true;
             this.dgvDetalleSiembras.RowHeadersWidth = 51;
             this.dgvDetalleSiembras.RowTemplate.Height = 24;
-            this.dgvDetalleSiembras.Size = new System.Drawing.Size(1034, 494);
+            this.dgvDetalleSiembras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetalleSiembras.Size = new System.Drawing.Size(1032, 249);
             this.dgvDetalleSiembras.TabIndex = 8;
+            this.dgvDetalleSiembras.SelectionChanged += new System.EventHandler(this.dgvDetalleSiembras_SelectionChanged);
+            // 
+            // txtCodigoSiembra
+            // 
+            this.txtCodigoSiembra.Enabled = false;
+            this.txtCodigoSiembra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoSiembra.Location = new System.Drawing.Point(291, 351);
+            this.txtCodigoSiembra.Name = "txtCodigoSiembra";
+            this.txtCodigoSiembra.Size = new System.Drawing.Size(129, 30);
+            this.txtCodigoSiembra.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(45, 356);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(211, 25);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Siembra seleccionada:";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(379, 406);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(180, 28);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Versión en JSON:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(749, 406);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(176, 28);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Versión en XML:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtSiembraJSON
+            // 
+            this.txtSiembraJSON.Location = new System.Drawing.Point(379, 446);
+            this.txtSiembraJSON.Multiline = true;
+            this.txtSiembraJSON.Name = "txtSiembraJSON";
+            this.txtSiembraJSON.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtSiembraJSON.Size = new System.Drawing.Size(320, 240);
+            this.txtSiembraJSON.TabIndex = 13;
+            // 
+            // txtSiembraXML
+            // 
+            this.txtSiembraXML.Location = new System.Drawing.Point(749, 446);
+            this.txtSiembraXML.Multiline = true;
+            this.txtSiembraXML.Name = "txtSiembraXML";
+            this.txtSiembraXML.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtSiembraXML.Size = new System.Drawing.Size(320, 240);
+            this.txtSiembraXML.TabIndex = 14;
+            // 
+            // txtSiembraTextoPlano
+            // 
+            this.txtSiembraTextoPlano.Location = new System.Drawing.Point(39, 446);
+            this.txtSiembraTextoPlano.Multiline = true;
+            this.txtSiembraTextoPlano.Name = "txtSiembraTextoPlano";
+            this.txtSiembraTextoPlano.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtSiembraTextoPlano.Size = new System.Drawing.Size(320, 240);
+            this.txtSiembraTextoPlano.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(39, 406);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(220, 23);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Versión en texto plano:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FormaReporteSiembras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 703);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtSiembraTextoPlano);
+            this.Controls.Add(this.txtSiembraXML);
+            this.Controls.Add(this.txtSiembraJSON);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtCodigoSiembra);
             this.Controls.Add(this.dgvDetalleSiembras);
             this.Controls.Add(this.pbxBotonCerrar);
             this.Controls.Add(this.label1);
@@ -87,6 +184,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxBotonCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleSiembras)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -95,5 +193,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbxBotonCerrar;
         private System.Windows.Forms.DataGridView dgvDetalleSiembras;
+        private System.Windows.Forms.TextBox txtCodigoSiembra;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtSiembraJSON;
+        private System.Windows.Forms.TextBox txtSiembraXML;
+        private System.Windows.Forms.TextBox txtSiembraTextoPlano;
+        private System.Windows.Forms.Label label5;
     }
 }
