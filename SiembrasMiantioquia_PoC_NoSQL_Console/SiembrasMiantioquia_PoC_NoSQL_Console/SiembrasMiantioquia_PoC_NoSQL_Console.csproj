@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D59EFC9D-3BBA-45EE-B694-E8DACB26F851}</ProjectGuid>
+    <ProjectGuid>{511A2B2E-D492-44C2-955F-5E9C485229D9}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SiembrasCorantioquia_PoC_NoSQL_Console</RootNamespace>
-    <AssemblyName>SiembrasCorantioquia_PoC_NoSQL_Console</AssemblyName>
+    <RootNamespace>SiembrasMiantioquia_PoC_NoSQL_Console</RootNamespace>
+    <AssemblyName>SiembrasMiantioquia_PoC_NoSQL_Console</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -58,9 +58,6 @@
     </Reference>
     <Reference Include="MongoDB.Libmongocrypt, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MongoDB.Libmongocrypt.1.6.0\lib\net472\MongoDB.Libmongocrypt.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SharpCompress, Version=0.30.1.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpCompress.0.30.1\lib\net461\SharpCompress.dll</HintPath>

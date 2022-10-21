@@ -7,12 +7,12 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Configuration;
 
-namespace SiembrasCorantioquia_PoC_NoSQL_Console
+namespace SiembrasMiantioquia_PoC_NoSQL_Console
 {
     public class AccesoDatos
     {
-        const string nombreDB = "SiembrasCorantioquia";
-        const string idStringConexion = "SiembrasCorantioquiaDB";
+        const string nombreDB = "SiembrasMiantioquia";
+        const string idStringConexion = "SiembrasMiantioquiaDB";
 
         private static string ObtieneCadenaConexion(string id)
         {

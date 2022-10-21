@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada a un ensamblado.
-[assembly: AssemblyTitle("SiembrasCorantioquia_PoC_NoSQL_Console")]
+[assembly: AssemblyTitle("SiembrasMiantioquia_PoC_NoSQL_Console")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SiembrasCorantioquia_PoC_NoSQL_Console")]
+[assembly: AssemblyProduct("SiembrasMiantioquia_PoC_NoSQL_Console")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("d59efc9d-3bba-45ee-b694-e8dacb26f851")]
+[assembly: Guid("511a2b2e-d492-44c2-955f-5e9c485229d9")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //
