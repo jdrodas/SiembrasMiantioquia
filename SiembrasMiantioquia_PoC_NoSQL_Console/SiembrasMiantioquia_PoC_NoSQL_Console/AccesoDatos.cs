@@ -64,7 +64,7 @@ namespace SiembrasMiantioquia_PoC_NoSQL_Console
             miColeccion.InsertOne(unaSiembra);
         }
 
-        public static List<Vereda> ObtieneListaNombreVeredasMunicipio(string nombreMunicipio)
+        public static List<Vereda> ObtieneListaVeredasMunicipio(string nombreMunicipio)
         {
             string cadenaConexion = ObtieneCadenaConexion(idStringConexion);
             var clienteDB = new MongoClient(cadenaConexion);
