@@ -341,7 +341,7 @@ namespace SiembrasMiantioquia_WinForms
         /// <summary>
         /// Obtiene una lista con los nombres de las Veredas y Municipios
         /// </summary>
-        public static List<string> ObtieneListaVeredas()
+        public static List<string> OtieneListaNombreVeredas()
         {
             string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
 
@@ -352,7 +352,7 @@ namespace SiembrasMiantioquia_WinForms
             }
         }
 
-        public static List<string> ObtieneListaVeredas(string nombreMunicipio)
+        public static List<string> ObtieneListaNombreVeredasMunicipio(string nombreMunicipio)
         {
             string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
 
@@ -372,6 +372,20 @@ namespace SiembrasMiantioquia_WinForms
                     return salida.ToList();
                 else
                     return new List<string>();
+            }
+        }
+
+        public static List<Vereda> ObtieneListaVeredas()
+        {
+            string cadenaConexion = ObtenerCadenaConexion("SiembrasDB");
+
+            using (IDbConnection cxnDB = new SQLiteConnection(cadenaConexion))
+            {
+                string sentenciaSQL = "SELECT v.codigo, v.nombre, m.nombre nombre_municipio " +
+                    "FROM veredas v join municipios m on v.codigo_municipio = m.codigo " +
+                    "order by v.codigo";
+                var salida = cxnDB.Query<Vereda>(sentenciaSQL, new DynamicParameters());
+                return salida.ToList();
             }
         }
 

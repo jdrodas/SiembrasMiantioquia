@@ -106,7 +106,7 @@ namespace SiembrasMiantioquia_WinForms
         public void InicializaLstVeredas(string nombreVereda)
         {
             lstVeredas.DataSource = null;
-            lstVeredas.DataSource = AccesoDatos.ObtieneListaVeredas(lstMunicipios.SelectedItem.ToString());
+            lstVeredas.DataSource = AccesoDatos.ObtieneListaNombreVeredasMunicipio(lstMunicipios.SelectedItem.ToString());
             lstVeredas.DisplayMember = "nombre";
 
             //Seleccionamos la vereda que se llama igual al de la siembra seleccionada
@@ -243,7 +243,7 @@ namespace SiembrasMiantioquia_WinForms
             //Verificamos que haya un municipio seleccionado en lstMunicipios
             if (lstMunicipios.SelectedItems.Count != 0)
             {
-                lstVeredas.DataSource = AccesoDatos.ObtieneListaVeredas(lstMunicipios.SelectedItem.ToString());
+                lstVeredas.DataSource = AccesoDatos.ObtieneListaNombreVeredasMunicipio(lstMunicipios.SelectedItem.ToString());
                 lstVeredas.DisplayMember = "nombre";
             }
         }

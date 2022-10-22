@@ -80,7 +80,7 @@
             this.panelContenedor.Controls.Add(this.panelTitulo);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(0, 0);
-            this.panelContenedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelContenedor.Margin = new System.Windows.Forms.Padding(2);
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1050, 650);
             this.panelContenedor.TabIndex = 0;
@@ -122,7 +122,7 @@
             this.panelCrudVeredas.Controls.Add(this.btnFormaNuevaVereda);
             this.panelCrudVeredas.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCrudVeredas.Location = new System.Drawing.Point(0, 609);
-            this.panelCrudVeredas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelCrudVeredas.Margin = new System.Windows.Forms.Padding(2);
             this.panelCrudVeredas.Name = "panelCrudVeredas";
             this.panelCrudVeredas.Size = new System.Drawing.Size(171, 130);
             this.panelCrudVeredas.TabIndex = 0;
@@ -143,6 +143,7 @@
             this.btnFormaReporteVereda.Text = "Reporte Vereda";
             this.btnFormaReporteVereda.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFormaReporteVereda.UseVisualStyleBackColor = true;
+            this.btnFormaReporteVereda.Click += new System.EventHandler(this.btnFormaReporteVereda_Click);
             // 
             // btnFormaBorraVereda
             // 
@@ -222,7 +223,7 @@
             this.panelCrudContratistas.Controls.Add(this.btnFormaNuevoContratista);
             this.panelCrudContratistas.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCrudContratistas.Location = new System.Drawing.Point(0, 447);
-            this.panelCrudContratistas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelCrudContratistas.Margin = new System.Windows.Forms.Padding(2);
             this.panelCrudContratistas.Name = "panelCrudContratistas";
             this.panelCrudContratistas.Size = new System.Drawing.Size(171, 130);
             this.panelCrudContratistas.TabIndex = 6;
@@ -322,7 +323,7 @@
             this.panelCrudArboles.Controls.Add(this.btnFormaNuevoArbol);
             this.panelCrudArboles.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCrudArboles.Location = new System.Drawing.Point(0, 285);
-            this.panelCrudArboles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelCrudArboles.Margin = new System.Windows.Forms.Padding(2);
             this.panelCrudArboles.Name = "panelCrudArboles";
             this.panelCrudArboles.Size = new System.Drawing.Size(171, 130);
             this.panelCrudArboles.TabIndex = 0;
@@ -538,7 +539,7 @@
             this.panelTitulo.Controls.Add(this.pbxBotonCerrar);
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(0, 0);
-            this.panelTitulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTitulo.Margin = new System.Windows.Forms.Padding(2);
             this.panelTitulo.Name = "panelTitulo";
             this.panelTitulo.Size = new System.Drawing.Size(1050, 40);
             this.panelTitulo.TabIndex = 0;
@@ -582,7 +583,7 @@
             this.ClientSize = new System.Drawing.Size(1050, 650);
             this.Controls.Add(this.panelContenedor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(1050, 650);
             this.MinimumSize = new System.Drawing.Size(1050, 650);
             this.Name = "FormaPrincipal";

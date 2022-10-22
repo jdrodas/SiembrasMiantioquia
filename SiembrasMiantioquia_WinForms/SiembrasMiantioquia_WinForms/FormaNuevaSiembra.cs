@@ -72,7 +72,7 @@ namespace SiembrasMiantioquia_WinForms
             //Verificamos que haya un municipio seleccionado en lstMunicipios
             if (lstMunicipios.SelectedItems.Count != 0)
             {
-                lstVeredas.DataSource = AccesoDatos.ObtieneListaVeredas(lstMunicipios.SelectedItem.ToString());
+                lstVeredas.DataSource = AccesoDatos.ObtieneListaNombreVeredasMunicipio(lstMunicipios.SelectedItem.ToString());
                 lstVeredas.DisplayMember = "nombre";
             }
         }

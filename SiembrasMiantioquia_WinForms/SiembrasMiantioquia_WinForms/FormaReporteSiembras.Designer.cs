@@ -73,7 +73,7 @@
             this.dgvDetalleSiembras.AllowUserToDeleteRows = false;
             this.dgvDetalleSiembras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetalleSiembras.Location = new System.Drawing.Point(28, 51);
-            this.dgvDetalleSiembras.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDetalleSiembras.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDetalleSiembras.Name = "dgvDetalleSiembras";
             this.dgvDetalleSiembras.ReadOnly = true;
             this.dgvDetalleSiembras.RowHeadersWidth = 51;
@@ -88,7 +88,7 @@
             this.txtCodigoSiembra.Enabled = false;
             this.txtCodigoSiembra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoSiembra.Location = new System.Drawing.Point(218, 285);
-            this.txtCodigoSiembra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCodigoSiembra.Margin = new System.Windows.Forms.Padding(2);
             this.txtCodigoSiembra.Name = "txtCodigoSiembra";
             this.txtCodigoSiembra.Size = new System.Drawing.Size(98, 26);
             this.txtCodigoSiembra.TabIndex = 9;
@@ -129,7 +129,7 @@
             // txtSiembraJSON
             // 
             this.txtSiembraJSON.Location = new System.Drawing.Point(284, 362);
-            this.txtSiembraJSON.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSiembraJSON.Margin = new System.Windows.Forms.Padding(2);
             this.txtSiembraJSON.Multiline = true;
             this.txtSiembraJSON.Name = "txtSiembraJSON";
             this.txtSiembraJSON.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -139,7 +139,7 @@
             // txtSiembraXML
             // 
             this.txtSiembraXML.Location = new System.Drawing.Point(562, 362);
-            this.txtSiembraXML.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSiembraXML.Margin = new System.Windows.Forms.Padding(2);
             this.txtSiembraXML.Multiline = true;
             this.txtSiembraXML.Name = "txtSiembraXML";
             this.txtSiembraXML.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -149,7 +149,7 @@
             // txtSiembraTextoPlano
             // 
             this.txtSiembraTextoPlano.Location = new System.Drawing.Point(29, 362);
-            this.txtSiembraTextoPlano.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSiembraTextoPlano.Margin = new System.Windows.Forms.Padding(2);
             this.txtSiembraTextoPlano.Multiline = true;
             this.txtSiembraTextoPlano.Name = "txtSiembraTextoPlano";
             this.txtSiembraTextoPlano.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -184,7 +184,7 @@
             this.Controls.Add(this.pbxBotonCerrar);
             this.Controls.Add(this.label1);
             this.Name = "FormaReporteSiembras";
-            this.Text = "Reporte de Siembras registradas";
+            this.Text = "FormaReporteSiembras";
             this.Load += new System.EventHandler(this.FormaReporteSiembras_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxBotonCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleSiembras)).EndInit();

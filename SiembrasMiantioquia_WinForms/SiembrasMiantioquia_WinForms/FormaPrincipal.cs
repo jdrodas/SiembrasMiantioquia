@@ -135,6 +135,12 @@ namespace SiembrasMiantioquia_WinForms
                 btnFormaReporteSiembras.ForeColor = Color.White;
             }
 
+            if (Application.OpenForms["FormaReporteVereda"] == null)
+            {
+                btnFormaReporteVereda.BackColor = Color.FromArgb(144, 157, 112);
+                btnFormaReporteVereda.ForeColor = Color.White;
+            }
+
             if (Application.OpenForms["FormaInsertaSiembra"] == null)
             {
                 btnFormaNuevaSiembra.BackColor = Color.FromArgb(144, 157, 112);
@@ -202,6 +208,13 @@ namespace SiembrasMiantioquia_WinForms
             AbrirFormulario<FormaBorraSiembra>();
             btnFormaBorraSiembra.BackColor = Color.FromArgb(216, 236, 191);
             btnFormaBorraSiembra.ForeColor = Color.Black;
+        }
+
+        private void btnFormaReporteVereda_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormaReporteVereda>();
+            btnFormaReporteSiembras.BackColor = Color.FromArgb(216, 236, 191);
+            btnFormaReporteSiembras.ForeColor = Color.Black;
         }
     }
 }
