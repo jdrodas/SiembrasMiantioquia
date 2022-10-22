@@ -59,9 +59,8 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Teal;
             this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1132, 50);
+            this.label1.Size = new System.Drawing.Size(849, 41);
             this.label1.TabIndex = 1;
             this.label1.Text = "Actualiza Siembra existente";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -70,10 +69,9 @@
             // 
             this.pbxBotonCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.pbxBotonCerrar.Image = global::SiembrasMiantioquia_WinForms.Properties.Resources.cerrar;
-            this.pbxBotonCerrar.Location = new System.Drawing.Point(1075, 15);
-            this.pbxBotonCerrar.Margin = new System.Windows.Forms.Padding(4);
+            this.pbxBotonCerrar.Location = new System.Drawing.Point(806, 12);
             this.pbxBotonCerrar.Name = "pbxBotonCerrar";
-            this.pbxBotonCerrar.Size = new System.Drawing.Size(21, 20);
+            this.pbxBotonCerrar.Size = new System.Drawing.Size(16, 16);
             this.pbxBotonCerrar.TabIndex = 2;
             this.pbxBotonCerrar.TabStop = false;
             this.pbxBotonCerrar.Click += new System.EventHandler(this.pbxBotonCerrar_Click);
@@ -82,10 +80,11 @@
             // 
             this.lstInfoSiembras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstInfoSiembras.FormattingEnabled = true;
-            this.lstInfoSiembras.ItemHeight = 25;
-            this.lstInfoSiembras.Location = new System.Drawing.Point(164, 84);
+            this.lstInfoSiembras.ItemHeight = 20;
+            this.lstInfoSiembras.Location = new System.Drawing.Point(123, 68);
+            this.lstInfoSiembras.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstInfoSiembras.Name = "lstInfoSiembras";
-            this.lstInfoSiembras.Size = new System.Drawing.Size(834, 79);
+            this.lstInfoSiembras.Size = new System.Drawing.Size(626, 64);
             this.lstInfoSiembras.TabIndex = 3;
             this.lstInfoSiembras.SelectedIndexChanged += new System.EventHandler(this.lstInfoSiembras_SelectedIndexChanged);
             // 
@@ -93,9 +92,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(66, 84);
+            this.label2.Location = new System.Drawing.Point(50, 68);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 25);
+            this.label2.Size = new System.Drawing.Size(72, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Siembra:";
             // 
@@ -103,30 +103,33 @@
             // 
             this.lstContratistas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstContratistas.FormattingEnabled = true;
-            this.lstContratistas.ItemHeight = 25;
-            this.lstContratistas.Location = new System.Drawing.Point(699, 354);
+            this.lstContratistas.ItemHeight = 20;
+            this.lstContratistas.Location = new System.Drawing.Point(524, 288);
+            this.lstContratistas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstContratistas.Name = "lstContratistas";
-            this.lstContratistas.Size = new System.Drawing.Size(300, 79);
+            this.lstContratistas.Size = new System.Drawing.Size(226, 64);
             this.lstContratistas.TabIndex = 51;
             // 
             // lstArboles
             // 
             this.lstArboles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstArboles.FormattingEnabled = true;
-            this.lstArboles.ItemHeight = 25;
-            this.lstArboles.Location = new System.Drawing.Point(699, 248);
+            this.lstArboles.ItemHeight = 20;
+            this.lstArboles.Location = new System.Drawing.Point(524, 202);
+            this.lstArboles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstArboles.Name = "lstArboles";
-            this.lstArboles.Size = new System.Drawing.Size(300, 79);
+            this.lstArboles.Size = new System.Drawing.Size(226, 64);
             this.lstArboles.TabIndex = 50;
             // 
             // lstMunicipios
             // 
             this.lstMunicipios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstMunicipios.FormattingEnabled = true;
-            this.lstMunicipios.ItemHeight = 25;
-            this.lstMunicipios.Location = new System.Drawing.Point(202, 244);
+            this.lstMunicipios.ItemHeight = 20;
+            this.lstMunicipios.Location = new System.Drawing.Point(152, 198);
+            this.lstMunicipios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstMunicipios.Name = "lstMunicipios";
-            this.lstMunicipios.Size = new System.Drawing.Size(300, 79);
+            this.lstMunicipios.Size = new System.Drawing.Size(226, 64);
             this.lstMunicipios.TabIndex = 49;
             this.lstMunicipios.SelectedIndexChanged += new System.EventHandler(this.lstMunicipios_SelectedIndexChanged);
             // 
@@ -134,10 +137,10 @@
             // 
             this.btnActualizaSiembra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(236)))), ((int)(((byte)(191)))));
             this.btnActualizaSiembra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizaSiembra.Location = new System.Drawing.Point(457, 647);
-            this.btnActualizaSiembra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnActualizaSiembra.Location = new System.Drawing.Point(343, 526);
+            this.btnActualizaSiembra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnActualizaSiembra.Name = "btnActualizaSiembra";
-            this.btnActualizaSiembra.Size = new System.Drawing.Size(298, 40);
+            this.btnActualizaSiembra.Size = new System.Drawing.Size(224, 32);
             this.btnActualizaSiembra.TabIndex = 48;
             this.btnActualizaSiembra.Text = "Actualiza Siembra";
             this.btnActualizaSiembra.UseVisualStyleBackColor = false;
@@ -147,9 +150,10 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(375, 523);
+            this.label8.Location = new System.Drawing.Point(281, 425);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(156, 25);
+            this.label8.Size = new System.Drawing.Size(126, 20);
             this.label8.TabIndex = 47;
             this.label8.Text = "Total Hectáreas:";
             // 
@@ -157,19 +161,20 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(397, 473);
+            this.label7.Location = new System.Drawing.Point(298, 384);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(134, 25);
+            this.label7.Size = new System.Drawing.Size(106, 20);
             this.label7.TabIndex = 46;
             this.label7.Text = "Total Arboles:";
             // 
             // txtTotalHectareas
             // 
             this.txtTotalHectareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalHectareas.Location = new System.Drawing.Point(549, 523);
-            this.txtTotalHectareas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTotalHectareas.Location = new System.Drawing.Point(412, 425);
+            this.txtTotalHectareas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTotalHectareas.Name = "txtTotalHectareas";
-            this.txtTotalHectareas.Size = new System.Drawing.Size(100, 30);
+            this.txtTotalHectareas.Size = new System.Drawing.Size(76, 26);
             this.txtTotalHectareas.TabIndex = 45;
             this.txtTotalHectareas.Text = "0";
             this.txtTotalHectareas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -177,10 +182,10 @@
             // txtTotalArboles
             // 
             this.txtTotalArboles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalArboles.Location = new System.Drawing.Point(549, 473);
-            this.txtTotalArboles.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTotalArboles.Location = new System.Drawing.Point(412, 384);
+            this.txtTotalArboles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTotalArboles.Name = "txtTotalArboles";
-            this.txtTotalArboles.Size = new System.Drawing.Size(100, 30);
+            this.txtTotalArboles.Size = new System.Drawing.Size(76, 26);
             this.txtTotalArboles.TabIndex = 44;
             this.txtTotalArboles.Text = "0";
             this.txtTotalArboles.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -189,9 +194,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(452, 573);
+            this.label6.Location = new System.Drawing.Point(339, 466);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 25);
+            this.label6.Size = new System.Drawing.Size(58, 20);
             this.label6.TabIndex = 43;
             this.label6.Text = "Fecha:";
             // 
@@ -200,30 +206,31 @@
             this.dtpFecha.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFecha.CustomFormat = "\"dd/MM/yyyy\"";
             this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFecha.Location = new System.Drawing.Point(549, 568);
-            this.dtpFecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpFecha.Location = new System.Drawing.Point(412, 462);
+            this.dtpFecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(450, 30);
+            this.dtpFecha.Size = new System.Drawing.Size(338, 26);
             this.dtpFecha.TabIndex = 42;
             // 
             // lstVeredas
             // 
             this.lstVeredas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstVeredas.FormattingEnabled = true;
-            this.lstVeredas.ItemHeight = 25;
-            this.lstVeredas.Location = new System.Drawing.Point(202, 354);
-            this.lstVeredas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lstVeredas.ItemHeight = 20;
+            this.lstVeredas.Location = new System.Drawing.Point(152, 288);
+            this.lstVeredas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lstVeredas.Name = "lstVeredas";
-            this.lstVeredas.Size = new System.Drawing.Size(300, 79);
+            this.lstVeredas.Size = new System.Drawing.Size(226, 64);
             this.lstVeredas.TabIndex = 41;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(87, 248);
+            this.label5.Location = new System.Drawing.Point(65, 202);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 25);
+            this.label5.Size = new System.Drawing.Size(79, 20);
             this.label5.TabIndex = 40;
             this.label5.Text = "Municipio:";
             // 
@@ -231,9 +238,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(559, 358);
+            this.label4.Location = new System.Drawing.Point(419, 291);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 25);
+            this.label4.Size = new System.Drawing.Size(99, 20);
             this.label4.TabIndex = 39;
             this.label4.Text = "Contratistas:";
             // 
@@ -241,9 +249,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(596, 248);
+            this.label3.Location = new System.Drawing.Point(447, 202);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 25);
+            this.label3.Size = new System.Drawing.Size(67, 20);
             this.label3.TabIndex = 38;
             this.label3.Text = "Árboles:";
             // 
@@ -251,9 +260,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(106, 358);
+            this.label9.Location = new System.Drawing.Point(80, 291);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 25);
+            this.label9.Size = new System.Drawing.Size(65, 20);
             this.label9.TabIndex = 37;
             this.label9.Text = "Vereda:";
             // 
@@ -261,9 +271,10 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(283, 189);
+            this.label10.Location = new System.Drawing.Point(200, 154);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(275, 25);
+            this.label10.Size = new System.Drawing.Size(220, 20);
             this.label10.TabIndex = 52;
             this.label10.Text = "Código siembra seleccionada:";
             // 
@@ -272,17 +283,18 @@
             this.txtCodigoSiembra.BackColor = System.Drawing.Color.Azure;
             this.txtCodigoSiembra.Enabled = false;
             this.txtCodigoSiembra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoSiembra.Location = new System.Drawing.Point(564, 186);
+            this.txtCodigoSiembra.Location = new System.Drawing.Point(423, 151);
+            this.txtCodigoSiembra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCodigoSiembra.Name = "txtCodigoSiembra";
-            this.txtCodigoSiembra.Size = new System.Drawing.Size(100, 30);
+            this.txtCodigoSiembra.Size = new System.Drawing.Size(76, 26);
             this.txtCodigoSiembra.TabIndex = 53;
             this.txtCodigoSiembra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FormaActualizaSiembra
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1132, 704);
+            this.ClientSize = new System.Drawing.Size(849, 572);
             this.Controls.Add(this.txtCodigoSiembra);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lstContratistas);
@@ -304,6 +316,7 @@
             this.Controls.Add(this.lstInfoSiembras);
             this.Controls.Add(this.pbxBotonCerrar);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormaActualizaSiembra";
             this.Text = "FormaActualizaSiembra";
             this.Activated += new System.EventHandler(this.FormaActualizaSiembra_Activated);
