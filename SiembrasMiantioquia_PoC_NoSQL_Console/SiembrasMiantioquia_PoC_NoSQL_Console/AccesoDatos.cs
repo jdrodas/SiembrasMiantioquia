@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Configuration;
+using System.Data;
 
 namespace SiembrasMiantioquia_PoC_NoSQL_Console
 {
@@ -61,6 +62,20 @@ namespace SiembrasMiantioquia_PoC_NoSQL_Console
 
             var miColeccion = miDB.GetCollection<Siembra>("Siembras");
             miColeccion.InsertOne(unaSiembra);
+        }
+
+        public static List<Vereda> ObtieneListaNombreVeredasMunicipio(string nombreMunicipio)
+        {
+            string cadenaConexion = ObtieneCadenaConexion(idStringConexion);
+            var clienteDB = new MongoClient(cadenaConexion);
+            var miDB = clienteDB.GetDatabase(nombreDB);
+
+            var miColeccion = miDB.GetCollection<Vereda>("Veredas");
+
+            var filtroVereda = new BsonDocument { { "Nombre_Municipio", nombreMunicipio } };
+            var lasVeredas = miColeccion.Find(filtroVereda);
+
+            return lasVeredas.ToList();
         }
     }
 }
