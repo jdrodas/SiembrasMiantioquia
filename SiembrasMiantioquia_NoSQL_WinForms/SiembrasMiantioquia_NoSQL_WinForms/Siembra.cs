@@ -19,8 +19,8 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
         [BsonElement("Municipio")]
         public string Municipio { get; set; }
 
-        [BsonElement("Reforestadora")]
-        public string Reforestadora { get; set; }
+        [BsonElement("Contratista")]
+        public string Contratista { get; set; }
 
         [BsonElement("Arbol")]
         public string Arbol { get; set; }
@@ -39,7 +39,7 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
         {
             string informacion = $"Código: {Codigo}" + Environment.NewLine +
                 $"Realizada en {Vereda} - {Municipio}" + Environment.NewLine +
-                $"Ejecutor: {Reforestadora}" + Environment.NewLine +
+                $"Ejecutor: {Contratista}" + Environment.NewLine +
                 $"Variedad de arbol: {Arbol}" + Environment.NewLine +
                 $"Cantidad de arboles: {Total_Arboles}" + Environment.NewLine +
                 $"Total Hectáreas: {Total_Hectareas}" + Environment.NewLine +

@@ -54,11 +54,14 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
             miColeccion.DeleteOne(documento => documento.Codigo == unaSiembra.Codigo);
         }
 
-        public static void CreaSiembra(Siembra unaSiembra)
+        public static void GuardarSiembra(Siembra unaSiembra)
         {
             string cadenaConexion = ObtieneCadenaConexion(idStringConexion);
             var clienteDB = new MongoClient(cadenaConexion);
             var miDB = clienteDB.GetDatabase(nombreDB);
+
+            //Aqui le asignamos el siguiente consecutivo para la siembra
+            unaSiembra.Codigo = ObtieneSiguienteValorContador("Siembras");
 
             var miColeccion = miDB.GetCollection<Siembra>("Siembras");
             miColeccion.InsertOne(unaSiembra);
@@ -114,7 +117,7 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
                 filaSiembra["codigo_siembra"] = unaSiembra.Codigo;
                 filaSiembra["nombre_vereda"] = unaSiembra.Vereda;
                 filaSiembra["nombre_municipio"] = unaSiembra.Municipio;
-                filaSiembra["nombre_contratista"] = unaSiembra.Reforestadora;
+                filaSiembra["nombre_contratista"] = unaSiembra.Contratista;
                 filaSiembra["nombre_arbol"] = unaSiembra.Arbol;
                 filaSiembra["fecha_siembra"] = unaSiembra.Fecha;
                 filaSiembra["total_arboles"] = unaSiembra.Total_Arboles;
@@ -175,6 +178,32 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
                 nombresArboles.Add(unArbol.Nombre);
 
             return nombresArboles;
+        }
+
+        /// <summary>
+        /// Obtiene el siguiente valor para ser utilizado en las acciones de inserción de las colecciones
+        /// </summary>
+        /// <param name="nombreContador">nombre del contador asociado a la colección</param>
+        /// <returns>el siguiente valor del contador</returns>
+        private static int ObtieneSiguienteValorContador(string nombreContador)
+        {
+            int siguienteValor=0;
+
+            string cadenaConexion = ObtieneCadenaConexion(idStringConexion);
+            var clienteDB = new MongoClient(cadenaConexion);
+            var miDB = clienteDB.GetDatabase(nombreDB);
+
+            //Obtenemos el valor actual del contador
+            var miColeccion = miDB.GetCollection<Contador>("Contadores");
+            var filtroContador = new BsonDocument { { "nombre", nombreContador } };
+
+            var elContador = miColeccion.Find(filtroContador).FirstOrDefault();
+
+            siguienteValor = elContador.Valor++;
+
+            //Actualizamos el contador con ese valor
+            miColeccion.ReplaceOne(unContador => unContador.Nombre == elContador.Nombre, elContador);
+            return siguienteValor;
         }
     }
 }

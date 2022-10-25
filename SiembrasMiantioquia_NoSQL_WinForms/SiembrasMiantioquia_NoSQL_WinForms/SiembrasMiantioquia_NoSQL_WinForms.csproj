@@ -152,6 +152,7 @@
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
     <Compile Include="Arbol.cs" />
+    <Compile Include="Contador.cs" />
     <Compile Include="Contratista.cs" />
     <Compile Include="FormaNuevaSiembra.cs">
       <SubType>Form</SubType>

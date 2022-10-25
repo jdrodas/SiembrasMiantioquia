@@ -94,9 +94,9 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
                 unaSiembra.Vereda = lstVeredas.SelectedItem.ToString();
                 unaSiembra.Municipio = lstMunicipios.SelectedItem.ToString();
                 unaSiembra.Arbol = lstArboles.SelectedItem.ToString();
-                unaSiembra.Reforestadora = lstContratistas.SelectedItem.ToString();
+                unaSiembra.Contratista = lstContratistas.SelectedItem.ToString();
 
-                AccesoDatos.CreaSiembra(unaSiembra);
+                AccesoDatos.GuardarSiembra(unaSiembra);
 
                 MessageBox.Show("La siembra se registró correctamente",
                     "Inserción exitosa",
