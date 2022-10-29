@@ -34,6 +34,20 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
             return unaSiembra;
         }
 
+        public static string ObtieneObjectIdSiembra(int codigoSiembra)
+        {
+            string cadenaConexion = ObtieneCadenaConexion(idStringConexion);
+            var clienteDB = new MongoClient(cadenaConexion);
+            var miDB = clienteDB.GetDatabase(nombreDB);
+
+            var miColeccion = miDB.GetCollection<Siembra>("Siembras");
+            var filtroSiembra = new BsonDocument { { "Codigo", codigoSiembra } };
+
+            var unaSiembra = miColeccion.Find(filtroSiembra).FirstOrDefault();
+
+            return unaSiembra.Id;
+        }
+
         public static void ActualizaSiembra(Siembra unaSiembra)
         {
             string cadenaConexion = ObtieneCadenaConexion(idStringConexion);
@@ -87,6 +101,8 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
 
             return lasVeredas.ToList();
         }
+
+
 
         /// <summary>
         /// Obtiene el detalle de las siembras registradas en la DB
@@ -151,6 +167,25 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
                 nombresMunicipios.Add(unMunicipio.Nombre);
 
             return nombresMunicipios;
+        }
+
+        public static List<string> ObtieneListaNombresVeredasMunicipio(string nombreMunicipio)
+        {
+            string cadenaConexion = ObtieneCadenaConexion(idStringConexion);
+            var clienteDB = new MongoClient(cadenaConexion);
+            var miDB = clienteDB.GetDatabase(nombreDB);
+
+            var miColeccion = miDB.GetCollection<Vereda>("Veredas");
+
+            var filtroVereda = new BsonDocument { { "Nombre_Municipio", nombreMunicipio } };
+            var lasVeredas = miColeccion.Find(filtroVereda).ToList();
+
+            List<string> nombresVeredas = new List<string>();
+
+            foreach (Vereda unaVereda in lasVeredas)
+                nombresVeredas.Add(unaVereda.Nombre);
+
+            return nombresVeredas;
         }
 
         public static List<string> ObtieneListaNombreContratistas()

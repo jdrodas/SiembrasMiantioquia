@@ -45,6 +45,7 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
             string[] infoSiembra = lstInfoSiembras.SelectedItem.ToString().Split('-');
             int codigo_siembra = int.Parse(infoSiembra[0].Trim());
             txtCodigoSiembra.Text = codigo_siembra.ToString();
+            txtObjectIdSiembra.Text = AccesoDatos.ObtieneObjectIdSiembra(codigo_siembra);
         }
 
         private void btnBorraSiembra_Click(object sender, EventArgs e)

@@ -94,7 +94,7 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
         public void InicializaLstVeredas(string nombreVereda)
         {
             lstVeredas.DataSource = null;
-            lstVeredas.DataSource = AccesoDatos.ObtieneListaVeredasMunicipio(lstMunicipios.SelectedItem.ToString());
+            lstVeredas.DataSource = AccesoDatos.ObtieneListaNombresVeredasMunicipio(lstMunicipios.SelectedItem.ToString());
             lstVeredas.DisplayMember = "nombre";
 
             //Seleccionamos la vereda que se llama igual al de la siembra seleccionada
