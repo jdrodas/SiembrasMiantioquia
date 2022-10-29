@@ -71,7 +71,7 @@
             this.txtCodigoSiembra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoSiembra.Location = new System.Drawing.Point(590, 176);
             this.txtCodigoSiembra.Name = "txtCodigoSiembra";
-            this.txtCodigoSiembra.Size = new System.Drawing.Size(100, 30);
+            this.txtCodigoSiembra.Size = new System.Drawing.Size(100, 35);
             this.txtCodigoSiembra.TabIndex = 57;
             this.txtCodigoSiembra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -81,7 +81,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(309, 179);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(275, 25);
+            this.label10.Size = new System.Drawing.Size(340, 29);
             this.label10.TabIndex = 56;
             this.label10.Text = "Código siembra seleccionada:";
             // 
@@ -91,7 +91,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(92, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 25);
+            this.label2.Size = new System.Drawing.Size(110, 29);
             this.label2.TabIndex = 55;
             this.label2.Text = "Siembra:";
             // 
@@ -99,10 +99,10 @@
             // 
             this.lstInfoSiembras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstInfoSiembras.FormattingEnabled = true;
-            this.lstInfoSiembras.ItemHeight = 25;
-            this.lstInfoSiembras.Location = new System.Drawing.Point(190, 74);
+            this.lstInfoSiembras.ItemHeight = 29;
+            this.lstInfoSiembras.Location = new System.Drawing.Point(203, 74);
             this.lstInfoSiembras.Name = "lstInfoSiembras";
-            this.lstInfoSiembras.Size = new System.Drawing.Size(834, 79);
+            this.lstInfoSiembras.Size = new System.Drawing.Size(834, 62);
             this.lstInfoSiembras.TabIndex = 54;
             this.lstInfoSiembras.SelectedIndexChanged += new System.EventHandler(this.lstInfoSiembras_SelectedIndexChanged);
             // 

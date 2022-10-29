@@ -43,7 +43,7 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
                 int codigoSiembra = int.Parse(dgvDetalleSiembras.SelectedRows[0].Cells[0].Value.ToString());
                 txtCodigoSiembra.Text = codigoSiembra.ToString();
 
-                Siembra unaSiembra = AccesoDatos.ObtieneUnaSiembra(codigoSiembra);
+                Siembra unaSiembra = AccesoDatos.ObtieneSiembra(codigoSiembra);
 
                 //Llenamos la versión en texto plano
                 txtSiembraTextoPlano.Text = unaSiembra.ToString();

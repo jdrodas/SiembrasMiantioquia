@@ -154,6 +154,18 @@
     <Compile Include="Arbol.cs" />
     <Compile Include="Contador.cs" />
     <Compile Include="Contratista.cs" />
+    <Compile Include="FormaActualizaSiembra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormaActualizaSiembra.Designer.cs">
+      <DependentUpon>FormaActualizaSiembra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormaBorraSiembra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormaBorraSiembra.Designer.cs">
+      <DependentUpon>FormaBorraSiembra.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormaNuevaSiembra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +189,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Siembra.cs" />
     <Compile Include="Vereda.cs" />
+    <EmbeddedResource Include="FormaActualizaSiembra.resx">
+      <DependentUpon>FormaActualizaSiembra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormaBorraSiembra.resx">
+      <DependentUpon>FormaBorraSiembra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormaNuevaSiembra.resx">
       <DependentUpon>FormaNuevaSiembra.cs</DependentUpon>
     </EmbeddedResource>

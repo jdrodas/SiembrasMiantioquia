@@ -20,7 +20,7 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
-        public static Siembra ObtieneUnaSiembra(int codigoSiembra)
+        public static Siembra ObtieneSiembra(int codigoSiembra)
         {
             string cadenaConexion = ObtieneCadenaConexion(idStringConexion);
             var clienteDB = new MongoClient(cadenaConexion);
@@ -40,21 +40,28 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
             var clienteDB = new MongoClient(cadenaConexion);
             var miDB = clienteDB.GetDatabase(nombreDB);
 
+            //Ubicamos la siembra existente para obtener el ObjectId
+            Siembra siembraExistente = ObtieneSiembra(unaSiembra.Codigo);
+            unaSiembra.Id = siembraExistente.Id;
+
             var miColeccion = miDB.GetCollection<Siembra>("Siembras");
             miColeccion.ReplaceOne(documento => documento.Codigo == unaSiembra.Codigo, unaSiembra);
         }
 
-        public static void BorraSiembra(Siembra unaSiembra)
+        public static void BorraSiembra(int codigoSiembra)
         {
             string cadenaConexion = ObtieneCadenaConexion(idStringConexion);
             var clienteDB = new MongoClient(cadenaConexion);
             var miDB = clienteDB.GetDatabase(nombreDB);
 
+            //Ubicamos la siembra existente para obtener el ObjectId
+            Siembra siembraExistente = ObtieneSiembra(codigoSiembra);
+
             var miColeccion = miDB.GetCollection<Siembra>("Siembras");
-            miColeccion.DeleteOne(documento => documento.Codigo == unaSiembra.Codigo);
+            miColeccion.DeleteOne(documento => documento.Id == siembraExistente.Id);
         }
 
-        public static void GuardarSiembra(Siembra unaSiembra)
+        public static void GuardaSiembra(Siembra unaSiembra)
         {
             string cadenaConexion = ObtieneCadenaConexion(idStringConexion);
             var clienteDB = new MongoClient(cadenaConexion);
@@ -119,7 +126,7 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
                 filaSiembra["nombre_municipio"] = unaSiembra.Municipio;
                 filaSiembra["nombre_contratista"] = unaSiembra.Contratista;
                 filaSiembra["nombre_arbol"] = unaSiembra.Arbol;
-                filaSiembra["fecha_siembra"] = unaSiembra.Fecha;
+                filaSiembra["fecha_siembra"] = unaSiembra.Fecha.ToShortDateString();
                 filaSiembra["total_arboles"] = unaSiembra.Total_Arboles;
                 filaSiembra["total_hectareas"] = unaSiembra.Total_Hectareas;
 
@@ -204,6 +211,37 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
             //Actualizamos el contador con ese valor
             miColeccion.ReplaceOne(unContador => unContador.Nombre == elContador.Nombre, elContador);
             return siguienteValor;
+        }
+
+        /// <summary>
+        /// Obtiene lista con información ampliada de la siembra
+        /// </summary>
+        /// <returns>Lista con información de la siembra</returns>
+        public static List<string> ObtieneListaInfoSiembras()
+        {
+            string cadenaConexion = ObtieneCadenaConexion(idStringConexion);
+            var clienteDB = new MongoClient(cadenaConexion);
+            var miDB = clienteDB.GetDatabase(nombreDB);
+
+            var miColeccion = miDB.GetCollection<Siembra>("Siembras");
+            var lasSiembras = miColeccion.Find(new BsonDocument()).ToList();
+
+            //Aqui creamos la lista de resultados
+            List<string> listaResultado = new List<string>();
+            string registroSiembra;
+
+            foreach (Siembra unaSiembra in lasSiembras)
+            {
+                registroSiembra = $"{unaSiembra.Codigo} - " +
+                    $"{unaSiembra.Vereda} - " +
+                    $"{unaSiembra.Municipio} - " +
+                    $"{unaSiembra.Contratista} - " +
+                    $"{unaSiembra.Fecha.ToShortDateString()}";
+
+                listaResultado.Add(registroSiembra);
+            }
+
+            return listaResultado;
         }
     }
 }

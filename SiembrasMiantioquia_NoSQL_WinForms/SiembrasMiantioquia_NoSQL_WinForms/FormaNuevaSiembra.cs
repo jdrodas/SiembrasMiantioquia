@@ -96,12 +96,19 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
                 unaSiembra.Arbol = lstArboles.SelectedItem.ToString();
                 unaSiembra.Contratista = lstContratistas.SelectedItem.ToString();
 
-                AccesoDatos.GuardarSiembra(unaSiembra);
+                AccesoDatos.GuardaSiembra(unaSiembra);
 
                 MessageBox.Show("La siembra se registró correctamente",
                     "Inserción exitosa",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+
+
+                //Aqui actualizamos las formas de las siembras, si se encuentran abiertas
+                RefrescaFormasSiembras();
+
+                //Cerramos la forma
+                this.Close();
             }
             catch (FormatException unErrorFormato)
             {

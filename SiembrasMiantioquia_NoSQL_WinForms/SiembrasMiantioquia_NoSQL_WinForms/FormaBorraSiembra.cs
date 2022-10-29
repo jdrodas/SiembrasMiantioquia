@@ -36,9 +36,6 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
             lstInfoSiembras.DataSource = AccesoDatos.ObtieneListaInfoSiembras();
             lstInfoSiembras.DisplayMember = "infoSiembra";
 
-            lstInfoSiembras.Invalidate();
-            lstInfoSiembras.Refresh();
-
             //Seleccionamos el primer municipio de la lista
             lstInfoSiembras.SelectedIndex = 0;
         }
@@ -65,28 +62,19 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
             //Si el usuario quiere borrar
             if (resultado == DialogResult.Yes)
             {
-                borradoCorrecto = AccesoDatos.BorrarSiembra(codigoSiembra, out mensajeError);
+                AccesoDatos.BorraSiembra(codigoSiembra);
 
-                if (borradoCorrecto)
-                {
-                    MessageBox.Show("La siembra se borró correctamente",
-                        "Borrado exitoso",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                MessageBox.Show("La siembra se borró correctamente",
+                    "Borrado exitoso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
 
-                    //Aqui actualizamos las formas de las siembras, si se encuentran abiertas
-                    RefrescaFormasSiembras();
+                //Aqui actualizamos las formas de las siembras, si se encuentran abiertas
+                RefrescaFormasSiembras();
 
-                    //Cerramos la forma
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show($"Se presentaron problemas con la siembra. {mensajeError}",
-                        "Fallo al borrar la siembra",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
+                //Cerramos la forma
+                this.Close();
+
             }
         }
 

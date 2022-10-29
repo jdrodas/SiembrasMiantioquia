@@ -198,16 +198,16 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
 
         private void btnFormaActualizaSiembra_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario<FormaActualizaSiembra>();
-            //btnFormaActualizaSiembra.BackColor = Color.FromArgb(216, 236, 191);
-            //btnFormaActualizaSiembra.ForeColor = Color.Black;
+            AbrirFormulario<FormaActualizaSiembra>();
+            btnFormaActualizaSiembra.BackColor = Color.FromArgb(216, 236, 191);
+            btnFormaActualizaSiembra.ForeColor = Color.Black;
         }
 
         private void btnFormaBorraSiembra_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario<FormaBorraSiembra>();
-            //btnFormaBorraSiembra.BackColor = Color.FromArgb(216, 236, 191);
-            //btnFormaBorraSiembra.ForeColor = Color.Black;
+            AbrirFormulario<FormaBorraSiembra>();
+            btnFormaBorraSiembra.BackColor = Color.FromArgb(216, 236, 191);
+            btnFormaBorraSiembra.ForeColor = Color.Black;
         }
 
         private void btnFormaReporteVereda_Click(object sender, EventArgs e)

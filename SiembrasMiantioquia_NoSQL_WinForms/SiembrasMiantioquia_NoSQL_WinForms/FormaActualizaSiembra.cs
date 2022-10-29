@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace SiembrasMiantioquia_NoSQL_WinForms
@@ -46,40 +47,27 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
             txtCodigoSiembra.Text = codigo_siembra.ToString();
 
             //Leemos desde la DB, la siembra asociada al codigo_obtenido
-            Siembra unaSiembra = AccesoDatos.ObtenerSiembra(codigo_siembra);
+            Siembra unaSiembra = AccesoDatos.ObtieneSiembra(codigo_siembra);
 
             //Actualizamos las listas asignando como item seleccionado
             //el valor correspondiente de la siembra
 
             //Actualiza las listas de los atributos de la siembra
-            InicializaLstMunicipios(unaSiembra.Nombre_Municipio);
+            InicializaLstMunicipios(unaSiembra.Municipio);
 
             //Actualiza la lista de las veredas
-            InicializaLstVeredas(unaSiembra.Nombre_Vereda);
+            InicializaLstVeredas(unaSiembra.Vereda);
 
             //Actualizamos la lista de Arboles
-            InicializaLstArboles(unaSiembra.Nombre_Arbol);
+            InicializaLstArboles(unaSiembra.Arbol);
 
             //Actualizamos la lista de Contratistas
-            InicializaLstContratistas(unaSiembra.Nombre_Contratista);
+            InicializaLstContratistas(unaSiembra.Contratista);
 
             //Actualizamos total arboles, total hectáreas y Fecha de la siembra
             txtTotalArboles.Text = unaSiembra.Total_Arboles.ToString();
             txtTotalHectareas.Text = unaSiembra.Total_Hectareas.ToString();
-
-            //Aqui controlamos la visualización del formato de fecha
-            DateTime fechaNormalizada;
-            string mensajeError;
-            bool resultadoCorrecto = ObtieneFechaSiembra(unaSiembra.Fecha_Siembra, 
-                out fechaNormalizada, out mensajeError);
-
-            if (resultadoCorrecto)
-                dtpFecha.Value = fechaNormalizada;
-            else
-                MessageBox.Show($"La fecha no tiene el formato DD/MM/YYYY. {mensajeError}",
-                    "Error al extraer fecha",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Stop);
+            dtpFecha.Value = unaSiembra.Fecha;
         }
 
         /// <summary>
@@ -89,7 +77,7 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
         public void InicializaLstMunicipios(string nombreMunicipio)
         {
             lstMunicipios.DataSource = null;
-            lstMunicipios.DataSource = AccesoDatos.ObtieneListaMunicipios();
+            lstMunicipios.DataSource = AccesoDatos.ObtieneListaNombreMunicipios();
             lstMunicipios.DisplayMember = "nombre";
 
             //Seleccionamos el municipio que se llama igual al de la siembra seleccionada
@@ -106,7 +94,7 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
         public void InicializaLstVeredas(string nombreVereda)
         {
             lstVeredas.DataSource = null;
-            lstVeredas.DataSource = AccesoDatos.ObtieneListaNombreVeredasMunicipio(lstMunicipios.SelectedItem.ToString());
+            lstVeredas.DataSource = AccesoDatos.ObtieneListaVeredasMunicipio(lstMunicipios.SelectedItem.ToString());
             lstVeredas.DisplayMember = "nombre";
 
             //Seleccionamos la vereda que se llama igual al de la siembra seleccionada
@@ -123,7 +111,7 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
         private void InicializaLstArboles(string nombreArbol)
         {
             lstArboles.DataSource = null;
-            lstArboles.DataSource = AccesoDatos.ObtieneListaArboles();
+            lstArboles.DataSource = AccesoDatos.ObtieneListaNombreArboles();
             lstArboles.DisplayMember = "nombre";
 
             //Seleccionamos el arbol que se llama igual al de la siembra seleccionada
@@ -140,7 +128,7 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
         private void InicializaLstContratistas(string nombreContratista)
         {
             lstContratistas.DataSource = null;
-            lstContratistas.DataSource = AccesoDatos.ObtieneListaContratistas();
+            lstContratistas.DataSource = AccesoDatos.ObtieneListaNombreContratistas();
             lstContratistas.DisplayMember = "nombre";
 
             //Seleccionamos el arbol que se llama igual al de la siembra seleccionada
@@ -183,39 +171,29 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
         {
             try
             {
-                string mensajeError;
                 Siembra unaSiembra = new Siembra();
-                unaSiembra.Codigo_Siembra = int.Parse(txtCodigoSiembra.Text);
+                unaSiembra.Codigo = int.Parse(txtCodigoSiembra.Text);
                 unaSiembra.Total_Hectareas = double.Parse(txtTotalHectareas.Text);
                 unaSiembra.Total_Arboles = int.Parse(txtTotalArboles.Text);
-                unaSiembra.Fecha_Siembra = dtpFecha.Value.ToShortDateString();
-                unaSiembra.Nombre_Vereda = lstVeredas.SelectedItem.ToString();
-                unaSiembra.Nombre_Municipio = lstMunicipios.SelectedItem.ToString();
-                unaSiembra.Nombre_Arbol = lstArboles.SelectedItem.ToString();
-                unaSiembra.Nombre_Contratista = lstContratistas.SelectedItem.ToString();
+                unaSiembra.Fecha = dtpFecha.Value;
+                unaSiembra.Vereda = lstVeredas.SelectedItem.ToString();
+                unaSiembra.Municipio = lstMunicipios.SelectedItem.ToString();
+                unaSiembra.Arbol = lstArboles.SelectedItem.ToString();
+                unaSiembra.Contratista = lstContratistas.SelectedItem.ToString();
 
-                bool registroCorrecto = AccesoDatos.ActualizarSiembra(unaSiembra, out mensajeError);
+                AccesoDatos.ActualizaSiembra(unaSiembra);
 
-                if (registroCorrecto)
-                {
-                    MessageBox.Show("La siembra se actualizó correctamente",
-                        "Actualización exitosa",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                MessageBox.Show("La siembra se actualizó correctamente",
+                    "Actualización exitosa",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
 
-                    //Aqui actualizamos las formas de las siembras, si se encuentran abiertas
-                    RefrescaFormasSiembras();
+                //Aqui actualizamos las formas de las siembras, si se encuentran abiertas
+                RefrescaFormasSiembras();
 
-                    //Cerramos la forma
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show($"Se presentaron problemas con la siembra. {mensajeError}",
-                        "Fallo al actualizar la siembra",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
+                //Cerramos la forma
+                this.Close();
+
             }
             catch (FormatException unErrorFormato)
             {
@@ -227,7 +205,7 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
         {
             //Si hay municipios seleccionados, se actualiza la lista de veredas
             if (lstMunicipios.SelectedItems.Count != 0)
-                ActualizaLstVeredas();
+                ActualizaLstVeredas("");
             else
                 //De lo contrario, se borra la lista de Veredas
                 lstVeredas.DataSource = null;
@@ -236,15 +214,29 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
         /// <summary>
         /// Actualiza la lista de Veredas
         /// </summary>
-        public void ActualizaLstVeredas()
+        public void ActualizaLstVeredas(string veredaSeleccionada)
         {
             lstVeredas.DataSource = null;
 
             //Verificamos que haya un municipio seleccionado en lstMunicipios
-            if (lstMunicipios.SelectedItems.Count != 0)
+            //Si no hay ninguno seleccionado, seleccionamos la primera vereda
+            if (lstMunicipios.SelectedItems.Count == 0)
+                lstMunicipios.SelectedIndex = 0;
             {
-                lstVeredas.DataSource = AccesoDatos.ObtieneListaNombreVeredasMunicipio(lstMunicipios.SelectedItem.ToString());
+                List<Vereda> lasVeredasDelMunicipio = AccesoDatos.ObtieneListaVeredasMunicipio(lstMunicipios.SelectedItem.ToString());
+                List<string> nombresVeredas = new List<string>();
+
+                foreach (Vereda unaVereda in lasVeredasDelMunicipio)
+                    nombresVeredas.Add(unaVereda.Nombre);
+
+                lstVeredas.DataSource = nombresVeredas;
                 lstVeredas.DisplayMember = "nombre";
+
+                if (veredaSeleccionada=="")
+                    lstVeredas.SelectedIndex = 0;
+                else
+                    lstVeredas.SelectedIndex = lstVeredas.Items.IndexOf(veredaSeleccionada);
+                
             }
         }
 
