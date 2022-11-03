@@ -22,18 +22,18 @@ namespace SiembrasMiantioquiaAPI.Services
         }
 
         public async Task<List<Siembra>> GetAsync() =>
-    await _siembrasCollection.Find(_ => true).ToListAsync();
+            await _siembrasCollection.Find(_ => true).ToListAsync();
 
-        public async Task<Siembra?> GetAsync(string id) =>
-            await _siembrasCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+        public async Task<Siembra?> GetAsync(int codigo) =>
+            await _siembrasCollection.Find(x => x.Codigo == codigo).FirstOrDefaultAsync();
 
         public async Task CreateAsync(Siembra newSiembra) =>
             await _siembrasCollection.InsertOneAsync(newSiembra);
 
-        public async Task UpdateAsync(string id, Siembra updatedSiembra) =>
-            await _siembrasCollection.ReplaceOneAsync(x => x.Id == id, updatedSiembra);
+        public async Task UpdateAsync(int codigo, Siembra updatedSiembra) =>
+            await _siembrasCollection.ReplaceOneAsync(x => x.Codigo == codigo, updatedSiembra);
 
-        public async Task RemoveAsync(string id) =>
-            await _siembrasCollection.DeleteOneAsync(x => x.Id == id);
+        public async Task RemoveAsync(int codigo) =>
+            await _siembrasCollection.DeleteOneAsync(x => x.Codigo == codigo);
     }
 }

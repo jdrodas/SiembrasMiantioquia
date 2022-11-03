@@ -19,15 +19,13 @@ namespace SiembrasMiantioquiaAPI.Controllers
         public async Task<List<Siembra>> Get() =>
             await _siembrasService.GetAsync();
 
-        [HttpGet("{id:length(24)}")]
-        public async Task<ActionResult<Siembra>> Get(string id)
+        [HttpGet("{codigo:int}")]
+        public async Task<ActionResult<Siembra>> Get(int codigo)
         {
-            var siembra = await _siembrasService.GetAsync(id);
+            var siembra = await _siembrasService.GetAsync(codigo);
 
             if (siembra is null)
-            {
                 return NotFound();
-            }
 
             return siembra;
         }
@@ -36,39 +34,30 @@ namespace SiembrasMiantioquiaAPI.Controllers
         public async Task<IActionResult> Post(Siembra newSiembra)
         {
             await _siembrasService.CreateAsync(newSiembra);
-
             return CreatedAtAction(nameof(Get), new { id = newSiembra.Id }, newSiembra);
         }
 
-        [HttpPut("{id:length(24)}")]
-        public async Task<IActionResult> Update(string id, Siembra updatedSiembra)
+        [HttpPut("{codigo:int}")]
+        public async Task<IActionResult> Update(int codigo, Siembra updatedSiembra)
         {
-            var siembra = await _siembrasService.GetAsync(id);
+            var siembra = await _siembrasService.GetAsync(codigo);
 
             if (siembra is null)
-            {
                 return NotFound();
-            }
 
             updatedSiembra.Id = siembra.Id;
-
-            await _siembrasService.UpdateAsync(id, updatedSiembra);
-
+            await _siembrasService.UpdateAsync(codigo, updatedSiembra);
             return NoContent();
         }
 
-        [HttpDelete("{id:length(24)}")]
-        public async Task<IActionResult> Delete(string id)
+        [HttpDelete("{codigo:int}")]
+        public async Task<IActionResult> Delete(int codigo)
         {
-            var siembra = await _siembrasService.GetAsync(id);
-
+            var siembra = await _siembrasService.GetAsync(codigo);
             if (siembra is null)
-            {
                 return NotFound();
-            }
 
-            await _siembrasService.RemoveAsync(id);
-
+            await _siembrasService.RemoveAsync(codigo);
             return NoContent();
         }
     }
