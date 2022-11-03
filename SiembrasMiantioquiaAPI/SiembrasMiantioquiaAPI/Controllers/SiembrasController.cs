@@ -2,8 +2,6 @@
 using SiembrasMiantioquiaAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace SiembrasMiantioquiaAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -12,49 +10,55 @@ namespace SiembrasMiantioquiaAPI.Controllers
     {
         private readonly SiembrasService _siembrasService;
 
-        public SiembrasController(SiembrasService siembrasService) =>
+        public SiembrasController(SiembrasService siembrasService)
+        {
             _siembrasService = siembrasService;
+        }
+            
 
         [HttpGet]
-        public async Task<List<Siembra>> Get() =>
-            await _siembrasService.GetAsync();
+        public async Task<List<Siembra>> Get()
+        {
+            var lasSiembras = await _siembrasService.GetAsync();
+            return lasSiembras;
+        }
 
         [HttpGet("{codigo:int}")]
         public async Task<ActionResult<Siembra>> Get(int codigo)
         {
-            var siembra = await _siembrasService.GetAsync(codigo);
+            var unaSiembra = await _siembrasService.GetAsync(codigo);
 
-            if (siembra is null)
+            if (unaSiembra is null)
                 return NotFound();
 
-            return siembra;
+            return unaSiembra;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Siembra newSiembra)
+        public async Task<IActionResult> Post(Siembra siembraNueva)
         {
-            await _siembrasService.CreateAsync(newSiembra);
-            return CreatedAtAction(nameof(Get), new { id = newSiembra.Id }, newSiembra);
+            await _siembrasService.CreateAsync(siembraNueva);
+            return CreatedAtAction(nameof(Get), new { id = siembraNueva.Id }, siembraNueva);
         }
 
         [HttpPut("{codigo:int}")]
-        public async Task<IActionResult> Update(int codigo, Siembra updatedSiembra)
+        public async Task<IActionResult> Update(int codigo, Siembra siembraActualizada)
         {
-            var siembra = await _siembrasService.GetAsync(codigo);
+            var unaSiembra = await _siembrasService.GetAsync(codigo);
 
-            if (siembra is null)
+            if (unaSiembra is null)
                 return NotFound();
 
-            updatedSiembra.Id = siembra.Id;
-            await _siembrasService.UpdateAsync(codigo, updatedSiembra);
+            siembraActualizada.Id = unaSiembra.Id;
+            await _siembrasService.UpdateAsync(codigo, siembraActualizada);
             return NoContent();
         }
 
         [HttpDelete("{codigo:int}")]
         public async Task<IActionResult> Delete(int codigo)
         {
-            var siembra = await _siembrasService.GetAsync(codigo);
-            if (siembra is null)
+            var unaSiembra = await _siembrasService.GetAsync(codigo);
+            if (unaSiembra is null)
                 return NotFound();
 
             await _siembrasService.RemoveAsync(codigo);

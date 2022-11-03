@@ -13,7 +13,7 @@ builder.Services.Configure<SiembrasMiantioquiaDatabaseSettings>(
     builder.Configuration.GetSection("SiembrasMiantioquiaDatabase"));
 
 builder.Services.AddSingleton<SiembrasService>();
-//builder.Services.AddSingleton<RegionesService>();
+builder.Services.AddSingleton<ArbolesService>();
 
 var app = builder.Build();
 
