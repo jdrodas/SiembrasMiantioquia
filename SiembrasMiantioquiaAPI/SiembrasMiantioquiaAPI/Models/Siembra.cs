@@ -8,7 +8,7 @@ namespace SiembrasMiantioquiaAPI.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        [JsonPropertyName("id")]
+        [JsonPropertyName("Id")]
         public string? Id { get; set; }
 
         [BsonElement("Codigo")]

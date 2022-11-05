@@ -12,8 +12,11 @@ builder.Services.AddControllers()
 builder.Services.Configure<SiembrasMiantioquiaDatabaseSettings>(
     builder.Configuration.GetSection("SiembrasMiantioquiaDatabase"));
 
-builder.Services.AddSingleton<SiembrasService>();
 builder.Services.AddSingleton<ArbolesService>();
+builder.Services.AddSingleton<ContratistasService>();
+builder.Services.AddSingleton<MunicipiosService>();
+builder.Services.AddSingleton<SiembrasService>();
+builder.Services.AddSingleton<VeredasService>();
 
 var app = builder.Build();
 

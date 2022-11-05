@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace SiembrasMiantioquiaAPI.Models
 {
-    public class Arbol
+    public class Contratista
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -18,5 +18,11 @@ namespace SiembrasMiantioquiaAPI.Models
         [BsonElement("nombre")]
         [JsonPropertyName("Nombre")]
         public string Nombre { get; set; } = null!;
+
+        public Contratista()
+        {
+            Codigo = 0;
+            Nombre = "";
+        }
     }
 }
