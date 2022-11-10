@@ -43,6 +43,7 @@ namespace SiembrasMiantioquiaAPI.Controllers
         }
 
         [HttpPut("{codigo:int}")]
+        [HttpPatch("{codigo:int}")]
         public async Task<IActionResult> Update(int codigo, Arbol arbolActualizado)
         {
             var unArbol = await _arbolesService.GetAsync(codigo);
