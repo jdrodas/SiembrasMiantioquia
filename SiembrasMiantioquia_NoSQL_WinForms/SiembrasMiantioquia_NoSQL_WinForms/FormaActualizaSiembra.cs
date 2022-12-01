@@ -171,6 +171,7 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
         {
             try
             {
+                string mensajeError;
                 Siembra unaSiembra = new Siembra();
                 unaSiembra.Codigo = int.Parse(txtCodigoSiembra.Text);
                 unaSiembra.Total_Hectareas = double.Parse(txtTotalHectareas.Text);
@@ -181,19 +182,31 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
                 unaSiembra.Arbol = lstArboles.SelectedItem.ToString();
                 unaSiembra.Contratista = lstContratistas.SelectedItem.ToString();
 
-                AccesoDatos.ActualizaSiembra(unaSiembra);
+                //Aqui validamos datos ingresados por el usuario
+                bool datosNuevaSiembraCorrectos = ValidaDatosNuevaSiembra(unaSiembra, out mensajeError);
 
-                MessageBox.Show("La siembra se actualizó correctamente",
-                    "Actualización exitosa",
+                if (!datosNuevaSiembraCorrectos)
+                {
+                    MessageBox.Show($"Se presentaron problemas con la siembra. {mensajeError}",
+                    "Fallo al procesar la siembra",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                    MessageBoxIcon.Error);
+                }
+                else
+                {
+                    AccesoDatos.ActualizaSiembra(unaSiembra);
 
-                //Aqui actualizamos las formas de las siembras, si se encuentran abiertas
-                RefrescaFormasSiembras();
+                    MessageBox.Show("La siembra se actualizó correctamente",
+                        "Actualización exitosa",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
 
-                //Cerramos la forma
-                this.Close();
+                    //Aqui actualizamos las formas de las siembras, si se encuentran abiertas
+                    RefrescaFormasSiembras();
 
+                    //Cerramos la forma
+                    this.Close();
+                }
             }
             catch (FormatException unErrorFormato)
             {
@@ -251,6 +264,27 @@ namespace SiembrasMiantioquia_NoSQL_WinForms
 
             if (formaReportes != null)
                 formaReportes.InicializaDgvDetalleSiembras();
+        }
+
+        /// <summary>
+        /// Valida si los datos de la siembra ingresados por el usuario son correctos
+        /// </summary>
+        /// <param name="unaSiembra">La siembra a validar</param>
+        /// <param name="mensajeError">mensaje de error en caso de fallo</param>
+        /// <returns>Resultado validación</returns>
+        public bool ValidaDatosNuevaSiembra(Siembra unaSiembra, out string mensajeError)
+        {
+            bool resultado = true;
+            mensajeError = "";
+
+            //Aqui validamos que no haya siembras en fechas futuras
+            if (unaSiembra.Fecha > DateTime.Now)
+            {
+                mensajeError = "Mo se puede registrar una siembra en fecha futura";
+                return false;
+            }
+
+            return resultado;
         }
     }
 }
