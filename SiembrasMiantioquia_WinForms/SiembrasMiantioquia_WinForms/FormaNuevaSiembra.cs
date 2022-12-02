@@ -183,7 +183,21 @@ namespace SiembrasMiantioquia_WinForms
 
             if (fechaResultado > DateTime.Now)
             {
-                mensajeError = "Mo se puede registrar una siembra en fecha futura";
+                mensajeError = "No se puede registrar una siembra en fecha futura.";
+                return false;
+            }
+
+            //Aqui validamos que el valor de las hectáreas sea positivo
+            if (unaSiembra.Total_Hectareas <= 0)
+            {
+                mensajeError = "El valor de las hectáreas sembradas debe ser mayor que cero.";
+                return false;
+            }
+
+            //Aqui validamos que el valor del total de los árboles sea positivo
+            if (unaSiembra.Total_Arboles <= 0)
+            {
+                mensajeError = "El valor del total de árboles debe ser mayor que cero.";
                 return false;
             }
 

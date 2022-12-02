@@ -195,9 +195,9 @@ namespace SiembrasMiantioquia_WinForms
                 unaSiembra.Nombre_Contratista = lstContratistas.SelectedItem.ToString();
 
                 //Aqui validamos datos ingresados por el usuario
-                bool datosNuevaSiembraCorrectos = ValidaDatosNuevaSiembra(unaSiembra, out mensajeError);
+                bool datosSiembraActualizadaCorrectos = ValidaDatosSiembraActualizada(unaSiembra, out mensajeError);
 
-                if (!datosNuevaSiembraCorrectos)
+                if (!datosSiembraActualizadaCorrectos)
                 {
                     MessageBox.Show($"Se presentaron problemas con la siembra. {mensajeError}",
                     "Fallo al procesar la siembra",
@@ -280,7 +280,7 @@ namespace SiembrasMiantioquia_WinForms
         /// <param name="unaSiembra">La siembra a validar</param>
         /// <param name="mensajeError">mensaje de error en caso de fallo</param>
         /// <returns>Resultado validación</returns>
-        public bool ValidaDatosNuevaSiembra(Siembra unaSiembra, out string mensajeError)
+        public bool ValidaDatosSiembraActualizada(Siembra unaSiembra, out string mensajeError)
         {
             bool resultado = true;
             mensajeError = "";
@@ -295,7 +295,21 @@ namespace SiembrasMiantioquia_WinForms
 
             if (fechaResultado > DateTime.Now)
             {
-                mensajeError = "Mo se puede registrar una siembra en fecha futura";
+                mensajeError = "No se puede registrar una siembra en fecha futura.";
+                return false;
+            }
+
+            //Aqui validamos que el valor de las hectáreas sea positivo
+            if (unaSiembra.Total_Hectareas <= 0)
+            {
+                mensajeError = "El valor de las hectáreas sembradas debe ser mayor que cero.";
+                return false;
+            }
+
+            //Aqui validamos que el valor del total de los árboles sea positivo
+            if (unaSiembra.Total_Arboles <= 0)
+            {
+                mensajeError = "El valor del total de árboles debe ser mayor que cero.";
                 return false;
             }
 
