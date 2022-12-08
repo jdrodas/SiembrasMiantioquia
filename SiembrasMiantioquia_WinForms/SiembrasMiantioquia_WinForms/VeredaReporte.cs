@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Windows.Forms;
+using Miantioquia.Modelos;
 
-namespace SiembrasMiantioquia_WinForms
+namespace Miantioquia.Formularios
 {
-    public partial class FormaReporteVereda : Form
+    public partial class VeredaReporte : Form
     {
-        public FormaReporteVereda()
+        public VeredaReporte()
         {
             InitializeComponent();
         }
@@ -70,8 +71,8 @@ namespace SiembrasMiantioquia_WinForms
         public void RefrescaFormasSiembras()
         {
             //FormaReporteSiembras
-            FormaReporteSiembras formaReportes =
-                (FormaReporteSiembras)Application.OpenForms["FormaReporteSiembras"];
+            SiembraReportes formaReportes =
+                (SiembraReportes)Application.OpenForms["FormaReporteSiembras"];
 
             if (formaReportes != null)
                 formaReportes.InicializaDgvDetalleSiembras();

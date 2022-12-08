@@ -1,6 +1,6 @@
 ﻿namespace SiembrasMiantioquia_WinForms
 {
-    partial class FormaArboles
+    partial class Arboles
     {
         /// <summary>
         /// Required designer variable.

@@ -8,18 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SiembrasMiantioquia_WinForms
+namespace Miantioquia.Formularios
 {
-    public partial class FormaArboles : Form
+    public partial class Veredas : Form
     {
-        public FormaArboles()
+        public Veredas()
         {
             InitializeComponent();
         }
-
+        
         private void pbxBotonCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

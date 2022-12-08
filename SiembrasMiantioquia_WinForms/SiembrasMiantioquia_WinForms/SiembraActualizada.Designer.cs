@@ -1,6 +1,6 @@
-﻿namespace SiembrasMiantioquia_WinForms
+﻿namespace Miantioquia.Formularios
 {
-    partial class FormaActualizaSiembra
+    partial class SiembraActualizada
     {
         /// <summary>
         /// Required designer variable.

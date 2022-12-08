@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SiembrasMiantioquia_WinForms
+namespace Miantioquia.Formularios
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace SiembrasMiantioquia_WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormaPrincipal());
+            Application.Run(new Principal());
         }
     }
 }

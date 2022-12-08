@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SiembrasMiantioquia_WinForms
 {
-    public partial class FormaContratistas : Form
+    public partial class Contratistas : Form
     {
-        public FormaContratistas()
+        public Contratistas()
         {
             InitializeComponent();
         }

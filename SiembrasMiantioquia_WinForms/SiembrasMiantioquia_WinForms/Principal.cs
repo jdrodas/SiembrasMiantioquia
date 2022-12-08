@@ -15,11 +15,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace SiembrasMiantioquia_WinForms
+namespace Miantioquia.Formularios
 {
-    public partial class FormaPrincipal : Form
+    public partial class Principal : Form
     {
-        public FormaPrincipal()
+        public Principal()
         {
             InitializeComponent();
             OcultaPanelesCrud();
@@ -129,31 +129,25 @@ namespace SiembrasMiantioquia_WinForms
 
         private void CerrarFormulario(object sender, FormClosedEventArgs e)
         {
-            if (Application.OpenForms["FormaReporteSiembras"] == null)
-            {
-                btnFormaReporteSiembras.BackColor = Color.FromArgb(144, 157, 112);
-                btnFormaReporteSiembras.ForeColor = Color.White;
-            }
-
-            if (Application.OpenForms["FormaReporteVereda"] == null)
+            if (Application.OpenForms["SiembraReportes"] == null)
             {
                 btnFormaReporteVereda.BackColor = Color.FromArgb(144, 157, 112);
                 btnFormaReporteVereda.ForeColor = Color.White;
             }
 
-            if (Application.OpenForms["FormaInsertaSiembra"] == null)
+            if (Application.OpenForms["SiembraNueva"] == null)
             {
                 btnFormaNuevaSiembra.BackColor = Color.FromArgb(144, 157, 112);
                 btnFormaNuevaSiembra.ForeColor = Color.White;
             }
 
-            if (Application.OpenForms["FormaActualizaSiembra"] == null)
+            if (Application.OpenForms["SiembraActualizada"] == null)
             {
                 btnFormaActualizaSiembra.BackColor = Color.FromArgb(144, 157, 112);
                 btnFormaActualizaSiembra.ForeColor = Color.White;
             }
 
-            if (Application.OpenForms["FormaBorraSiembra"] == null)
+            if (Application.OpenForms["SiembraBorrada"] == null)
             {
                 btnFormaBorraSiembra.BackColor = Color.FromArgb(144, 157, 112);
                 btnFormaBorraSiembra.ForeColor = Color.White;
@@ -184,35 +178,35 @@ namespace SiembrasMiantioquia_WinForms
 
         private void btnFormaNuevaSiembra_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormaNuevaSiembra>();
+            AbrirFormulario<SiembraNueva>();
             btnFormaNuevaSiembra.BackColor = Color.FromArgb(216, 236, 191);
             btnFormaNuevaSiembra.ForeColor = Color.Black;
         }
 
         private void btnFormaReporteSiembras_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormaReporteSiembras>();
+            AbrirFormulario<SiembraReportes>();
             btnFormaReporteSiembras.BackColor = Color.FromArgb(216, 236, 191);
             btnFormaReporteSiembras.ForeColor = Color.Black;
         }
 
         private void btnFormaActualizaSiembra_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormaActualizaSiembra>();
+            AbrirFormulario<SiembraActualizada>();
             btnFormaActualizaSiembra.BackColor = Color.FromArgb(216, 236, 191);
             btnFormaActualizaSiembra.ForeColor = Color.Black;
         }
 
         private void btnFormaBorraSiembra_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormaBorraSiembra>();
+            AbrirFormulario<SiembraBorrada>();
             btnFormaBorraSiembra.BackColor = Color.FromArgb(216, 236, 191);
             btnFormaBorraSiembra.ForeColor = Color.Black;
         }
 
         private void btnFormaReporteVereda_Click(object sender, EventArgs e)
         {
-            AbrirFormulario<FormaReporteVereda>();
+            AbrirFormulario<VeredaReporte>();
             btnFormaReporteSiembras.BackColor = Color.FromArgb(216, 236, 191);
             btnFormaReporteSiembras.ForeColor = Color.Black;
         }

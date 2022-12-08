@@ -4,8 +4,9 @@ using System.Data;
 using System.Data.SQLite;
 using Dapper;
 using System.Configuration;
+using Miantioquia.Modelos;
 
-namespace SiembrasMiantioquia_WinForms
+namespace Miantioquia.Formularios
 {
     public class AccesoDatos
     {

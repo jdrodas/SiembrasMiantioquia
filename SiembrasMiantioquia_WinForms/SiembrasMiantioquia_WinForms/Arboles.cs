@@ -10,17 +10,16 @@ using System.Windows.Forms;
 
 namespace SiembrasMiantioquia_WinForms
 {
-    public partial class FormaVeredas : Form
+    public partial class Arboles : Form
     {
-        public FormaVeredas()
+        public Arboles()
         {
             InitializeComponent();
         }
-        
+
         private void pbxBotonCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
     }
 }

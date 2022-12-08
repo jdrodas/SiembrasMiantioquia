@@ -1,6 +1,6 @@
 ﻿namespace SiembrasMiantioquia_WinForms
 {
-    partial class FormaContratistas
+    partial class Contratistas
     {
         /// <summary>
         /// Required designer variable.

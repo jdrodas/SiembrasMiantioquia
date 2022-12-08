@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SiembrasMiantioquia_WinForms
+namespace Miantioquia.Formularios
 {
-    public partial class FormaBorraSiembra : Form
+    public partial class SiembraBorrada : Form
     {
-        public FormaBorraSiembra()
+        public SiembraBorrada()
         {
             InitializeComponent();
         }
@@ -96,8 +96,8 @@ namespace SiembrasMiantioquia_WinForms
         public void RefrescaFormasSiembras()
         {
             //FormaReporteSiembras
-            FormaReporteSiembras formaReportes =
-                (FormaReporteSiembras)Application.OpenForms["FormaReporteSiembras"];
+            SiembraReportes formaReportes =
+                (SiembraReportes)Application.OpenForms["FormaReporteSiembras"];
 
             if (formaReportes != null)
                 formaReportes.InicializaDgvDetalleSiembras();

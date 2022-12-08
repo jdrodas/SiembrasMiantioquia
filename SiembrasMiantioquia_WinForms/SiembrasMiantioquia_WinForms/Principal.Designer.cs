@@ -1,6 +1,6 @@
-﻿namespace SiembrasMiantioquia_WinForms
+﻿namespace Miantioquia.Formularios
 {
-    partial class FormaPrincipal
+    partial class Principal
     {
         /// <summary>
         /// Variable del diseñador necesaria.

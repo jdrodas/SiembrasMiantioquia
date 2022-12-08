@@ -3,12 +3,13 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Xml.Serialization;
 using System.IO;
+using Miantioquia.Modelos;
 
-namespace SiembrasMiantioquia_WinForms
+namespace Miantioquia.Formularios
 {
-    public partial class FormaReporteSiembras : Form
+    public partial class SiembraReportes : Form
     {
-        public FormaReporteSiembras()
+        public SiembraReportes()
         {
             InitializeComponent();
         }

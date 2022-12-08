@@ -84,90 +84,88 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
-    <Compile Include="FormaActualizaSiembra.cs">
+    <Compile Include="SiembraActualizada.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormaActualizaSiembra.Designer.cs">
-      <DependentUpon>FormaActualizaSiembra.cs</DependentUpon>
+    <Compile Include="SiembraActualizada.Designer.cs">
+      <DependentUpon>SiembraActualizada.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormaArboles.cs">
+    <Compile Include="Arboles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormaArboles.Designer.cs">
-      <DependentUpon>FormaArboles.cs</DependentUpon>
+    <Compile Include="Arboles.Designer.cs">
+      <DependentUpon>Arboles.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormaBorraSiembra.cs">
+    <Compile Include="SiembraBorrada.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormaBorraSiembra.Designer.cs">
-      <DependentUpon>FormaBorraSiembra.cs</DependentUpon>
+    <Compile Include="SiembraBorrada.Designer.cs">
+      <DependentUpon>SiembraBorrada.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormaContratistas.cs">
+    <Compile Include="Contratistas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormaContratistas.Designer.cs">
-      <DependentUpon>FormaContratistas.cs</DependentUpon>
+    <Compile Include="Contratistas.Designer.cs">
+      <DependentUpon>Contratistas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormaNuevaSiembra.cs">
+    <Compile Include="SiembraNueva.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormaNuevaSiembra.Designer.cs">
-      <DependentUpon>FormaNuevaSiembra.cs</DependentUpon>
+    <Compile Include="SiembraNueva.Designer.cs">
+      <DependentUpon>SiembraNueva.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormaPrincipal.cs">
+    <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormaPrincipal.Designer.cs">
-      <DependentUpon>FormaPrincipal.cs</DependentUpon>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormaReporteSiembras.cs">
+    <Compile Include="SiembraReportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormaReporteSiembras.Designer.cs">
-      <DependentUpon>FormaReporteSiembras.cs</DependentUpon>
+    <Compile Include="SiembraReportes.Designer.cs">
+      <DependentUpon>SiembraReportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormaReporteVereda.cs">
+    <Compile Include="VeredaReporte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormaReporteVereda.Designer.cs">
-      <DependentUpon>FormaReporteVereda.cs</DependentUpon>
+    <Compile Include="VeredaReporte.Designer.cs">
+      <DependentUpon>VeredaReporte.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormaVeredas.cs">
+    <Compile Include="Veredas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormaVeredas.Designer.cs">
-      <DependentUpon>FormaVeredas.cs</DependentUpon>
+    <Compile Include="Veredas.Designer.cs">
+      <DependentUpon>Veredas.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Siembra.cs" />
-    <Compile Include="Vereda.cs" />
-    <EmbeddedResource Include="FormaActualizaSiembra.resx">
-      <DependentUpon>FormaActualizaSiembra.cs</DependentUpon>
+    <EmbeddedResource Include="SiembraActualizada.resx">
+      <DependentUpon>SiembraActualizada.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormaArboles.resx">
-      <DependentUpon>FormaArboles.cs</DependentUpon>
+    <EmbeddedResource Include="Arboles.resx">
+      <DependentUpon>Arboles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormaBorraSiembra.resx">
-      <DependentUpon>FormaBorraSiembra.cs</DependentUpon>
+    <EmbeddedResource Include="SiembraBorrada.resx">
+      <DependentUpon>SiembraBorrada.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormaContratistas.resx">
-      <DependentUpon>FormaContratistas.cs</DependentUpon>
+    <EmbeddedResource Include="Contratistas.resx">
+      <DependentUpon>Contratistas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormaNuevaSiembra.resx">
-      <DependentUpon>FormaNuevaSiembra.cs</DependentUpon>
+    <EmbeddedResource Include="SiembraNueva.resx">
+      <DependentUpon>SiembraNueva.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormaPrincipal.resx">
-      <DependentUpon>FormaPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormaReporteSiembras.resx">
-      <DependentUpon>FormaReporteSiembras.cs</DependentUpon>
+    <EmbeddedResource Include="SiembraReportes.resx">
+      <DependentUpon>SiembraReportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormaReporteVereda.resx">
-      <DependentUpon>FormaReporteVereda.cs</DependentUpon>
+    <EmbeddedResource Include="VeredaReporte.resx">
+      <DependentUpon>VeredaReporte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormaVeredas.resx">
-      <DependentUpon>FormaVeredas.cs</DependentUpon>
+    <EmbeddedResource Include="Veredas.resx">
+      <DependentUpon>Veredas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -198,6 +196,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Miantioquia.Modelos\Miantioquia.Modelos.csproj">
+      <Project>{fc0747ec-e3d0-49b5-8908-bffafa91c381}</Project>
+      <Name>Miantioquia.Modelos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Miantioquia.Validaciones\Miantioquia.Validaciones.csproj">
+      <Project>{b6fc8048-2e04-4ec4-af10-7050384013e0}</Project>
+      <Name>Miantioquia.Validaciones</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

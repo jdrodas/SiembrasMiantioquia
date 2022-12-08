@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
+using Miantioquia.Modelos;
+using Miantioquia.Validaciones;
 
-namespace SiembrasMiantioquia_WinForms
+namespace Miantioquia.Formularios
 {
-    public partial class FormaActualizaSiembra : Form
+    public partial class SiembraActualizada : Form
     {
-        public FormaActualizaSiembra()
+        public SiembraActualizada()
         {
             InitializeComponent();
         }
@@ -195,7 +197,7 @@ namespace SiembrasMiantioquia_WinForms
                 unaSiembra.Nombre_Contratista = lstContratistas.SelectedItem.ToString();
 
                 //Aqui validamos datos ingresados por el usuario
-                bool datosSiembraActualizadaCorrectos = ValidaDatosSiembraActualizada(unaSiembra, out mensajeError);
+                bool datosSiembraActualizadaCorrectos = Validador.DatosSiembra(unaSiembra, out mensajeError);
 
                 if (!datosSiembraActualizadaCorrectos)
                 {
@@ -267,53 +269,11 @@ namespace SiembrasMiantioquia_WinForms
         public void RefrescaFormasSiembras()
         {
             //FormaReporteSiembras
-            FormaReporteSiembras formaReportes =
-                (FormaReporteSiembras)Application.OpenForms["FormaReporteSiembras"];
+            SiembraReportes formaReportes =
+                (SiembraReportes)Application.OpenForms["SiembraReportes"];
 
             if (formaReportes != null)
                 formaReportes.InicializaDgvDetalleSiembras();
-        }
-
-        /// <summary>
-        /// Valida si los datos de la siembra ingresados por el usuario son correctos
-        /// </summary>
-        /// <param name="unaSiembra">La siembra a validar</param>
-        /// <param name="mensajeError">mensaje de error en caso de fallo</param>
-        /// <returns>Resultado validación</returns>
-        public bool ValidaDatosSiembraActualizada(Siembra unaSiembra, out string mensajeError)
-        {
-            bool resultado = true;
-            mensajeError = "";
-
-            //Aqui validamos que no haya siembras en fechas futuras
-            string[] laFecha = unaSiembra.Fecha_Siembra.Split('/');
-            DateTime fechaResultado = new DateTime(
-                int.Parse(laFecha[2]),
-                int.Parse(laFecha[1]),
-                int.Parse(laFecha[0])
-                );
-
-            if (fechaResultado > DateTime.Now)
-            {
-                mensajeError = "No se puede registrar una siembra en fecha futura.";
-                return false;
-            }
-
-            //Aqui validamos que el valor de las hectáreas sea positivo
-            if (unaSiembra.Total_Hectareas <= 0)
-            {
-                mensajeError = "El valor de las hectáreas sembradas debe ser mayor que cero.";
-                return false;
-            }
-
-            //Aqui validamos que el valor del total de los árboles sea positivo
-            if (unaSiembra.Total_Arboles <= 0)
-            {
-                mensajeError = "El valor del total de árboles debe ser mayor que cero.";
-                return false;
-            }
-
-            return resultado;
         }
     }
 }
